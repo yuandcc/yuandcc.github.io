@@ -15,7 +15,7 @@ $P(W)$：语言模型
 VAD等其他前置模块引入的错误。 如VAD可以造成人声漏识别和噪声误识别，一般情况根据噪声情况设置相关参数即可。 声学模型引入的错误。 出现如信道差异，噪声情况，方言或重口音，近场远场差异等音素。 语言模型引入的错误。 出现人名，地名，领域内专有名词等。 出现行业、领域、场景的话术，固定搭配等。 面向不同场景的优化'>
 <title></title>
 
-<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E7%A7%91%E6%8A%80%E5%9B%ADworkshop%E5%A4%A7%E7%BA%B2/'>
+<link rel='canonical' href='https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E7%A7%91%E6%8A%80%E5%9B%ADworkshop%E5%A4%A7%E7%BA%B2/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
 <meta property='og:description' content='基于混合结构ASR系统的效果优化 大纲 混合结构ASR介绍。 ASR系统部署细节。 声学模型优化。 语言模型优化。 1. 混合结构ASR介绍 混合结构语音识别的数学表示：
@@ -30,8 +30,8 @@ $P(W)$：语言模型
 语音端点检测 (VAD) 作用：过滤噪声，提高准确率；降低ASR对计算资源的使用。 话者分离 例如一些业务需要将客服和客户分离出来，进行不同的处理。 一般流程： VAD SCD Speaker Embedding 聚类 性别识别 语种识别 后处理模块 后处理模块对ASR解码得到的句子做一些额外的处理，如标点预测，数字归一化等。 ASR系统在实际部署时需要关注的问题
 性能问题 在线场景：实时率和尾片超时率 $$RTF = \frac{process \ time }{audio \ time}$$ 离线场景：吞吐量 识别效果问题 字错率或字准率 $$ CER = \frac{#Insertion &#43; #Deletion &#43; #Substitute}{#Words}$$ 识别效果问题分类
 VAD等其他前置模块引入的错误。 如VAD可以造成人声漏识别和噪声误识别，一般情况根据噪声情况设置相关参数即可。 声学模型引入的错误。 出现如信道差异，噪声情况，方言或重口音，近场远场差异等音素。 语言模型引入的错误。 出现人名，地名，领域内专有名词等。 出现行业、领域、场景的话术，固定搭配等。 面向不同场景的优化'>
-<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E7%A7%91%E6%8A%80%E5%9B%ADworkshop%E5%A4%A7%E7%BA%B2/'>
-<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:url' content='https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E7%A7%91%E6%8A%80%E5%9B%ADworkshop%E5%A4%A7%E7%BA%B2/'>
+<meta property='og:site_name' content='Example Site'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' />
 <meta name="twitter:title" content="">
 <meta name="twitter:description" content="基于混合结构ASR系统的效果优化 大纲 混合结构ASR介绍。 ASR系统部署细节。 声学模型优化。 语言模型优化。 1. 混合结构ASR介绍 混合结构语音识别的数学表示：
@@ -89,7 +89,7 @@ VAD等其他前置模块引入的错误。 如VAD可以造成人声漏识别和�
                     
                     
                         
-                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                        <img src="/img/avatar_hu96562699e39615d69773a33be182f3b8_626548_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -102,7 +102,7 @@ VAD等其他前置模块引入的错误。 如VAD可以造成人声漏识别和�
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h1 class="site-name"><a href="/">Example Site</a></h1>
             <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
         </div>
     </header><ol class="social-menu">
@@ -150,8 +150,128 @@ VAD等其他前置模块引入的错误。 如VAD可以造成人声漏识别和�
         </ol><ol class="menu" id="main-menu">
         
         
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
 
         <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://example.com/" selected>English</option>
+                        
+                            <option value="https://example.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://example.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
             
             
                 <li id="dark-mode-toggle">
@@ -699,7 +819,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$</li>
         
             2020 - 
         
-        2023 Hugo Theme Stack Starter
+        2023 Example Site
     </section>
     
     <section class="powerby">

@@ -9,7 +9,7 @@
 若主要角色说话时，有其他角色插入&amp;quot;嗯、哦&amp;quot;等简短字词，可以切分为一 个音频框，正常转写。 方言，标注角色层中的角色信息即可，方言的部分超过 3 个字或带有很强的方言口音算方言。 标记 N/P/M/S 标签后，不能出现文本，标记了文本只能出现 C/O/B 回声音频； 说话人背景音有回音，背后回声不影响主要说话人，正常转写。 说话人说完有延迟回音出现，将说话人音频切出来转写，回音按标签背景人声 B 操作。 回声单独出现，按标签背景人声 B 操作。 三、音频文本项 角色说话不清晰的音频按照音频标签项要求标注对应角色标签即可，角色说话内容清晰的音频正常转写文本，文本转写要求如下：'>
 <title></title>
 
-<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label/'>
+<link rel='canonical' href='https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
 <meta property='og:description' content='追一 ASR 标注通用规范v2 一、音频切分项 音频切分是语音标注基础，需要按照音频波形进行切割，将有声频段切分出来，例： 切分前后贴合音频波形，前后留空不能超过 50ms，贴合音频波形就对了。 一段波形的切分不能超过 30s，若超过 30s 则在不影响主要内容处切开。 非正常人声大段噪音的情况中间静音部分超过 200ms 需要切分开，正常人声部分参考下图： 二、音频标签项（M/N/B/P/S/C/O） 句中标签 M 句中标签即音频内容根据语义为完整的一句话，但出现非正常人声部分（空白、噪音），例如下图中，蓝色框根据语义为完整的句子，但中间出现了超过100ms 的非正常人声 B 部分，因此将 B 单独切分出来，标记句中标签 M。 M 标签只会出现在前后标签都为 C、O、B 且都有文本的情况下，例如当段落前面能正常转写出文本，但是后半部分无法听清转写文本，中间不需要标记句中标签。 噪音标签 N 噪音标签是指音频有波形，但音频内容为非正常对话内容，例如：
@@ -18,8 +18,8 @@
 角色标签 C/O/S
 客户，说话角色为客户的标记为客户 C，如果整段音频有其他客户音频， 标记为客户 1-C，客户 2-C1，依次类推。 客服，说话角色为客服的标记为客服 O，如果整段音频有其他客户音频，标记为客服 1-O，客服 2-O1，依次类推。 非顾客或者客服音频、电话录音系统、电话彩铃出现正常人声、机器人音频标记其他角色 S，不需要转写文本。例如：电话系统中播放&amp;quot;工号 3233为您服务&amp;quot;&amp;ldquo;您拨打的电话正在通话中&amp;quot;&amp;ldquo;喜欢这首彩铃吗？…&amp;rdquo; 平台上只添加了标签出现一个的情况，若出现多个，手动依次添加即可。 其他情况
 若主要角色说话时，有其他角色插入&amp;quot;嗯、哦&amp;quot;等简短字词，可以切分为一 个音频框，正常转写。 方言，标注角色层中的角色信息即可，方言的部分超过 3 个字或带有很强的方言口音算方言。 标记 N/P/M/S 标签后，不能出现文本，标记了文本只能出现 C/O/B 回声音频； 说话人背景音有回音，背后回声不影响主要说话人，正常转写。 说话人说完有延迟回音出现，将说话人音频切出来转写，回音按标签背景人声 B 操作。 回声单独出现，按标签背景人声 B 操作。 三、音频文本项 角色说话不清晰的音频按照音频标签项要求标注对应角色标签即可，角色说话内容清晰的音频正常转写文本，文本转写要求如下：'>
-<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label/'>
-<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:url' content='https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label/'>
+<meta property='og:site_name' content='Example Site'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' />
 <meta name="twitter:title" content="">
 <meta name="twitter:description" content="追一 ASR 标注通用规范v2 一、音频切分项 音频切分是语音标注基础，需要按照音频波形进行切割，将有声频段切分出来，例： 切分前后贴合音频波形，前后留空不能超过 50ms，贴合音频波形就对了。 一段波形的切分不能超过 30s，若超过 30s 则在不影响主要内容处切开。 非正常人声大段噪音的情况中间静音部分超过 200ms 需要切分开，正常人声部分参考下图： 二、音频标签项（M/N/B/P/S/C/O） 句中标签 M 句中标签即音频内容根据语义为完整的一句话，但出现非正常人声部分（空白、噪音），例如下图中，蓝色框根据语义为完整的句子，但中间出现了超过100ms 的非正常人声 B 部分，因此将 B 单独切分出来，标记句中标签 M。 M 标签只会出现在前后标签都为 C、O、B 且都有文本的情况下，例如当段落前面能正常转写出文本，但是后半部分无法听清转写文本，中间不需要标记句中标签。 噪音标签 N 噪音标签是指音频有波形，但音频内容为非正常对话内容，例如：
@@ -71,7 +71,7 @@
                     
                     
                         
-                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                        <img src="/img/avatar_hu96562699e39615d69773a33be182f3b8_626548_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -84,7 +84,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h1 class="site-name"><a href="/">Example Site</a></h1>
             <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
         </div>
     </header><ol class="social-menu">
@@ -132,8 +132,128 @@
         </ol><ol class="menu" id="main-menu">
         
         
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
 
         <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://example.com/" selected>English</option>
+                        
+                            <option value="https://example.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://example.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
             
             
                 <li id="dark-mode-toggle">
@@ -504,7 +624,7 @@
         
             2020 - 
         
-        2023 Hugo Theme Stack Starter
+        2023 Example Site
     </section>
     
     <section class="powerby">

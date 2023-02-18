@@ -4,12 +4,12 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='c&#43;&#43; 面向对象 Part1 Part1 1. 基础 class的两个经典分类 Class without pointer member(s) Class with pointer member(s) C&#43;&#43; programs 代码的基本形式 .h (类的声明) &#43; .cpp (类的定义) &#43; .h (STL标准库) 2. 头文件 头文件：防卫式声明(常数定义) 内联函数 在头文件声明类的时候即定义在类中 在类外定义的时候使用inline关键字 最后需要看编译器 3. 构造函数 构造函数：与类同名，没有返回类型，有默认构造函数。 构造函数初始化列表 一个变量的值的设定有两个阶段，一个是初始化，一个是赋值。 构造函数初始化列表是在初始化阶段，在函数体内是放弃初始化阶段，通过赋值方式设值。 不可能在程序里面直接调用构造函数，没有这种语法。只能创建对象，构造函数自动被调用。 不带指针的类多数不用写析构函数。 函数重载，为什么可以有多个同名的函数：函数签名不同（实际名称）。多发生在构造函数上。 当有一个有默认值的构造函数时，再声明一个不带参数的构造函数（但是会使用默认值初始化成员变量），会发生错误(编译器不知道调用哪一个)。（构造函数1和2） 构造函数声明为private，不允许外界创建，如单例模式。 4. const修饰符 常量成员函数：const。设计函数的时候就已经明确内部会不会修改成员变量 const 加在变量前表示该变量不可以被修改。 如果调用者使用const修饰的变量(变量还是对象？)调用非const的方法，会发生编译错误。（非const方法不保证不会修改变量） 5. 参数及返回值传递 参数传递 pass by value：传递整个对象数据（可能会很大），传递的动作就是把整个对象压到函数的栈中，尽量不使用. pass by reference （to const）：引用底层就是指针，传引用相当于传指针那么快。能传引用尽量传引用（参数是一个字节的情况）。使用const修饰方法参数，表示内部不能修改。 返回值传递 pass by value pass by reference 在允许的情况下尽量通过reference进行传递。 什么情况允许，什么情况不允许 什么时候返回值可以以引用的形式传递 当返回的是以引用或指针传进来的对象时可以 当返回的是临时变量时不可以，函数调用结束临时变量即销毁 6.'>
 <title></title>
 
-<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/c&#43;&#43;/c&#43;&#43;%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_part1/'>
+<link rel='canonical' href='https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/c&#43;&#43;/c&#43;&#43;%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_part1/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
 <meta property='og:description' content='c&#43;&#43; 面向对象 Part1 Part1 1. 基础 class的两个经典分类 Class without pointer member(s) Class with pointer member(s) C&#43;&#43; programs 代码的基本形式 .h (类的声明) &#43; .cpp (类的定义) &#43; .h (STL标准库) 2. 头文件 头文件：防卫式声明(常数定义) 内联函数 在头文件声明类的时候即定义在类中 在类外定义的时候使用inline关键字 最后需要看编译器 3. 构造函数 构造函数：与类同名，没有返回类型，有默认构造函数。 构造函数初始化列表 一个变量的值的设定有两个阶段，一个是初始化，一个是赋值。 构造函数初始化列表是在初始化阶段，在函数体内是放弃初始化阶段，通过赋值方式设值。 不可能在程序里面直接调用构造函数，没有这种语法。只能创建对象，构造函数自动被调用。 不带指针的类多数不用写析构函数。 函数重载，为什么可以有多个同名的函数：函数签名不同（实际名称）。多发生在构造函数上。 当有一个有默认值的构造函数时，再声明一个不带参数的构造函数（但是会使用默认值初始化成员变量），会发生错误(编译器不知道调用哪一个)。（构造函数1和2） 构造函数声明为private，不允许外界创建，如单例模式。 4. const修饰符 常量成员函数：const。设计函数的时候就已经明确内部会不会修改成员变量 const 加在变量前表示该变量不可以被修改。 如果调用者使用const修饰的变量(变量还是对象？)调用非const的方法，会发生编译错误。（非const方法不保证不会修改变量） 5. 参数及返回值传递 参数传递 pass by value：传递整个对象数据（可能会很大），传递的动作就是把整个对象压到函数的栈中，尽量不使用. pass by reference （to const）：引用底层就是指针，传引用相当于传指针那么快。能传引用尽量传引用（参数是一个字节的情况）。使用const修饰方法参数，表示内部不能修改。 返回值传递 pass by value pass by reference 在允许的情况下尽量通过reference进行传递。 什么情况允许，什么情况不允许 什么时候返回值可以以引用的形式传递 当返回的是以引用或指针传进来的对象时可以 当返回的是临时变量时不可以，函数调用结束临时变量即销毁 6.'>
-<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/c&#43;&#43;/c&#43;&#43;%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_part1/'>
-<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:url' content='https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/c&#43;&#43;/c&#43;&#43;%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_part1/'>
+<meta property='og:site_name' content='Example Site'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' />
 <meta name="twitter:title" content="">
 <meta name="twitter:description" content="c&#43;&#43; 面向对象 Part1 Part1 1. 基础 class的两个经典分类 Class without pointer member(s) Class with pointer member(s) C&#43;&#43; programs 代码的基本形式 .h (类的声明) &#43; .cpp (类的定义) &#43; .h (STL标准库) 2. 头文件 头文件：防卫式声明(常数定义) 内联函数 在头文件声明类的时候即定义在类中 在类外定义的时候使用inline关键字 最后需要看编译器 3. 构造函数 构造函数：与类同名，没有返回类型，有默认构造函数。 构造函数初始化列表 一个变量的值的设定有两个阶段，一个是初始化，一个是赋值。 构造函数初始化列表是在初始化阶段，在函数体内是放弃初始化阶段，通过赋值方式设值。 不可能在程序里面直接调用构造函数，没有这种语法。只能创建对象，构造函数自动被调用。 不带指针的类多数不用写析构函数。 函数重载，为什么可以有多个同名的函数：函数签名不同（实际名称）。多发生在构造函数上。 当有一个有默认值的构造函数时，再声明一个不带参数的构造函数（但是会使用默认值初始化成员变量），会发生错误(编译器不知道调用哪一个)。（构造函数1和2） 构造函数声明为private，不允许外界创建，如单例模式。 4. const修饰符 常量成员函数：const。设计函数的时候就已经明确内部会不会修改成员变量 const 加在变量前表示该变量不可以被修改。 如果调用者使用const修饰的变量(变量还是对象？)调用非const的方法，会发生编译错误。（非const方法不保证不会修改变量） 5. 参数及返回值传递 参数传递 pass by value：传递整个对象数据（可能会很大），传递的动作就是把整个对象压到函数的栈中，尽量不使用. pass by reference （to const）：引用底层就是指针，传引用相当于传指针那么快。能传引用尽量传引用（参数是一个字节的情况）。使用const修饰方法参数，表示内部不能修改。 返回值传递 pass by value pass by reference 在允许的情况下尽量通过reference进行传递。 什么情况允许，什么情况不允许 什么时候返回值可以以引用的形式传递 当返回的是以引用或指针传进来的对象时可以 当返回的是临时变量时不可以，函数调用结束临时变量即销毁 6.">
@@ -56,7 +56,7 @@
                     
                     
                         
-                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                        <img src="/img/avatar_hu96562699e39615d69773a33be182f3b8_626548_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -69,7 +69,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h1 class="site-name"><a href="/">Example Site</a></h1>
             <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
         </div>
     </header><ol class="social-menu">
@@ -117,8 +117,128 @@
         </ol><ol class="menu" id="main-menu">
         
         
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
 
         <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://example.com/" selected>English</option>
+                        
+                            <option value="https://example.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://example.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
             
             
                 <li id="dark-mode-toggle">
@@ -674,7 +794,7 @@ int _id; 当前类型对象的id。</p>
         
             2020 - 
         
-        2023 Hugo Theme Stack Starter
+        2023 Example Site
     </section>
     
     <section class="powerby">

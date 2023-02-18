@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Posts on Hugo Theme Stack Starter</title>
-        <link>https://demo.stack.jimmycai.com/posts/</link>
-        <description>Recent content in Posts on Hugo Theme Stack Starter</description>
+        <title>Posts on Example Site</title>
+        <link>https://example.com/posts/</link>
+        <description>Recent content in Posts on Example Site</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <copyright>wuming@2013</copyright>
-        <lastBuildDate>Sat, 11 Feb 2023 23:13:13 +0800</lastBuildDate><atom:link href="https://demo.stack.jimmycai.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 11 Feb 2023 23:13:13 +0800</lastBuildDate><atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>2022 Q4</title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/2022-q4/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/2022-q4/</link>
         <pubDate>Sat, 11 Feb 2023 23:13:13 +0800</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/2022-q4/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/2022-q4/</guid>
         <description>&lt;h1 id=&#34;asr安排季度安排&#34;&gt;ASR安排季度安排&lt;/h1&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.qq.com/doc/DZHJqZFNBcFdDc1Vq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;以往季度计划&lt;/a&gt;&lt;/p&gt;
@@ -178,10 +177,10 @@
         </item>
         <item>
         <title>My First Post</title>
-        <link>https://demo.stack.jimmycai.com/posts/my-first-post/</link>
+        <link>https://example.com/posts/my-first-post/</link>
         <pubDate>Sat, 11 Feb 2023 23:13:13 +0800</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/my-first-post/</guid>
+        <guid>https://example.com/posts/my-first-post/</guid>
         <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;
 &lt;p&gt;Visit the &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -191,10 +190,10 @@
         </item>
         <item>
         <title>My First Post2</title>
-        <link>https://demo.stack.jimmycai.com/posts/my-first-post2/</link>
+        <link>https://example.com/posts/my-first-post2/</link>
         <pubDate>Sat, 11 Feb 2023 23:13:13 +0800</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/my-first-post2/</guid>
+        <guid>https://example.com/posts/my-first-post2/</guid>
         <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;
 &lt;p&gt;Visit the &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -204,10 +203,10 @@
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/c&#43;&#43;/c&#43;&#43;%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_part1/</link>
+        <link>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/c&#43;&#43;/c&#43;&#43;%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_part1/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/c&#43;&#43;/c&#43;&#43;%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_part1/</guid>
+        <guid>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/c&#43;&#43;/c&#43;&#43;%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1_part1/</guid>
         <description>&lt;h1 id=&#34;c-面向对象-part1&#34;&gt;c++ 面向对象 Part1&lt;/h1&gt;
 &lt;h2 id=&#34;part1&#34;&gt;Part1&lt;/h2&gt;
 &lt;h3 id=&#34;1-基础&#34;&gt;1. 基础&lt;/h3&gt;
@@ -569,10 +568,10 @@ int _id; 当前类型对象的id。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/c&#43;&#43;/%E9%97%AE%E9%A2%98/</link>
+        <link>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/c&#43;&#43;/%E9%97%AE%E9%A2%98/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/c&#43;&#43;/%E9%97%AE%E9%A2%98/</guid>
+        <guid>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/c&#43;&#43;/%E9%97%AE%E9%A2%98/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;智能指针对象的初始化问题&lt;/p&gt;
@@ -627,10 +626,10 @@ int _id; 当前类型对象的id。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/python%E6%89%93%E5%8C%85/</link>
+        <link>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/python%E6%89%93%E5%8C%85/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/python%E6%89%93%E5%8C%85/</guid>
+        <guid>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/python%E6%89%93%E5%8C%85/</guid>
         <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -691,10 +690,10 @@ int _id; 当前类型对象的id。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/triton/</link>
+        <link>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/triton/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/triton/</guid>
+        <guid>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/triton/</guid>
         <description>&lt;h1 id=&#34;triton-inference-server&#34;&gt;Triton Inference Server&lt;/h1&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
 &lt;h3 id=&#34;推理服务的一般框架&#34;&gt;推理服务的一般框架&lt;/h3&gt;
@@ -790,7 +789,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;triton关键设计概念&#34;&gt;Triton关键设计概念&lt;/h3&gt;
 &lt;p&gt;Model type is the key&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-03-23-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-03-23-image.png&#34;
 	
 	
 	
@@ -798,7 +797,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-04-02-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-04-02-image.png&#34;
 	
 	
 	
@@ -806,7 +805,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-05-37-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-05-37-image.png&#34;
 	
 	
 	
@@ -814,7 +813,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-06-34-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-06-34-image.png&#34;
 	
 	
 	
@@ -822,22 +821,14 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-07-00-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-07-00-image.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-08-12-image.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-09-04-image.png&#34;
+&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-08-12-image.png&#34;
 	
 	
 	
@@ -845,7 +836,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-24-23-41-19-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-00-09-04-image.png&#34;
 	
 	
 	
@@ -853,7 +844,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-24-23-43-10-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-24-23-41-19-image.png&#34;
 	
 	
 	
@@ -861,7 +852,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-24-23-43-49-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-24-23-43-10-image.png&#34;
 	
 	
 	
@@ -869,7 +860,15 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-24-23-54-25-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-24-23-43-49-image.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-24-23-54-25-image.png&#34;
 	
 	
 	
@@ -879,7 +878,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;triton-的关键功能模块-model-analyzer&#34;&gt;Triton 的关键功能模块 Model Analyzer&lt;/h2&gt;
 &lt;p&gt;可用于分析模型效能和内存占用空间的特性，以实现高效率服务&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-12-56-00-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-12-56-00-image.png&#34;
 	
 	
 	
@@ -887,42 +886,42 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-12-58-44-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-12-58-44-image.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-03-39-image.png&#34;
+&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-03-39-image.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-12-21-image.png&#34;
+&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-12-21-image.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-13-04-image.png&#34;
+&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-13-04-image.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-13-49-image.png&#34;
+&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-13-49-image.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-14-58-image.png&#34;
+&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-14-58-image.png&#34;
 	
 	
 	
@@ -934,13 +933,13 @@ int _id; 当前类型对象的id。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/triton2/</link>
+        <link>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/triton2/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/triton2/</guid>
+        <guid>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/triton2/</guid>
         <description>&lt;h1 id=&#34;triton&#34;&gt;Triton&lt;/h1&gt;
 &lt;p&gt;在 Triton Inference Server 2.13.0 版本上部署 AI 模型的 5 个最基本的模块。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-45-30-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-45-30-image.png&#34;
 	
 	
 	
@@ -948,14 +947,14 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-47-05-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-47-05-image.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-47-53-image.png&#34;
+&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-47-53-image.png&#34;
 	
 	
 	
@@ -965,21 +964,21 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;主备模型仓库&#34;&gt;主备模型仓库&lt;/h2&gt;
 &lt;p&gt;教程一为如何准备 Model Repository, Model Repository 必须组织为三级结构。第二级为模型目录，模型目录包含二个关键的组件，分别是 Version Directory，Config File。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-52-15-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-13-52-15-image.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-31-43-image.png&#34;
+&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-31-43-image.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-34-28-image.png&#34;
+&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-34-28-image.png&#34;
 	
 	
 	
@@ -989,7 +988,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;2&#34;&gt;2&lt;/h2&gt;
 &lt;p&gt;教程二将讲解如何编写 model configuration 文件。config 文件的三个基本参数包括 platform / backend, max_batch_size，input &amp;amp; output；可配置的参数如 instance_group，scheduling and batching 策略，optimization 策略等，来提升 GPU 利用率、制定加载的模型版本、提升模型推理效率等。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-38-01-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-38-01-image.png&#34;
 	
 	
 	
@@ -997,7 +996,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-44-39-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-44-39-image.png&#34;
 	
 	
 	
@@ -1005,14 +1004,14 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-43-57-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-43-57-image.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-46-22-image.png&#34;
+&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-46-22-image.png&#34;
 	
 	
 	
@@ -1034,7 +1033,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 &lt;p&gt;reshape应用&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-59-28-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-15-59-28-image.png&#34;
 	
 	
 	
@@ -1042,7 +1041,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-05-00-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-05-00-image.png&#34;
 	
 	
 	
@@ -1053,7 +1052,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;不指定gpus，triton会在每张卡上跑上相应count的instance。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-09-11-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-09-11-image.png&#34;
 	
 	
 	
@@ -1061,7 +1060,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-10-32-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-10-32-image.png&#34;
 	
 	
 	
@@ -1069,7 +1068,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-16-44-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-16-44-image.png&#34;
 	
 	
 	
@@ -1077,7 +1076,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-19-04-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-19-04-image.png&#34;
 	
 	
 	
@@ -1085,7 +1084,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-21-03-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-21-03-image.png&#34;
 	
 	
 	
@@ -1093,7 +1092,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-31-27-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-31-27-image.png&#34;
 	
 	
 	
@@ -1101,7 +1100,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-32-11-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-32-11-image.png&#34;
 	
 	
 	
@@ -1109,7 +1108,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-34-24-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-34-24-image.png&#34;
 	
 	
 	
@@ -1117,7 +1116,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-36-50-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-36-50-image.png&#34;
 	
 	
 	
@@ -1125,7 +1124,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-38-21-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-16-38-21-image.png&#34;
 	
 	
 	
@@ -1135,7 +1134,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;3&#34;&gt;3&lt;/h2&gt;
 &lt;p&gt;教程三将讲解一些常用的 Triton Server 的开启方式，开启过程中需要注意的配置选项。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-17-24-30-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-17-24-30-image.png&#34;
 	
 	
 	
@@ -1143,7 +1142,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-17-50-30-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-17-50-30-image.png&#34;
 	
 	
 	
@@ -1151,7 +1150,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-17-54-13-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-17-54-13-image.png&#34;
 	
 	
 	
@@ -1159,7 +1158,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-17-56-45-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-17-56-45-image.png&#34;
 	
 	
 	
@@ -1167,7 +1166,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-12-25-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-12-25-image.png&#34;
 	
 	
 	
@@ -1175,7 +1174,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-06-31-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-06-31-image.png&#34;
 	
 	
 	
@@ -1183,7 +1182,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-19-30-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-19-30-image.png&#34;
 	
 	
 	
@@ -1193,7 +1192,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;4&#34;&gt;4&lt;/h2&gt;
 &lt;p&gt;教程四介绍使用 Ensemble Model 功能在 Triton Server 上部署 AI 管道。并提供了三个案例的实战演示。Triton 也提供了 BLS (business_logic_scripting) 等功能来满足该需求。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-26-56-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-26-56-image.png&#34;
 	
 	
 	
@@ -1201,7 +1200,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-28-37-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-28-37-image.png&#34;
 	
 	
 	
@@ -1209,7 +1208,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-29-31-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-29-31-image.png&#34;
 	
 	
 	
@@ -1226,7 +1225,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 &lt;p&gt;value：模型在ensemble配置中定义的名字，起串联各个step的作用.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-37-14-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-37-14-image.png&#34;
 	
 	
 	
@@ -1234,7 +1233,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-39-23-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-39-23-image.png&#34;
 	
 	
 	
@@ -1242,7 +1241,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-48-09-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-18-48-09-image.png&#34;
 	
 	
 	
@@ -1252,7 +1251,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;5&#34;&gt;5&lt;/h2&gt;
 &lt;p&gt;教程五介绍配置好服务端的前提下，如何编写一个简单的客户端向服务端发送请求，来验证服务端的有效性。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-19-00-00-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-19-00-00-image.png&#34;
 	
 	
 	
@@ -1260,7 +1259,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-19-00-31-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-19-00-31-image.png&#34;
 	
 	
 	
@@ -1268,7 +1267,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-19-07-06-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-19-07-06-image.png&#34;
 	
 	
 	
@@ -1276,7 +1275,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-22-41-45-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-22-41-45-image.png&#34;
 	
 	
 	
@@ -1284,7 +1283,7 @@ int _id; 当前类型对象的id。&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-22-46-51-image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cmasha%5cAppData%5cRoaming%5cmarktext%5cimages%5c2022-09-25-22-46-51-image.png&#34;
 	
 	
 	
@@ -1305,10 +1304,10 @@ int _id; 当前类型对象的id。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/vscode/</link>
+        <link>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/vscode/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/vscode/</guid>
+        <guid>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/vscode/</guid>
         <description>&lt;h1 id=&#34;vscode-环境配置&#34;&gt;vscode 环境配置&lt;/h1&gt;
 &lt;h2 id=&#34;vscode代码检查及格式化配置&#34;&gt;vscode代码检查及格式化配置&lt;/h2&gt;
 &lt;h3 id=&#34;c配置&#34;&gt;C++配置&lt;/h3&gt;
@@ -1409,10 +1408,10 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/%E9%87%8D%E6%9E%84/</link>
+        <link>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/%E9%87%8D%E6%9E%84/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/%E9%87%8D%E6%9E%84/</guid>
+        <guid>https://example.com/posts/notes/notes/%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3/%E9%87%8D%E6%9E%84/</guid>
         <description>&lt;h1 id=&#34;重构2&#34;&gt;《重构2》&lt;/h1&gt;
 &lt;h2 id=&#34;1-重构的基本认识&#34;&gt;1. 重构的基本认识&lt;/h2&gt;
 &lt;h3 id=&#34;需求的变化使重构变得必要&#34;&gt;需求的变化使重构变得必要&lt;/h3&gt;
@@ -1786,20 +1785,20 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/notes/%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/</link>
+        <link>https://example.com/posts/notes/notes/%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/notes/%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/</guid>
+        <guid>https://example.com/posts/notes/notes/%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/</guid>
         <description>&lt;h1 id=&#34;linux下相关操作命令记录&#34;&gt;Linux下相关操作命令记录&lt;/h1&gt;
 &lt;h2 id=&#34;音频处理相关&#34;&gt;音频处理相关&lt;/h2&gt;
 </description>
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/notes/%E8%AF%AD%E9%9F%B3%E7%AE%97%E6%B3%95/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87/</link>
+        <link>https://example.com/posts/notes/notes/%E8%AF%AD%E9%9F%B3%E7%AE%97%E6%B3%95/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/notes/%E8%AF%AD%E9%9F%B3%E7%AE%97%E6%B3%95/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87/</guid>
+        <guid>https://example.com/posts/notes/notes/%E8%AF%AD%E9%9F%B3%E7%AE%97%E6%B3%95/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;interspeech: &lt;a class=&#34;link&#34; href=&#34;https://www.isca-speech.org/archive/interspeech_2021/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://www.isca-speech.org/archive/interspeech_2021/index.html&lt;/a&gt;&lt;/li&gt;
@@ -1810,10 +1809,10 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/notes/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+        <link>https://example.com/posts/notes/notes/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/notes/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+        <guid>https://example.com/posts/notes/notes/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
         <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
 &lt;h2 id=&#34;1-语言模型&#34;&gt;1. 语言模型&lt;/h2&gt;
 &lt;h3 id=&#34;ngram语言模型&#34;&gt;Ngram语言模型&lt;/h3&gt;
@@ -1839,20 +1838,20 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/readme/</link>
+        <link>https://example.com/posts/notes/readme/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/readme/</guid>
+        <guid>https://example.com/posts/notes/readme/</guid>
         <description>&lt;h1 id=&#34;notes&#34;&gt;Notes&lt;/h1&gt;
 &lt;p&gt;个人笔记，工作安排仓库。&lt;/p&gt;
 </description>
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/asr%E5%80%BC%E5%91%A8%E8%A7%84%E8%8C%83/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/asr%E5%80%BC%E5%91%A8%E8%A7%84%E8%8C%83/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/asr%E5%80%BC%E5%91%A8%E8%A7%84%E8%8C%83/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/asr%E5%80%BC%E5%91%A8%E8%A7%84%E8%8C%83/</guid>
         <description>&lt;h1 id=&#34;asr-值周&#34;&gt;ASR 值周&lt;/h1&gt;
 &lt;h2 id=&#34;值周说明&#34;&gt;值周说明&lt;/h2&gt;
 &lt;p&gt;ASR内部部分常务工作已经安排到个人，不需要在值周中做出具体安排。包括：&lt;/p&gt;
@@ -1882,10 +1881,10 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/kaldi%E7%8E%AF%E5%A2%83%E9%95%9C%E5%83%8F-%E7%94%9F%E6%88%90%E5%AF%B9%E9%BD%90%E6%95%B0%E6%8D%AE/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/kaldi%E7%8E%AF%E5%A2%83%E9%95%9C%E5%83%8F-%E7%94%9F%E6%88%90%E5%AF%B9%E9%BD%90%E6%95%B0%E6%8D%AE/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/kaldi%E7%8E%AF%E5%A2%83%E9%95%9C%E5%83%8F-%E7%94%9F%E6%88%90%E5%AF%B9%E9%BD%90%E6%95%B0%E6%8D%AE/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/kaldi%E7%8E%AF%E5%A2%83%E9%95%9C%E5%83%8F-%E7%94%9F%E6%88%90%E5%AF%B9%E9%BD%90%E6%95%B0%E6%8D%AE/</guid>
         <description>&lt;h1 id=&#34;kaldi镜像使用说明&#34;&gt;kaldi镜像使用说明&lt;/h1&gt;
 &lt;p&gt;以下操作路径均在&lt;code&gt;/home/kaldi/egs/zhuiyi/s1&lt;/code&gt;进行。&lt;/p&gt;
 &lt;h2 id=&#34;1-准备模型文件&#34;&gt;1. 准备模型文件&lt;/h2&gt;
@@ -2078,10 +2077,10 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/kaldi%E7%8E%AF%E5%A2%83%E9%95%9C%E5%83%8F/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/kaldi%E7%8E%AF%E5%A2%83%E9%95%9C%E5%83%8F/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/kaldi%E7%8E%AF%E5%A2%83%E9%95%9C%E5%83%8F/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/kaldi%E7%8E%AF%E5%A2%83%E9%95%9C%E5%83%8F/</guid>
         <description>&lt;h1 id=&#34;kaldi镜像使用说明&#34;&gt;kaldi镜像使用说明&lt;/h1&gt;
 &lt;p&gt;以下操作路径均在&lt;code&gt;/home/kaldi/egs/zhuiyi/s1&lt;/code&gt;进行。&lt;/p&gt;
 &lt;h2 id=&#34;1-准备模型文件&#34;&gt;1. 准备模型文件&lt;/h2&gt;
@@ -2143,15 +2142,15 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label-v2/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label-v2/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label-v2/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label-v2/</guid>
         <description>&lt;h1 id=&#34;追一-asr-标注通用规范v2&#34;&gt;追一 ASR 标注通用规范v2&lt;/h1&gt;
 &lt;h2 id=&#34;一音频切分项&#34;&gt;一、音频切分项&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;音频切分是语音标注基础，需要按照音频波形进行切割，将有声频段切分出来，例：
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/label/1-1.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/label/1-1.png&#34;
 	
 	
 	
@@ -2164,7 +2163,7 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
 &lt;li&gt;切分前后贴合音频波形，前后留空不能超过 50ms，贴合音频波形就对了。&lt;/li&gt;
 &lt;li&gt;一段波形的切分不能超过 30s，若超过 30s 则在不影响主要内容处切开。&lt;/li&gt;
 &lt;li&gt;非正常人声大段噪音的情况中间静音部分超过 200ms 需要切分开，正常人声部分参考下图：
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/label/1-2.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/label/1-2.png&#34;
 	
 	
 	
@@ -2180,7 +2179,7 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;句中标签 M
 句中标签即音频内容根据语义为完整的一句话，但出现非正常人声部分（空白、噪音），例如下图中，蓝色框根据语义为完整的句子，但中间出现了超过100ms 的非正常人声 B 部分，因此将 B 单独切分出来，标记句中标签 M。
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/label/2-1.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/label/2-1.png&#34;
 	
 	
 	
@@ -2208,7 +2207,7 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;当主要角色音频清晰，其余角色声音小，不影响主要角色音频内容，只进行主要角色的正常转写与角色标签。&lt;/li&gt;
 &lt;li&gt;若出现下图中的情况，只需要将 C 部分切分出来标记重叠，其余 A、B 部分正常切分转写。
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/label/2-2.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/label/2-2.png&#34;
 	
 	
 	
@@ -2389,15 +2388,15 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label/</guid>
         <description>&lt;h1 id=&#34;追一-asr-标注通用规范v2&#34;&gt;追一 ASR 标注通用规范v2&lt;/h1&gt;
 &lt;h2 id=&#34;一音频切分项&#34;&gt;一、音频切分项&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;音频切分是语音标注基础，需要按照音频波形进行切割，将有声频段切分出来，例：
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/label/1-1.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/label/1-1.png&#34;
 	
 	
 	
@@ -2410,7 +2409,7 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
 &lt;li&gt;切分前后贴合音频波形，前后留空不能超过 50ms，贴合音频波形就对了。&lt;/li&gt;
 &lt;li&gt;一段波形的切分不能超过 30s，若超过 30s 则在不影响主要内容处切开。&lt;/li&gt;
 &lt;li&gt;非正常人声大段噪音的情况中间静音部分超过 200ms 需要切分开，正常人声部分参考下图：
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/label/1-2.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/label/1-2.png&#34;
 	
 	
 	
@@ -2426,7 +2425,7 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;句中标签 M
 句中标签即音频内容根据语义为完整的一句话，但出现非正常人声部分（空白、噪音），例如下图中，蓝色框根据语义为完整的句子，但中间出现了超过100ms 的非正常人声 B 部分，因此将 B 单独切分出来，标记句中标签 M。
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/label/2-1.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/label/2-1.png&#34;
 	
 	
 	
@@ -2454,7 +2453,7 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;当主要角色音频清晰，其余角色声音小，不影响主要角色音频内容，只进行主要角色的正常转写与角色标签。&lt;/li&gt;
 &lt;li&gt;若出现下图中的情况，只需要将 C 部分切分出来标记重叠，其余 A、B 部分正常切分转写。
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/label/2-2.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/label/2-2.png&#34;
 	
 	
 	
@@ -2559,7 +2558,7 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
 &lt;li&gt;第二层角色层：角色层互斥，只允许出现&lt;code&gt;唯一&lt;/code&gt;标签项。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;内容层正常转写的需要标注对应的&lt;code&gt;角色标签&lt;/code&gt;，无法正常转写的，只需要标记对应角色标签即可。
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/label/4-1.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/label/4-1.png&#34;
 	
 	
 	
@@ -2575,10 +2574,10 @@ vscode安装cpplint插件，进行配置。&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E4%B8%AD%E6%96%87%E6%A0%87%E6%B3%A8%E8%A7%84%E8%8C%83/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E4%B8%AD%E6%96%87%E6%A0%87%E6%B3%A8%E8%A7%84%E8%8C%83/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E4%B8%AD%E6%96%87%E6%A0%87%E6%B3%A8%E8%A7%84%E8%8C%83/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E4%B8%AD%E6%96%87%E6%A0%87%E6%B3%A8%E8%A7%84%E8%8C%83/</guid>
         <description>&lt;h1 id=&#34;追一-asr-标注通用规范v2&#34;&gt;追一 ASR 标注通用规范v2&lt;/h1&gt;
 &lt;h2 id=&#34;一音频切分项&#34;&gt;一、音频切分项&lt;/h2&gt;
 &lt;ol&gt;
@@ -2655,10 +2654,10 @@ A.按听到的发音写对应的汉字。 例如：g — 哥； 拼读 wu(吴) x
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E4%B8%AD%E7%A7%BB%E8%BA%AB%E4%BB%BD%E6%A0%B8%E9%AA%8C%E4%BC%98%E5%8C%96/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E4%B8%AD%E7%A7%BB%E8%BA%AB%E4%BB%BD%E6%A0%B8%E9%AA%8C%E4%BC%98%E5%8C%96/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E4%B8%AD%E7%A7%BB%E8%BA%AB%E4%BB%BD%E6%A0%B8%E9%AA%8C%E4%BC%98%E5%8C%96/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E4%B8%AD%E7%A7%BB%E8%BA%AB%E4%BB%BD%E6%A0%B8%E9%AA%8C%E4%BC%98%E5%8C%96/</guid>
         <description>&lt;h1 id=&#34;中移身份核验项目&#34;&gt;中移身份核验项目&lt;/h1&gt;
 &lt;h2 id=&#34;1-通过率计算的问题&#34;&gt;1. 通过率计算的问题&lt;/h2&gt;
 &lt;p&gt;部分识别没有问题, 但是不一定适合中移侧需要的格式, 可能导致不通过, 最好可以明确一下.&lt;/p&gt;
@@ -2929,16 +2928,16 @@ date pass rate:  0.9336283185840708&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E5%A3%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E8%A7%84%E8%8C%83/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E5%A3%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E8%A7%84%E8%8C%83/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E5%A3%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E8%A7%84%E8%8C%83/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E5%A3%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E8%A7%84%E8%8C%83/</guid>
         <description>&lt;h1 id=&#34;声学模型训练数据标注规范简化版&#34;&gt;声学模型训练数据标注规范简化版&lt;/h1&gt;
 &lt;p&gt;本标注规范在通用标注规范的基础上进行简化，仅适用于私有化调优声学模型时快速标注音频数据。&lt;/p&gt;
 &lt;h2 id=&#34;1-音频切分&#34;&gt;1. 音频切分&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;音频切分需要按照音频波形进行切割，将有声频段切分出来。如图
-&lt;img src=&#34;https://demo.stack.jimmycai.com/1.png&#34;
+&lt;img src=&#34;https://example.com/1.png&#34;
 	
 	
 	
@@ -2967,7 +2966,7 @@ date pass rate:  0.9336283185840708&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;当主要角色音频清晰，其余角色声音小，不影响主要角色音频内容，只进行主要角色的正常转写与角色标签。&lt;/li&gt;
 &lt;li&gt;若出现下图中的情况，只需要将 C 部分切分出来标记重叠，其余 A、B 部分正常切分转写。
-&lt;img src=&#34;https://demo.stack.jimmycai.com/2.png&#34;
+&lt;img src=&#34;https://example.com/2.png&#34;
 	
 	
 	
@@ -3053,10 +3052,10 @@ t，ok 标 o k，iphone 七标称 iphone 七，因为 iphone 是一个单词没�
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E7%A7%91%E6%8A%80%E5%9B%ADworkshop%E5%A4%A7%E7%BA%B2/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E7%A7%91%E6%8A%80%E5%9B%ADworkshop%E5%A4%A7%E7%BA%B2/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E7%A7%91%E6%8A%80%E5%9B%ADworkshop%E5%A4%A7%E7%BA%B2/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E7%A7%91%E6%8A%80%E5%9B%ADworkshop%E5%A4%A7%E7%BA%B2/</guid>
         <description>&lt;h1 id=&#34;基于混合结构asr系统的效果优化&#34;&gt;基于混合结构ASR系统的效果优化&lt;/h1&gt;
 &lt;h2 id=&#34;大纲&#34;&gt;大纲&lt;/h2&gt;
 &lt;ol&gt;
@@ -3393,17 +3392,17 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E8%81%8C%E7%BA%A7%E8%AF%84%E5%AE%9A%E4%B8%BE%E8%AF%81/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E8%81%8C%E7%BA%A7%E8%AF%84%E5%AE%9A%E4%B8%BE%E8%AF%81/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E8%81%8C%E7%BA%A7%E8%AF%84%E5%AE%9A%E4%B8%BE%E8%AF%81/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E8%81%8C%E7%BA%A7%E8%AF%84%E5%AE%9A%E4%B8%BE%E8%AF%81/</guid>
         <description>&lt;h1 id=&#34;职级评定举证材料&#34;&gt;职级评定举证材料&lt;/h1&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;1-技术知识&#34;&gt;1. 技术知识&lt;/h2&gt;
 &lt;p&gt;负责语音组SpeechAI下多个项目的开发和维护。18年开始贡献代码，部分项目由本人从零构建维护到现在，并在线上使用。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;作为maintainer维护项目数量
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/1.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/1.png&#34;
 	
 	
 	
@@ -3417,7 +3416,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 &lt;ol&gt;
 &lt;li&gt;语音识别算法库
 开始维护时间：
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/28.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/28.png&#34;
 	
 	
 	
@@ -3429,7 +3428,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 &gt;
 项目代码占比：
 粉色为c++，蓝色为python。
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/3.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/3.png&#34;
 	
 	
 	
@@ -3441,7 +3440,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 &gt;&lt;/li&gt;
 &lt;li&gt;语音特征提取库
 开始维护时间：
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/4.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/4.png&#34;
 	
 	
 	
@@ -3452,7 +3451,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 	
 &gt;
 项目代码占比：
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/5.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/5.png&#34;
 	
 	
 	
@@ -3474,7 +3473,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 &lt;h2 id=&#34;2-产品知识&#34;&gt;2. 产品知识&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;定期关注自研相关指标
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/8.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/8.png&#34;
 	
 	
 	
@@ -3485,7 +3484,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 	
 &gt;&lt;/li&gt;
 &lt;li&gt;定期监测几家竞品指标
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/6.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/6.png&#34;
 	
 	
 	
@@ -3517,7 +3516,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://confluence.in.wezhuiyi.com/display/SpeechAlg/20201203?preview=/56450666/80708681/yuanding-LAS.pptx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;LAS模型分享&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;目前组内端到端效果持平线上模型
-月报：&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/9.png&#34;
+月报：&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/9.png&#34;
 	
 	
 	
@@ -3533,7 +3532,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://confluence.in.wezhuiyi.com/pages/viewpage.action?pageId=80708688&amp;amp;preview=/80708688/80708692/Q4%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2021年度Q2, Q3, Q4季度ASR部分方向制定和安排&lt;/a&gt;
 在Q3的规划中已经完成项：
-月报：&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/10.png&#34;
+月报：&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/10.png&#34;
 	
 	
 	
@@ -3549,7 +3548,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 &lt;li&gt;英文ASR建立了从标注规范，入库规范，完成了热词调优的支持，并发布了效果更好的新版本。见月报第二部分。&lt;/li&gt;
 &lt;li&gt;算法库性能优化接近收尾。见月报第四部分。&lt;/li&gt;
 &lt;li&gt;通用模型完成了新版本的发布。
-发版邮件: &lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/13.png&#34;
+发版邮件: &lt;img src=&#34;https://example.com/.resouces/rank_evaluation/13.png&#34;
 	
 	
 	
@@ -3564,7 +3563,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;算法库和相关模型会按照计划定期发版迭代，优化性能，效果，修复bug。（目前算法库已经更新到2.6.1版本，模型已经更新到3.7.0版本）
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/14.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/14.png&#34;
 	
 	
 	
@@ -3575,7 +3574,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 	
 &gt;&lt;/li&gt;
 &lt;li&gt;构建了完整的测试工具
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/11.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/11.png&#34;
 	
 	
 	
@@ -3586,7 +3585,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 	
 &gt;&lt;/li&gt;
 &lt;li&gt;构建了组内项目开发规范，自动化测试、部署等CI/CD流水线（基于gitlab）。
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/12.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/12.png&#34;
 	
 	
 	
@@ -3600,7 +3599,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 &lt;h2 id=&#34;5-技术应用能力&#34;&gt;5. 技术应用能力&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;通用模型效果在近期几个版本的迭代中，在7个测试集上由平均17%的错误率下降到了14%。
-3.2.0模型：&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/15.png&#34;
+3.2.0模型：&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/15.png&#34;
 	
 	
 	
@@ -3610,7 +3609,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 	
 	
 &gt;
-3.5.0模型：&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/16.png&#34;
+3.5.0模型：&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/16.png&#34;
 	
 	
 	
@@ -3621,7 +3620,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 	
 &gt;&lt;/li&gt;
 &lt;li&gt;英文ASR由4个测试集平均13.12%错误率降低到平均9.97%错误率。
-九月份月报：&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/17.png&#34;
+九月份月报：&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/17.png&#34;
 	
 	
 	
@@ -3632,7 +3631,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 	
 &gt;&lt;/li&gt;
 &lt;li&gt;粤语模型在几个测试集上的CER由27%，28%降到16%，20%。
-七月份月报：&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/18.png&#34;
+七月份月报：&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/18.png&#34;
 	
 	
 	
@@ -3643,7 +3642,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 	
 &gt;&lt;/li&gt;
 &lt;li&gt;算法库性能提升：
-三月份月报&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/19.png&#34;
+三月份月报&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/19.png&#34;
 	
 	
 	
@@ -3653,7 +3652,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 	
 	
 &gt;
-八月份月报&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/20.png&#34;
+八月份月报&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/20.png&#34;
 	
 	
 	
@@ -3678,7 +3677,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://confluence.in.wezhuiyi.com/display/SpeechAlg/20210816?preview=/70986874/70986884/20200816-yuanding.pptx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;周报，粤语ASR实验部分&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;端到端ASR研究，根据学术界最新的成果在公司产品中进行落地实验，目前效果已经和线上方案持平。
-八月份月报：&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/21.png&#34;
+八月份月报：&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/21.png&#34;
 	
 	
 	
@@ -3689,7 +3688,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 	
 &gt;&lt;/li&gt;
 &lt;li&gt;实验单模型多方言方案，目前在河南话上已经可以做到单个模型同时识别普通话和河南话。（即河南话模型识别普通话的CER由平均27.02%降为13.66%，已于普通话模型基本持平）
-七月份月报：&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/22.png&#34;
+七月份月报：&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/22.png&#34;
 	
 	
 	
@@ -3706,7 +3705,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.kdocs.cn/l/scVruhQ9Yf0q&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;实验GPU解码方案&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;使用const arpa作为重打分的方案，在保证效果不变的情况下有效降低延迟。
-效果：&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/23.png&#34;
+效果：&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/23.png&#34;
 	
 	
 	
@@ -3720,7 +3719,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
     &gt;实验热词多租户方案，可以使多个业务在共享基础图的基础上达到热词互不干扰的目的，而不用开启多个服务&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;专利&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/27.png&#34;
+&lt;li&gt;专利&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/27.png&#34;
 	
 	
 	
@@ -3735,7 +3734,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://lexiangla.com/teams/k100001/docs/3703ecd85b1211eba1c31a142a8ab7ef?company_from=eb9d75d0f38011e7ae86525400ebd317&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2020年度技术workshop分享：对话型asr更懂你们的语音&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;负责广东省语音专利奖申报技术部分&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/29.png&#34;
+&lt;li&gt;负责广东省语音专利奖申报技术部分&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/29.png&#34;
 	
 	
 	
@@ -3749,7 +3748,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
     &gt;深圳市跨模态智能交互工程技术研究中心可行性报告语音算法部分&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.kdocs.cn/l/spCCQBBcf0zx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;公司五周年论文分享语音算法部分&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;香港科技园workshop分享：基于混合结构ASR系统的效果优化。&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/26.png&#34;
+&lt;li&gt;香港科技园workshop分享：基于混合结构ASR系统的效果优化。&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/26.png&#34;
 	
 	
 	
@@ -3760,7 +3759,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 	
 &gt;&lt;/li&gt;
 &lt;li&gt;制定组内流程规范：包括新人work flow指引，组内项目开发规范，ASR调优指南，英文标注规范等。
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/12.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/12.png&#34;
 	
 	
 	
@@ -3771,7 +3770,7 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
 	
 &gt;&lt;/li&gt;
 &lt;li&gt;对组内提交的mr进行review，保证代码质量，提高大家的代码规范。
-&lt;img src=&#34;https://demo.stack.jimmycai.com/.resouces/rank_evaluation/25.png&#34;
+&lt;img src=&#34;https://example.com/.resouces/rank_evaluation/25.png&#34;
 	
 	
 	
@@ -3799,10 +3798,10 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr/</guid>
         <description>&lt;h1 id=&#34;asr&#34;&gt;ASR&lt;/h1&gt;
 &lt;h2 id=&#34;1-自研算法库&#34;&gt;1. 自研算法库&lt;/h2&gt;
 &lt;h3 id=&#34;vad&#34;&gt;VAD&lt;/h3&gt;
@@ -4000,10 +3999,10 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/asr/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/asr/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/asr/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/asr/</guid>
         <description>&lt;h1 id=&#34;工作目标&#34;&gt;工作目标&lt;/h1&gt;
 &lt;h2 id=&#34;2022年第2季度&#34;&gt;2022年第2季度&lt;/h2&gt;
 &lt;h3 id=&#34;算法库&#34;&gt;算法库&lt;/h3&gt;
@@ -4340,10 +4339,10 @@ $$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$&lt;/li&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/test/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/test/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/test/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/test/</guid>
         <description>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -4884,10 +4883,10 @@ CPU INFO: max: 15.8495&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/wenet%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/wenet%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/wenet%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/wenet%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/</guid>
         <description>&lt;h1 id=&#34;端到端支持计划&#34;&gt;端到端支持计划&lt;/h1&gt;
 &lt;h2 id=&#34;1-功能支持&#34;&gt;1. 功能支持&lt;/h2&gt;
 &lt;h3 id=&#34;11-gpu解码&#34;&gt;1.1 GPU解码&lt;/h3&gt;
@@ -4980,18 +4979,18 @@ CPU INFO: max: 15.8495&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/%E7%AE%97%E6%B3%95%E5%BA%93%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/%E7%AE%97%E6%B3%95%E5%BA%93%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/%E7%AE%97%E6%B3%95%E5%BA%93%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/%E7%AE%97%E6%B3%95%E5%BA%93%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/</guid>
         <description></description>
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/%E7%BC%93%E5%AD%98%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/%E7%BC%93%E5%AD%98%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/%E7%BC%93%E5%AD%98%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/%E7%BC%93%E5%AD%98%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</guid>
         <description>&lt;h1 id=&#34;缓存模型性能问题排查&#34;&gt;缓存模型性能问题排查&lt;/h1&gt;
 &lt;h2 id=&#34;1-相关因素&#34;&gt;1. 相关因素&lt;/h2&gt;
 &lt;ol&gt;
@@ -5354,10 +5353,10 @@ CPU INFO: max: 15.8495&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/bpo%E6%94%AF%E6%8C%81/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/bpo%E6%94%AF%E6%8C%81/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/bpo%E6%94%AF%E6%8C%81/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/bpo%E6%94%AF%E6%8C%81/</guid>
         <description>&lt;h1 id=&#34;bpo支持&#34;&gt;BPO支持&lt;/h1&gt;
 &lt;h2 id=&#34;1-测试数据与指标&#34;&gt;1. 测试数据与指标&lt;/h2&gt;
 &lt;h3 id=&#34;测试数据&#34;&gt;测试数据&lt;/h3&gt;
@@ -5396,10 +5395,10 @@ CPU INFO: max: 15.8495&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/</guid>
         <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
 &lt;h2 id=&#34;20220805&#34;&gt;20220805&lt;/h2&gt;
 &lt;ol&gt;
@@ -5493,10 +5492,10 @@ Supervisions available: 33302487&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-11-24/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-11-24/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-11-24/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-11-24/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;libtorch 非流式效果对比测试&lt;/p&gt;
@@ -5524,10 +5523,10 @@ Supervisions available: 33302487&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-11-30/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-11-30/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-11-30/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-11-30/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;更新libtorch版本
 &lt;ol&gt;
@@ -5664,10 +5663,10 @@ Supervisions available: 33302487&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-02/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-02/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-02/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-02/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;YiSpeech：decode_config.num_left_chunks = -1&lt;/p&gt;
@@ -5965,10 +5964,10 @@ Supervisions available: 33302487&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-05/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-05/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-05/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-05/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;流水线环境&lt;/p&gt;
@@ -6524,10 +6523,10 @@ CPU INFO: max: 1.05109&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-12/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-12/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-12/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-12/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;模型，算法库发版&lt;/li&gt;
 &lt;li&gt;vad最大长度限制工程化，测试&lt;/li&gt;
@@ -6540,10 +6539,10 @@ CPU INFO: max: 1.05109&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-19/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-19/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-19/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-19/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;第三方评测&lt;/p&gt;
@@ -6676,10 +6675,10 @@ CPU INFO: max: 1.05109&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-26/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-26/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-26/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-26/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;预训练模型量化蒸馏训练&lt;/p&gt;
@@ -6780,10 +6779,10 @@ CPU INFO: max: 1.05109&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2023-01-03/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2023-01-03/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2023-01-03/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2023-01-03/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;实验文档
 &lt;ol&gt;
@@ -6800,10 +6799,10 @@ CPU INFO: max: 1.05109&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2023-01-09/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2023-01-09/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2023-01-09/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2023-01-09/</guid>
         <description>&lt;p&gt;不同机器效果测试对比 ：YiSpeech_v2.9.0 + asr_model_v3.6.0&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -6969,10 +6968,10 @@ CPU INFO: max: 1.05109&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/ctc%E5%92%8Ctlg%E8%A7%A3%E7%A0%81%E5%AF%B9%E6%AF%94/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/ctc%E5%92%8Ctlg%E8%A7%A3%E7%A0%81%E5%AF%B9%E6%AF%94/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/ctc%E5%92%8Ctlg%E8%A7%A3%E7%A0%81%E5%AF%B9%E6%AF%94/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/ctc%E5%92%8Ctlg%E8%A7%A3%E7%A0%81%E5%AF%B9%E6%AF%94/</guid>
         <description>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -7163,10 +7162,10 @@ CPU INFO: max: 1.05109&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/tmp/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/tmp/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/tmp/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/tmp/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;k2实验&lt;/p&gt;
@@ -7278,10 +7277,10 @@ CPU INFO: max: 1.05109&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/tts/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/tts/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/tts/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/tts/</guid>
         <description>&lt;h1 id=&#34;tts&#34;&gt;TTS&lt;/h1&gt;
 &lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
 &lt;ol&gt;
@@ -7453,7 +7452,7 @@ CPU INFO: max: 1.05109&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;1.0 模型推理测试，不使用ckpt, 使用pb时报错&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cAdministrator%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20230130203118816.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cAdministrator%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20230130203118816.png&#34;
 	
 	
 	
@@ -7506,7 +7505,7 @@ CPU INFO: max: 1.05109&lt;/p&gt;
 &lt;li&gt;导出2.0模型（Triton），需要加该行代码。训练时可不加，split_pb时需要加上，会根据代码调整模型，适配triton。&lt;/li&gt;
 &lt;li&gt;训练多人模型时，需要参考此处的代码进行修改。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cAdministrator%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20230131163503324.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cAdministrator%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20230131163503324.png&#34;
 	
 	
 	
@@ -7605,20 +7604,20 @@ CPU INFO: max: 1.05109&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/gpu/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/gpu/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/gpu/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/gpu/</guid>
         <description>&lt;p&gt;架构系列&lt;/p&gt;
 &lt;p&gt; This corresponds to GPUs in the NVIDIA Pascal, NVIDIA Volta™, NVIDIA Turing™, and NVIDIA Ampere Architecture GPU families&lt;/p&gt;
 </description>
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/gpu%E6%9C%8D%E5%8A%A1/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/gpu%E6%9C%8D%E5%8A%A1/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/gpu%E6%9C%8D%E5%8A%A1/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/gpu%E6%9C%8D%E5%8A%A1/</guid>
         <description>&lt;h1 id=&#34;asr-gpu服务&#34;&gt;ASR GPU服务&lt;/h1&gt;
 &lt;h2 id=&#34;问题记录&#34;&gt;问题记录&lt;/h2&gt;
 &lt;ol&gt;
@@ -7910,10 +7909,10 @@ CPU INFO: max: 1.05109&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/k2/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/k2/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/k2/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/k2/</guid>
         <description>&lt;h1 id=&#34;k2-实验&#34;&gt;k2 实验&lt;/h1&gt;
 &lt;h2 id=&#34;1-数据准备&#34;&gt;1. 数据准备&lt;/h2&gt;
 &lt;h3 id=&#34;11-recordings&#34;&gt;1.1 recordings&lt;/h3&gt;
@@ -8292,10 +8291,10 @@ CPU INFO: max: 1.05109&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/so/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/so/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/so/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/so/</guid>
         <description>&lt;p&gt;*** Measurement Settings ***
 Batch size: 1
 Using &amp;ldquo;time_windows&amp;rdquo; mode for stabilization
@@ -8518,10 +8517,10 @@ Concurrency: 200, throughput: 939.8 infer/sec, latency 212724 usec&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/untitled/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/untitled/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/untitled/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/untitled/</guid>
         <description>&lt;h1 id=&#34;模型效果测试数据&#34;&gt;模型效果测试数据&lt;/h1&gt;
 &lt;h2 id=&#34;gpu-效果测试&#34;&gt;GPU 效果测试&lt;/h2&gt;
 &lt;p&gt;GPU离线ASR请求Padding逻辑测试&lt;/p&gt;
@@ -9487,10 +9486,10 @@ Concurrency: 200, throughput: 939.8 infer/sec, latency 212724 usec&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/vad/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/vad/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/vad/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/vad/</guid>
         <description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;CALL场景（客服侧为机器人，只需识别客户侧）&lt;/p&gt;
@@ -9559,10 +9558,10 @@ Concurrency: 200, throughput: 939.8 infer/sec, latency 212724 usec&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95/</guid>
         <description>&lt;h1 id=&#34;待分类记录&#34;&gt;待分类记录&lt;/h1&gt;
 &lt;h2 id=&#34;1-相关命令&#34;&gt;1. 相关命令&lt;/h2&gt;
 &lt;h3 id=&#34;11-内部项目相关&#34;&gt;1.1 内部项目相关&lt;/h3&gt;
@@ -9816,10 +9815,10 @@ CPU INFO: max: 16.2006&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/2022-q1/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/2022-q1/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/2022-q1/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/2022-q1/</guid>
         <description>&lt;h1 id=&#34;asr安排季度安排&#34;&gt;ASR安排季度安排&lt;/h1&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.qq.com/doc/DZHJqZFNBcFdDc1Vq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;以往季度计划&lt;/a&gt;&lt;/p&gt;
@@ -10008,10 +10007,10 @@ CPU INFO: max: 16.2006&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/</guid>
         <description>&lt;h1 id=&#34;asr安排季度安排&#34;&gt;ASR安排季度安排&lt;/h1&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.qq.com/doc/DZHJqZFNBcFdDc1Vq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;以往季度计划&lt;/a&gt;&lt;/p&gt;
@@ -10202,10 +10201,10 @@ CPU INFO: max: 16.2006&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E6%95%B0%E5%AD%97%E4%BA%BA/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E6%95%B0%E5%AD%97%E4%BA%BA/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E6%95%B0%E5%AD%97%E4%BA%BA/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E6%95%B0%E5%AD%97%E4%BA%BA/</guid>
         <description>&lt;h1 id=&#34;数字人vc-yispeech部分介绍&#34;&gt;数字人&amp;amp;VC YiSpeech部分介绍&lt;/h1&gt;
 &lt;h2 id=&#34;1-性能&#34;&gt;1. 性能&lt;/h2&gt;
 &lt;h3 id=&#34;性能指标&#34;&gt;性能指标&lt;/h3&gt;
@@ -10242,7 +10241,7 @@ CPU INFO: max: 16.2006&lt;/p&gt;
 &lt;p&gt;使用Model-level Warmup 机制，加快收敛&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cAdministrator%5cDesktop%5cASR%5cNotes%5c%e5%b7%a5%e4%bd%9c%e8%ae%a1%e5%88%92%5c%e6%95%b0%e5%ad%97%e4%ba%ba%5c1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cAdministrator%5cDesktop%5cASR%5cNotes%5c%e5%b7%a5%e4%bd%9c%e8%ae%a1%e5%88%92%5c%e6%95%b0%e5%ad%97%e4%ba%ba%5c1.png&#34;
 	
 	
 	
@@ -10252,7 +10251,7 @@ CPU INFO: max: 16.2006&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cAdministrator%5cDesktop%5cASR%5cNotes%5c%e5%b7%a5%e4%bd%9c%e8%ae%a1%e5%88%92%5c%e6%95%b0%e5%ad%97%e4%ba%ba%5c2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cAdministrator%5cDesktop%5cASR%5cNotes%5c%e5%b7%a5%e4%bd%9c%e8%ae%a1%e5%88%92%5c%e6%95%b0%e5%ad%97%e4%ba%ba%5c2.png&#34;
 	
 	
 	
@@ -10297,7 +10296,7 @@ CPU INFO: max: 16.2006&lt;/p&gt;
 &lt;h4 id=&#34;蒸馏预训练模型&#34;&gt;蒸馏预训练模型&lt;/h4&gt;
 &lt;p&gt;问题：获取teacher embedding时online和offline两种方式的问题。&lt;/p&gt;
 &lt;p&gt;基于量化的蒸馏实验，关键在于量化机制的设计。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://demo.stack.jimmycai.com/C:%5cUsers%5cAdministrator%5cDesktop%5cASR%5cNotes%5c%e5%b7%a5%e4%bd%9c%e8%ae%a1%e5%88%92%5c%e6%95%b0%e5%ad%97%e4%ba%ba%5c4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/C:%5cUsers%5cAdministrator%5cDesktop%5cASR%5cNotes%5c%e5%b7%a5%e4%bd%9c%e8%ae%a1%e5%88%92%5c%e6%95%b0%e5%ad%97%e4%ba%ba%5c4.png&#34;
 	
 	
 	
@@ -10309,10 +10308,10 @@ CPU INFO: max: 16.2006&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E6%B5%8B%E8%AF%95/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E6%B5%8B%E8%AF%95/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E6%B5%8B%E8%AF%95/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E6%B5%8B%E8%AF%95/</guid>
         <description>&lt;h1 id=&#34;模型效果测试数据&#34;&gt;模型效果测试数据&lt;/h1&gt;
 &lt;h2 id=&#34;gpu-效果测试&#34;&gt;GPU 效果测试&lt;/h2&gt;
 &lt;p&gt;GPU离线ASR请求Padding逻辑测试&lt;/p&gt;
@@ -11184,10 +11183,10 @@ CPU INFO: max: 16.2006&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E6%B7%B7%E5%90%88%E8%AF%AD%E7%A7%8D%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E6%B7%B7%E5%90%88%E8%AF%AD%E7%A7%8D%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E6%B7%B7%E5%90%88%E8%AF%AD%E7%A7%8D%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E6%B7%B7%E5%90%88%E8%AF%AD%E7%A7%8D%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/</guid>
         <description>&lt;h1 id=&#34;多语种语音识别&#34;&gt;多语种语音识别&lt;/h1&gt;
 &lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
 &lt;h3 id=&#34;multilingual-and-code-switching-speech-recognition&#34;&gt;Multilingual and Code-Switching Speech Recognition&lt;/h3&gt;
@@ -11283,10 +11282,10 @@ CPU INFO: max: 16.2006&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E8%87%AA%E5%AD%A6%E4%B9%A0%E9%95%9C%E5%83%8F/</link>
+        <link>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E8%87%AA%E5%AD%A6%E4%B9%A0%E9%95%9C%E5%83%8F/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E8%87%AA%E5%AD%A6%E4%B9%A0%E9%95%9C%E5%83%8F/</guid>
+        <guid>https://example.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E8%87%AA%E5%AD%A6%E4%B9%A0%E9%95%9C%E5%83%8F/</guid>
         <description>&lt;p&gt;基础镜像&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
