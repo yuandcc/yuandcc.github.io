@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='*** Measurement Settings *** Batch size: 1 Using &amp;ldquo;time_windows&amp;rdquo; mode for stabilization Measurement window: 20000 msec Latency limit: 0 msec Concurrency limit: 200 concurrent requests Using synchronous calls for inference Stabilizing using average latency
+Request concurrency: 100 Client: Request count: 15776 Throughput: 788.8 infer/sec Avg latency: 126934 usec (standard deviation 17877 usec) p50 latency: 126929 usec p90 latency: 150007 usec p95 latency: 155601 usec p99 latency: 169364 usec Avg gRPC time: 126697 usec ((un)marshal request/response 41 usec &#43; response wait 126656 usec) Server: Inference count: 18945 Execution count: 18945 Successful request count: 18946 Avg request latency: 126589 usec (overhead 486 usec &#43; queue 30999 usec &#43; compute 95104 usec)'>
+<title></title>
+
+<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/so/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
+<meta property='og:description' content='*** Measurement Settings *** Batch size: 1 Using &amp;ldquo;time_windows&amp;rdquo; mode for stabilization Measurement window: 20000 msec Latency limit: 0 msec Concurrency limit: 200 concurrent requests Using synchronous calls for inference Stabilizing using average latency
+Request concurrency: 100 Client: Request count: 15776 Throughput: 788.8 infer/sec Avg latency: 126934 usec (standard deviation 17877 usec) p50 latency: 126929 usec p90 latency: 150007 usec p95 latency: 155601 usec p99 latency: 169364 usec Avg gRPC time: 126697 usec ((un)marshal request/response 41 usec &#43; response wait 126656 usec) Server: Inference count: 18945 Execution count: 18945 Successful request count: 18946 Avg request latency: 126589 usec (overhead 486 usec &#43; queue 30999 usec &#43; compute 95104 usec)'>
+<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/so/'>
+<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="*** Measurement Settings *** Batch size: 1 Using &amp;ldquo;time_windows&amp;rdquo; mode for stabilization Measurement window: 20000 msec Latency limit: 0 msec Concurrency limit: 200 concurrent requests Using synchronous calls for inference Stabilizing using average latency
+Request concurrency: 100 Client: Request count: 15776 Throughput: 788.8 infer/sec Avg latency: 126934 usec (standard deviation 17877 usec) p50 latency: 126929 usec p90 latency: 150007 usec p95 latency: 155601 usec p99 latency: 169364 usec Avg gRPC time: 126697 usec ((un)marshal request/response 41 usec &#43; response wait 126656 usec) Server: Inference count: 18945 Execution count: 18945 Successful request count: 18946 Avg request latency: 126589 usec (overhead 486 usec &#43; queue 30999 usec &#43; compute 95104 usec)">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/so/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    7 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>*** Measurement Settings ***
+Batch size: 1
+Using &ldquo;time_windows&rdquo; mode for stabilization
+Measurement window: 20000 msec
+Latency limit: 0 msec
+Concurrency limit: 200 concurrent requests
+Using synchronous calls for inference
+Stabilizing using average latency</p>
+<p>Request concurrency: 100
+Client:
+Request count: 15776
+Throughput: 788.8 infer/sec
+Avg latency: 126934 usec (standard deviation 17877 usec)
+p50 latency: 126929 usec
+p90 latency: 150007 usec
+p95 latency: 155601 usec
+p99 latency: 169364 usec
+Avg gRPC time: 126697 usec ((un)marshal request/response 41 usec + response wait 126656 usec)
+Server:
+Inference count: 18945
+Execution count: 18945
+Successful request count: 18946
+Avg request latency: 126589 usec (overhead 486 usec + queue 30999 usec + compute 95104 usec)</p>
+<p>Composing models:
+encoder, version:
+Inference count: 18938
+Execution count: 1296
+Successful request count: 18938
+Avg request latency: 58617 usec (overhead 479 usec + queue 21811 usec + compute input 1228 usec + compute infer 33170 usec + compute output 1929 usec)</p>
+<p>feature_extractor, version:
+Inference count: 18940
+Execution count: 4265
+Successful request count: 18940
+Avg request latency: 12292 usec (overhead 6 usec + queue 1580 usec + compute input 418 usec + compute infer 9690 usec + compute output 598 usec)</p>
+<p>scoring, version:
+Inference count: 18933
+Execution count: 2137
+Successful request count: 18933
+Avg request latency: 55685 usec (overhead 9 usec + queue 7608 usec + compute input 8949 usec + compute infer 37946 usec + compute output 1173 usec)</p>
+<p>Request concurrency: 150
+Client:
+Request count: 16446
+Throughput: 822.3 infer/sec
+Avg latency: 182466 usec (standard deviation 20303 usec)
+p50 latency: 182989 usec
+p90 latency: 208751 usec
+p95 latency: 215573 usec
+p99 latency: 227802 usec
+Avg gRPC time: 182208 usec ((un)marshal request/response 40 usec + response wait 182168 usec)
+Server:
+Inference count: 19746
+Execution count: 19746
+Successful request count: 19746
+Avg request latency: 182207 usec (overhead 584 usec + queue 75287 usec + compute 106336 usec)</p>
+<p>Composing models:
+encoder, version:
+Inference count: 19744
+Execution count: 1195
+Successful request count: 19744
+Avg request latency: 103609 usec (overhead 535 usec + queue 63250 usec + compute input 1360 usec + compute infer 35903 usec + compute output 2561 usec)</p>
+<p>feature_extractor, version:
+Inference count: 19750
+Execution count: 3800
+Successful request count: 19750
+Avg request latency: 13155 usec (overhead 7 usec + queue 1822 usec + compute input 471 usec + compute infer 10238 usec + compute output 617 usec)</p>
+<p>scoring, version:
+Inference count: 19746
+Execution count: 1851
+Successful request count: 19746
+Avg request latency: 65406 usec (overhead 9 usec + queue 10215 usec + compute input 11509 usec + compute infer 42335 usec + compute output 1338 usec)</p>
+<p>Request concurrency: 200
+Client:
+Request count: 17067
+Throughput: 853.35 infer/sec
+Avg latency: 233841 usec (standard deviation 21476 usec)
+p50 latency: 233757 usec
+p90 latency: 260522 usec
+p95 latency: 269281 usec
+p99 latency: 287251 usec
+Avg gRPC time: 233702 usec ((un)marshal request/response 40 usec + response wait 233662 usec)
+Server:
+Inference count: 20544
+Execution count: 20544
+Successful request count: 20544
+Avg request latency: 233845 usec (overhead 856 usec + queue 108414 usec + compute 124575 usec)</p>
+<p>Composing models:
+encoder, version:
+Inference count: 20560
+Execution count: 1023
+Successful request count: 20560
+Avg request latency: 132775 usec (overhead 705 usec + queue 84691 usec + compute input 1364 usec + compute infer 41666 usec + compute output 4349 usec)</p>
+<p>feature_extractor, version:
+Inference count: 20543
+Execution count: 3360
+Successful request count: 20543
+Avg request latency: 13674 usec (overhead 7 usec + queue 2086 usec + compute input 508 usec + compute infer 10416 usec + compute output 657 usec)</p>
+<p>scoring, version:
+Inference count: 20544
+Execution count: 1497
+Successful request count: 20544
+Avg request latency: 87261 usec (overhead 10 usec + queue 21637 usec + compute input 15520 usec + compute infer 48592 usec + compute output 1502 usec)</p>
+<p>Inferences/Second vs. Client Average Batch Latency
+Concurrency: 100, throughput: 788.8 infer/sec, latency 126934 usec
+Concurrency: 150, throughput: 822.3 infer/sec, latency 182466 usec
+Concurrency: 200, throughput: 853.35 infer/sec, latency 233841 usec</p>
+<p><strong>cpu：</strong> 8% - 9%</p>
+<p><strong>gpu:</strong>  70-90%</p>
+<p><strong>online</strong></p>
+<p>root@gpu03:/ws/client# perf_analyzer -u &ldquo;localhost:8001&rdquo; -i gRPC &ndash;streaming &ndash;input-data=online_input.json -m streaming_wenet -b 1 &ndash;concurrency-range 100:200:50
+Successfully read data for 1 stream/streams with 5 step/steps.
+*** Measurement Settings ***
+Batch size: 1
+Using &ldquo;time_windows&rdquo; mode for stabilization
+Measurement window: 5000 msec
+Latency limit: 0 msec
+Concurrency limit: 200 concurrent requests
+Using asynchronous calls for inference
+Stabilizing using average latency</p>
+<p>Request concurrency: 100
+Client:
+Request count: 3488
+Sequence count: 704 (140.8 seq/sec)
+Throughput: 697.6 infer/sec
+Avg latency: 142357 usec (standard deviation 32749 usec)
+p50 latency: 139018 usec
+p90 latency: 184378 usec
+p95 latency: 205635 usec
+p99 latency: 246734 usec
+Avg gRPC time: 142314 usec ((un)marshal request/response 18 usec + response wait 142296 usec)
+Server:
+Inference count: 4218
+Execution count: 4218
+Successful request count: 4218
+Avg request latency: 142449 usec (overhead 1093 usec + queue 69600 usec + compute 71756 usec)</p>
+<p>Composing models:
+encoder, version:
+Inference count: 4225
+Execution count: 319
+Successful request count: 4225
+Avg request latency: 89930 usec (overhead 2000 usec + queue 52090 usec + compute input 1914 usec + compute infer 30871 usec + compute output 3055 usec)</p>
+<p>feature_extractor, version:
+Inference count: 4194
+Execution count: 1910
+Successful request count: 4194
+Avg request latency: 9412 usec (overhead 4 usec + queue 4367 usec + compute input 114 usec + compute infer 4598 usec + compute output 329 usec)</p>
+<p>wenet, version:
+Inference count: 4218
+Execution count: 495
+Successful request count: 4218
+Avg request latency: 44023 usec (overhead 9 usec + queue 13143 usec + compute input 6474 usec + compute infer 23140 usec + compute output 1257 usec)</p>
+<p>Request concurrency: 150
+Client:
+Request count: 4278
+Sequence count: 844 (168.8 seq/sec)
+Throughput: 855.6 infer/sec
+Avg latency: 174563 usec (standard deviation 40172 usec)
+p50 latency: 167038 usec
+p90 latency: 224584 usec
+p95 latency: 255709 usec
+p99 latency: 309430 usec
+Avg gRPC time: 174714 usec ((un)marshal request/response 16 usec + response wait 174698 usec)
+Server:
+Inference count: 5166
+Execution count: 5166
+Successful request count: 5166
+Avg request latency: 175461 usec (overhead 1285 usec + queue 79796 usec + compute 94380 usec)</p>
+<p>Composing models:
+encoder, version:
+Inference count: 5108
+Execution count: 257
+Successful request count: 5108
+Avg request latency: 101550 usec (overhead 2733 usec + queue 53957 usec + compute input 3067 usec + compute infer 36193 usec + compute output 5600 usec)</p>
+<p>feature_extractor, version:
+Inference count: 5162
+Execution count: 1966
+Successful request count: 5162
+Avg request latency: 12725 usec (overhead 4 usec + queue 6222 usec + compute input 141 usec + compute infer 5915 usec + compute output 443 usec)</p>
+<p>wenet, version:
+Inference count: 5166
+Execution count: 326
+Successful request count: 5166
+Avg request latency: 62645 usec (overhead 11 usec + queue 19617 usec + compute input 11126 usec + compute infer 29950 usec + compute output 1941 usec)</p>
+<p>Request concurrency: 200
+Client:
+Request count: 4699
+Sequence count: 963 (192.6 seq/sec)
+Throughput: 939.8 infer/sec
+Avg latency: 212724 usec (standard deviation 43871 usec)
+p50 latency: 203624 usec
+p90 latency: 261836 usec
+p95 latency: 278348 usec
+p99 latency: 374408 usec
+Avg gRPC time: 213667 usec ((un)marshal request/response 16 usec + response wait 213651 usec)
+Server:
+Inference count: 5621
+Execution count: 5621
+Successful request count: 5621
+Avg request latency: 215425 usec (overhead 2447 usec + queue 97139 usec + compute 115839 usec)</p>
+<p>Composing models:
+encoder, version:
+Inference count: 5587
+Execution count: 241
+Successful request count: 5587
+Avg request latency: 103711 usec (overhead 2737 usec + queue 51789 usec + compute input 4225 usec + compute infer 37827 usec + compute output 7133 usec)</p>
+<p>feature_extractor, version:
+Inference count: 5620
+Execution count: 1907
+Successful request count: 5620
+Avg request latency: 19055 usec (overhead 5 usec + queue 11003 usec + compute input 184 usec + compute infer 7208 usec + compute output 655 usec)</p>
+<p>wenet, version:
+Inference count: 5589
+Execution count: 204
+Successful request count: 5589
+Avg request latency: 92966 usec (overhead 15 usec + queue 34347 usec + compute input 18541 usec + compute infer 37313 usec + compute output 2750 usec)</p>
+<p>Inferences/Second vs. Client Average Batch Latency
+Concurrency: 100, throughput: 697.6 infer/sec, latency 142357 usec
+Concurrency: 150, throughput: 855.6 infer/sec, latency 174563 usec
+Concurrency: 200, throughput: 939.8 infer/sec, latency 212724 usec</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Hugo Theme Stack Starter
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

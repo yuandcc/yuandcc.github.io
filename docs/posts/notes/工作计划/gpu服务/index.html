@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='ASR GPU服务 问题记录 短音频首片需要满足足够长度。
+推理过程中对hist_enc_len为0情况的处理。
+使用WFST解码时指定words.txt作为units.txt文件。
+使用WFST解码时指定对应的ONNX模型。
+启动triton服务时，如果指定&amp;ndash;model-control-mode=explicit，在客户端loda streaming_wenet模块时，要单独load decoder模块。
+中间片使用search outputs，重打分使用inputs，并根据outputs给出结果。
+如果一遍解码nbest数量小于等于1，则不进行重打分。
+修改export_onnx_gpu代码，返回ctc_log_probs。
+encoder 等模块config.pbtxt中output name: &amp;ldquo;log_ctc_probs&amp;rdquo; 维度修改5298。
+encoder等模块需要去掉log_probs_idx节点信息。
+启动server的目录，不能在model目录内，否则加载model会有异常
+推理实例个数对debug时的影响，两个实例固定轮流推理，相同的idx会出现两次
+watch nvidia-smi 对triton server造成影响，变得启动和推理都很卡顿
+音频不足一个chunk时，推理长度相关参数设置，cpu的decoder如何处理？
+效果与CPU服务对齐 GPU服务使用kenlm语言模型效果变差 测试CPU使用和不使用kenlm语言模型的效果。
+测试GPU离线服务使用和不使用语言模型的效果。
+测试GPU服务使用FST解码图的效果。
+GPU服务效果变差 对比ctc decoder验证Search接口问题。
+验证rescore问题。
+音频padding问题。
+验证GPU离线服务效果。
+保存encoder输出，验证encoder正确性。
+效果测试 GPU offline server
+test1 test2 test3 test4 test5 test6 test7 test8 cpu 9.85 12.65 10.71 11.21 9.70 17.06 10.86 18.81 triton 9.61 11.87 10.38 11.10 9.45 16.66 10.72 19.23 GPU online server'>
+<title></title>
+
+<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/gpu%E6%9C%8D%E5%8A%A1/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
+<meta property='og:description' content='ASR GPU服务 问题记录 短音频首片需要满足足够长度。
+推理过程中对hist_enc_len为0情况的处理。
+使用WFST解码时指定words.txt作为units.txt文件。
+使用WFST解码时指定对应的ONNX模型。
+启动triton服务时，如果指定&amp;ndash;model-control-mode=explicit，在客户端loda streaming_wenet模块时，要单独load decoder模块。
+中间片使用search outputs，重打分使用inputs，并根据outputs给出结果。
+如果一遍解码nbest数量小于等于1，则不进行重打分。
+修改export_onnx_gpu代码，返回ctc_log_probs。
+encoder 等模块config.pbtxt中output name: &amp;ldquo;log_ctc_probs&amp;rdquo; 维度修改5298。
+encoder等模块需要去掉log_probs_idx节点信息。
+启动server的目录，不能在model目录内，否则加载model会有异常
+推理实例个数对debug时的影响，两个实例固定轮流推理，相同的idx会出现两次
+watch nvidia-smi 对triton server造成影响，变得启动和推理都很卡顿
+音频不足一个chunk时，推理长度相关参数设置，cpu的decoder如何处理？
+效果与CPU服务对齐 GPU服务使用kenlm语言模型效果变差 测试CPU使用和不使用kenlm语言模型的效果。
+测试GPU离线服务使用和不使用语言模型的效果。
+测试GPU服务使用FST解码图的效果。
+GPU服务效果变差 对比ctc decoder验证Search接口问题。
+验证rescore问题。
+音频padding问题。
+验证GPU离线服务效果。
+保存encoder输出，验证encoder正确性。
+效果测试 GPU offline server
+test1 test2 test3 test4 test5 test6 test7 test8 cpu 9.85 12.65 10.71 11.21 9.70 17.06 10.86 18.81 triton 9.61 11.87 10.38 11.10 9.45 16.66 10.72 19.23 GPU online server'>
+<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/gpu%E6%9C%8D%E5%8A%A1/'>
+<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="ASR GPU服务 问题记录 短音频首片需要满足足够长度。
+推理过程中对hist_enc_len为0情况的处理。
+使用WFST解码时指定words.txt作为units.txt文件。
+使用WFST解码时指定对应的ONNX模型。
+启动triton服务时，如果指定&amp;ndash;model-control-mode=explicit，在客户端loda streaming_wenet模块时，要单独load decoder模块。
+中间片使用search outputs，重打分使用inputs，并根据outputs给出结果。
+如果一遍解码nbest数量小于等于1，则不进行重打分。
+修改export_onnx_gpu代码，返回ctc_log_probs。
+encoder 等模块config.pbtxt中output name: &amp;ldquo;log_ctc_probs&amp;rdquo; 维度修改5298。
+encoder等模块需要去掉log_probs_idx节点信息。
+启动server的目录，不能在model目录内，否则加载model会有异常
+推理实例个数对debug时的影响，两个实例固定轮流推理，相同的idx会出现两次
+watch nvidia-smi 对triton server造成影响，变得启动和推理都很卡顿
+音频不足一个chunk时，推理长度相关参数设置，cpu的decoder如何处理？
+效果与CPU服务对齐 GPU服务使用kenlm语言模型效果变差 测试CPU使用和不使用kenlm语言模型的效果。
+测试GPU离线服务使用和不使用语言模型的效果。
+测试GPU服务使用FST解码图的效果。
+GPU服务效果变差 对比ctc decoder验证Search接口问题。
+验证rescore问题。
+音频padding问题。
+验证GPU离线服务效果。
+保存encoder输出，验证encoder正确性。
+效果测试 GPU offline server
+test1 test2 test3 test4 test5 test6 test7 test8 cpu 9.85 12.65 10.71 11.21 9.70 17.06 10.86 18.81 triton 9.61 11.87 10.38 11.10 9.45 16.66 10.72 19.23 GPU online server">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#问题记录">问题记录</a></li>
+    <li><a href="#效果与cpu服务对齐">效果与CPU服务对齐</a>
+      <ol>
+        <li><a href="#gpu服务使用kenlm语言模型效果变差">GPU服务使用kenlm语言模型效果变差</a></li>
+        <li><a href="#gpu服务效果变差">GPU服务效果变差</a></li>
+        <li><a href="#效果测试">效果测试</a></li>
+      </ol>
+    </li>
+    <li><a href="#heading"></a></li>
+    <li><a href="#性能测试">性能测试</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/gpu%E6%9C%8D%E5%8A%A1/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="asr-gpu服务">ASR GPU服务</h1>
+<h2 id="问题记录">问题记录</h2>
+<ol>
+<li>
+<p>短音频首片需要满足足够长度。</p>
+</li>
+<li>
+<p>推理过程中对hist_enc_len为0情况的处理。</p>
+</li>
+<li>
+<p>使用WFST解码时指定words.txt作为units.txt文件。</p>
+</li>
+<li>
+<p>使用WFST解码时指定对应的ONNX模型。</p>
+</li>
+<li>
+<p>启动triton服务时，如果指定&ndash;model-control-mode=explicit，在客户端loda streaming_wenet模块时，要单独load decoder模块。</p>
+</li>
+<li>
+<p>中间片使用search outputs，重打分使用inputs，并根据outputs给出结果。</p>
+</li>
+<li>
+<p>如果一遍解码nbest数量小于等于1，则不进行重打分。</p>
+</li>
+<li>
+<p>修改export_onnx_gpu代码，返回ctc_log_probs。</p>
+</li>
+<li>
+<p>encoder 等模块config.pbtxt中output name: &ldquo;log_ctc_probs&rdquo; 维度修改5298。</p>
+</li>
+<li>
+<p>encoder等模块需要去掉log_probs_idx节点信息。</p>
+</li>
+<li>
+<p>启动server的目录，不能在model目录内，否则加载model会有异常</p>
+</li>
+<li>
+<p>推理实例个数对debug时的影响，两个实例固定轮流推理，相同的idx会出现两次</p>
+</li>
+<li>
+<p>watch nvidia-smi 对triton server造成影响，变得启动和推理都很卡顿</p>
+</li>
+<li>
+<p>音频不足一个chunk时，推理长度相关参数设置，cpu的decoder如何处理？</p>
+</li>
+<li></li>
+</ol>
+<h2 id="效果与cpu服务对齐">效果与CPU服务对齐</h2>
+<h3 id="gpu服务使用kenlm语言模型效果变差">GPU服务使用kenlm语言模型效果变差</h3>
+<ol>
+<li>
+<p>测试CPU使用和不使用kenlm语言模型的效果。</p>
+</li>
+<li>
+<p>测试GPU离线服务使用和不使用语言模型的效果。</p>
+</li>
+<li>
+<p>测试GPU服务使用FST解码图的效果。</p>
+</li>
+</ol>
+<h3 id="gpu服务效果变差">GPU服务效果变差</h3>
+<ol>
+<li>
+<p>对比ctc decoder验证Search接口问题。</p>
+</li>
+<li>
+<p>验证rescore问题。</p>
+</li>
+<li>
+<p>音频padding问题。</p>
+</li>
+<li>
+<p>验证GPU离线服务效果。</p>
+</li>
+<li>
+<p>保存encoder输出，验证encoder正确性。</p>
+</li>
+</ol>
+<h3 id="效果测试">效果测试</h3>
+<p>GPU offline server</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>test1</th>
+<th>test2</th>
+<th>test3</th>
+<th>test4</th>
+<th>test5</th>
+<th>test6</th>
+<th>test7</th>
+<th>test8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cpu</td>
+<td>9.85</td>
+<td>12.65</td>
+<td>10.71</td>
+<td>11.21</td>
+<td>9.70</td>
+<td>17.06</td>
+<td>10.86</td>
+<td>18.81</td>
+</tr>
+<tr>
+<td>triton</td>
+<td>9.61</td>
+<td>11.87</td>
+<td>10.38</td>
+<td>11.10</td>
+<td>9.45</td>
+<td>16.66</td>
+<td>10.72</td>
+<td>19.23</td>
+</tr>
+</tbody>
+</table></div>
+<p>GPU online server</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>test1</th>
+<th>test2</th>
+<th>test3</th>
+<th>test4</th>
+<th>test5</th>
+<th>test6</th>
+<th>test7</th>
+<th>test8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cpu</td>
+<td>10.43</td>
+<td>13.34</td>
+<td>11.25</td>
+<td>11.70</td>
+<td>10.22</td>
+<td>17.66</td>
+<td>12.01</td>
+<td>20.18</td>
+</tr>
+<tr>
+<td>triton</td>
+<td>10.45</td>
+<td>17.50</td>
+<td>11.59</td>
+<td>15.01</td>
+<td>10.36</td>
+<td>23.30</td>
+<td>12.33</td>
+<td>20.75</td>
+</tr>
+<tr>
+<td>triton-fix</td>
+<td>10.35</td>
+<td>12.91</td>
+<td>11.06</td>
+<td>11.70</td>
+<td>10.08</td>
+<td>17.60</td>
+<td>11.89</td>
+<td>20.53</td>
+</tr>
+<tr>
+<td>no rescore</td>
+<td>10.79</td>
+<td>13.66</td>
+<td>11.59</td>
+<td>11.96</td>
+<td>10.53</td>
+<td>18.33</td>
+<td>12.33</td>
+<td>21.15</td>
+</tr>
+</tbody>
+</table></div>
+<p>wfst beam search</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>test1</th>
+<th>test2</th>
+<th>test3</th>
+<th>test4</th>
+<th>test5</th>
+<th>test6</th>
+<th>test7</th>
+<th>test8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cpu</td>
+<td>10.43</td>
+<td>13.34</td>
+<td>11.25</td>
+<td>11.70</td>
+<td>10.22</td>
+<td>17.66</td>
+<td>12.01</td>
+<td>20.18</td>
+</tr>
+<tr>
+<td>no rescore</td>
+<td>10.98</td>
+<td>13.92</td>
+<td>11.76</td>
+<td>11.97</td>
+<td>10.71</td>
+<td>18.36</td>
+<td>12.36</td>
+<td>21.77</td>
+</tr>
+<tr>
+<td>rescore</td>
+<td>11.84</td>
+<td>15.30</td>
+<td>12.83</td>
+<td>13.06</td>
+<td>11.38</td>
+<td>19.95</td>
+<td>13.06</td>
+<td>23.30</td>
+</tr>
+</tbody>
+</table></div>
+<p>ctc beam search</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>test1</th>
+<th>test2</th>
+<th>test3</th>
+<th>test4</th>
+<th>test5</th>
+<th>test6</th>
+<th>test7</th>
+<th>test8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cpu</td>
+<td>10.43</td>
+<td>13.34</td>
+<td>11.25</td>
+<td>11.70</td>
+<td>10.22</td>
+<td>17.66</td>
+<td>12.01</td>
+<td>20.18</td>
+</tr>
+<tr>
+<td>no rescore</td>
+<td>11.30</td>
+<td>13.83</td>
+<td>11.86</td>
+<td>12.66</td>
+<td>10.91</td>
+<td>18.59</td>
+<td>12.78</td>
+<td>21.69</td>
+</tr>
+<tr>
+<td>rescore</td>
+<td>10.63</td>
+<td>13.20</td>
+<td>11.22</td>
+<td>11.90</td>
+<td>10.31</td>
+<td>17.73</td>
+<td>12.18</td>
+<td>20.76</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="heading"></h2>
+<p>LOG outputs:  ((-1.4181773662567139, (4335, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 2099, 1019, 1254)), (-1.5133006572723389, (4335, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 1019, 1254)), (-2.93255877494812, (713, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 2099, 1019, 1254)), (-3.027660846710205, (713, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 1019, 1254)), (-3.6665735244750977, (4335, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 500, 639, 878, 87, 108, 878, 761, 4590, 2099, 1019, 1254)), (-6.0131025314331055, (4335, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 2099, 1019, 1254, 761)), (-6.1082258224487305, (4335, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 1019, 1254, 761)), (-7.527483940124512, (713, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 2099, 1019, 1254, 761)), (-7.622586250305176, (713, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 1019, 1254, 761)), (-8.061248779296875, (4335, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 2099, 1019)))</p>
+<p>LOG inputs:  ((-1.4181773662567139, (4335, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 2099, 1019, 1254)), (-1.5133006572723389, (4335, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 1019, 1254)), (-2.93255877494812, (713, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 2099, 1019, 1254)), (-3.027660846710205, (713, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 1019, 1254)), (-3.6665735244750977, (4335, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 500, 639, 878, 87, 108, 878, 761, 4590, 2099, 1019, 1254)), (-6.0131025314331055, (4335, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 2099, 1019, 1254, 761)), (-6.1082258224487305, (4335, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 1019, 1254, 761)), (-7.527483940124512, (713, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 2099, 1019, 1254, 761)), (-7.622586250305176, (713, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 1019, 1254, 761)), (-8.061248779296875, (4335, 4671, 59, 4405, 589, 1842, 98, 4671, 59, 87, 878, 639, 878, 87, 108, 878, 761, 4590, 2099, 1019)))</p>
+<h2 id="性能测试">性能测试</h2>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Hugo Theme Stack Starter
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

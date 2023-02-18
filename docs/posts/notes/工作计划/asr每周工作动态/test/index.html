@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='模块 测试数据 位置 流式ASR asr /data1/share/misc/deploy_test_wav/ 非流式ASR asr - 话者分离 diar-asr | diar_long.wav - 性别识别 sgr - 语种识别 slr - 模型编号 实验人 时间 训练数据 描述 1 @yuanding 2022.07.12 合并lm_39对应语料并加入train_guomei_7-8/8-9, train_jinshangyinhang_7-8/8-9, train_rongshu_10-11/7-27, train_shanghaihaiguan_1-2/6-7, train_zhongxinyinhang_6-7/8-9对应文本 使用3-gram CTC/AED 描述 test1 test2 test3 test4 test5 test6 test7 test8 1 1 1 10.73 13.52 11.52 12.42 10.47 18.00 12.40 20.57 CTC/AED 语言模型 描述 test1 test2 test3 test4 test5 test6 test7 test8 1 1 1 10.'>
+<title></title>
+
+<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/test/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
+<meta property='og:description' content='模块 测试数据 位置 流式ASR asr /data1/share/misc/deploy_test_wav/ 非流式ASR asr - 话者分离 diar-asr | diar_long.wav - 性别识别 sgr - 语种识别 slr - 模型编号 实验人 时间 训练数据 描述 1 @yuanding 2022.07.12 合并lm_39对应语料并加入train_guomei_7-8/8-9, train_jinshangyinhang_7-8/8-9, train_rongshu_10-11/7-27, train_shanghaihaiguan_1-2/6-7, train_zhongxinyinhang_6-7/8-9对应文本 使用3-gram CTC/AED 描述 test1 test2 test3 test4 test5 test6 test7 test8 1 1 1 10.73 13.52 11.52 12.42 10.47 18.00 12.40 20.57 CTC/AED 语言模型 描述 test1 test2 test3 test4 test5 test6 test7 test8 1 1 1 10.'>
+<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/test/'>
+<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="模块 测试数据 位置 流式ASR asr /data1/share/misc/deploy_test_wav/ 非流式ASR asr - 话者分离 diar-asr | diar_long.wav - 性别识别 sgr - 语种识别 slr - 模型编号 实验人 时间 训练数据 描述 1 @yuanding 2022.07.12 合并lm_39对应语料并加入train_guomei_7-8/8-9, train_jinshangyinhang_7-8/8-9, train_rongshu_10-11/7-27, train_shanghaihaiguan_1-2/6-7, train_zhongxinyinhang_6-7/8-9对应文本 使用3-gram CTC/AED 描述 test1 test2 test3 test4 test5 test6 test7 test8 1 1 1 10.73 13.52 11.52 12.42 10.47 18.00 12.40 20.57 CTC/AED 语言模型 描述 test1 test2 test3 test4 test5 test6 test7 test8 1 1 1 10.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/test/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>模块</th>
+<th>测试数据</th>
+<th>位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>流式ASR</td>
+<td>asr</td>
+<td>/data1/share/misc/deploy_test_wav/</td>
+</tr>
+<tr>
+<td>非流式ASR</td>
+<td>asr</td>
+<td>-</td>
+</tr>
+<tr>
+<td>话者分离</td>
+<td>diar-asr | diar_long.wav</td>
+<td>-</td>
+</tr>
+<tr>
+<td>性别识别</td>
+<td>sgr</td>
+<td>-</td>
+</tr>
+<tr>
+<td>语种识别</td>
+<td>slr</td>
+<td>-</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>模型编号</th>
+<th>实验人</th>
+<th>时间</th>
+<th>训练数据</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>@yuanding</td>
+<td>2022.07.12</td>
+<td>合并lm_39对应语料并加入train_guomei_7-8/8-9, train_jinshangyinhang_7-8/8-9, train_rongshu_10-11/7-27, train_shanghaihaiguan_1-2/6-7, train_zhongxinyinhang_6-7/8-9对应文本</td>
+<td>使用3-gram</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>CTC/AED</th>
+<th>描述</th>
+<th>test1</th>
+<th>test2</th>
+<th>test3</th>
+<th>test4</th>
+<th>test5</th>
+<th>test6</th>
+<th>test7</th>
+<th>test8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>10.73</td>
+<td>13.52</td>
+<td>11.52</td>
+<td>12.42</td>
+<td>10.47</td>
+<td>18.00</td>
+<td>12.40</td>
+<td>20.57</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>CTC/AED</th>
+<th>语言模型</th>
+<th>描述</th>
+<th>test1</th>
+<th>test2</th>
+<th>test3</th>
+<th>test4</th>
+<th>test5</th>
+<th>test6</th>
+<th>test7</th>
+<th>test8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>10.43</td>
+<td>13.34</td>
+<td>11.25</td>
+<td>11.70</td>
+<td>10.22</td>
+<td>17.66</td>
+<td>12.01</td>
+<td>20.18</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>使用torch 1.8.2 量化的script model 和 onnx模型.  解码参数：chunk_size: 16(流式)或-1(非流式), num_left_chunks: -1, ctc_weight: 0.5, reverse_weight: 0.0, rescoring_weight: 1.0, max_active: 4000, min_active: 200, beam: 10, lattice_beam: 5, acoustic_scale: 4.0, blank_skip_thresh:0.98, length_penalty: 0, nbest: 10, first_beam_size: 10, second_beam_size: 10</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>使用torch 1.8.2 script model. 解码参数：chunk_size: 16, num_left_chunks: -1, ctc_weight: 0.5, reverse_weight: 0.0, rescoring_weight: 1.0</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>算法库</th>
+<th>test_htw</th>
+<th>test1</th>
+<th>test2</th>
+<th>test3</th>
+<th>test4</th>
+<th>test5</th>
+<th>test6</th>
+<th>test7</th>
+<th>test8</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>asr_model_v4.0.0</td>
+<td>YiSpeech_v3.0.0</td>
+<td>19.20</td>
+<td>10.58</td>
+<td>13.31</td>
+<td>11.42</td>
+<td>11.90</td>
+<td>10.35</td>
+<td>17.67</td>
+<td>12.11</td>
+<td>20.52</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>使用torch script model, 尾片padding120ms, 热词权重5.</td>
+</tr>
+</tbody>
+</table></div>
+<p>训练数据</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>训练数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>4608.531h train + 1300h子集 (train_guomei_7-8/8-9, train_jinshangyinhang_7-8/8-9, train_rongshu_10-11/7-27, train_shanghaihaiguan_1-2/6-7, train_zhongxinyinhang_6-7/8-9)</td>
+</tr>
+</tbody>
+</table></div>
+<p>备注</p>
+<p><strong>不加热词，nj=4：</strong></p>
+<p>音频统计信息:
+首片数量: 640
+中间片数量: 10905
+尾片数量: 640
+首片时长: 128000
+中间片时长: 2.181e+06
+尾片时长: 63502.2</p>
+<p>测试结果:</p>
+<p>首片超时数量: 0
+中间片超时数量: 7
+尾片超时数量: 10</p>
+<p>首片超时率: 0 中间片超时率: 0.000641907 尾片超时率:0.015625</p>
+<p>首片rtf: 2.34375e-05 中间片rtf: 0.123801 尾片rtf: 1.37335</p>
+<p>首片平均耗时: 0ms 中间片平均耗时: 24ms 尾片平均耗时: 136ms</p>
+<p>首片最大耗时: 1ms 中间片最大耗时: 416ms 尾片最大耗时: 572ms</p>
+<p>总超时率: 0.00139516
+总rtf: 0.150568
+计算耗时分布: 0.150568
+&lt; 100ms: 210个, 占比0.328125
+&lt; 200ms: 324个, 占比0.50625
+&lt; 300ms: 96个, 占比0.15
+&lt; 400ms: 9个, 占比0.0140625
+&lt; 500ms: 0个, 占比0
+&lt; 600ms: 1个, 占比0.0015625
+&lt; 700ms: 0个, 占比0
+&lt; 800ms: 0个, 占比0
+MEM INFO: min: 1201.66, max: 2779.3, avg: 2396.47
+CPU INFO: max: 15.65</p>
+<p><strong>500热词，剪枝前</strong></p>
+<p>音频统计信息:
+首片数量: 640
+中间片数量: 10905
+尾片数量: 640
+首片时长: 128000
+中间片时长: 2.181e+06
+尾片时长: 63502.2</p>
+<p>测试结果:</p>
+<p>首片超时数量: 0
+中间片超时数量: 31
+尾片超时数量: 31</p>
+<p>首片超时率: 0 中间片超时率: 0.00284273 尾片超时率:0.0484375</p>
+<p>首片rtf: 9.375e-05 中间片rtf: 0.156627 尾片rtf: 1.55686</p>
+<p>首片平均耗时: 0ms 中间片平均耗时: 31ms 尾片平均耗时: 154ms</p>
+<p>首片最大耗时: 3ms 中间片最大耗时: 568ms 尾片最大耗时: 699ms</p>
+<p>总超时率: 0.00508822
+总rtf: 0.185661
+计算耗时分布: 0.185661
+&lt; 100ms: 157个, 占比0.245312
+&lt; 200ms: 337个, 占比0.526563
+&lt; 300ms: 115个, 占比0.179688
+&lt; 400ms: 26个, 占比0.040625
+&lt; 500ms: 4个, 占比0.00625
+&lt; 600ms: 0个, 占比0
+&lt; 700ms: 1个, 占比0.0015625
+&lt; 800ms: 0个, 占比0
+CPU: 100.313, MEM: 2146.7M
+MEM INFO: min: 1168.95, max: 2732.53, avg: 2373.16
+CPU INFO: max: 15.9003</p>
+<p><strong>200热词剪纸前</strong></p>
+<p>音频统计信息:
+首片数量: 640
+中间片数量: 10905
+尾片数量: 640
+首片时长: 128000
+中间片时长: 2.181e+06
+尾片时长: 63502.2</p>
+<p>测试结果:</p>
+<p>首片超时数量: 0
+中间片超时数量: 22
+尾片超时数量: 24</p>
+<p>首片超时率: 0 中间片超时率: 0.00201742 尾片超时率:0.0375</p>
+<p>首片rtf: 6.25e-05 中间片rtf: 0.145072 尾片rtf: 1.48691</p>
+<p>首片平均耗时: 0ms 中间片平均耗时: 29ms 尾片平均耗时: 147ms</p>
+<p>首片最大耗时: 3ms 中间片最大耗时: 487ms 尾片最大耗时: 631ms</p>
+<p>总超时率: 0.00377513
+总rtf: 0.173164
+计算耗时分布: 0.173164
+&lt; 100ms: 179个, 占比0.279687
+&lt; 200ms: 338个, 占比0.528125
+&lt; 300ms: 99个, 占比0.154687
+&lt; 400ms: 22个, 占比0.034375
+&lt; 500ms: 1个, 占比0.0015625
+&lt; 600ms: 0个, 占比0
+&lt; 700ms: 1个, 占比0.0015625
+&lt; 800ms: 0个, 占比0
+MEM INFO: min: 1174.65, max: 2716.46, avg: 2388.27
+CPU INFO: max: 16
+root@c82ccabd2623:</p>
+<p><strong>1000热词剪枝前</strong></p>
+<p>音频统计信息:
+首片数量: 640
+中间片数量: 10905
+尾片数量: 640
+首片时长: 128000
+中间片时长: 2.181e+06
+尾片时长: 63502.2</p>
+<p>测试结果:</p>
+<p>首片超时数量: 0
+中间片超时数量: 27
+尾片超时数量: 31</p>
+<p>首片超时率: 0 中间片超时率: 0.00247593 尾片超时率:0.0484375</p>
+<p>首片rtf: 7.8125e-06 中间片rtf: 0.142577 尾片rtf: 1.55695</p>
+<p>首片平均耗时: 0ms 中间片平均耗时: 28ms 尾片平均耗时: 154ms</p>
+<p>首片最大耗时: 1ms 中间片最大耗时: 627ms 尾片最大耗时: 804ms</p>
+<p>总超时率: 0.00475995
+总rtf: 0.172743
+计算耗时分布: 0.172743
+&lt; 100ms: 179个, 占比0.279687
+&lt; 200ms: 308个, 占比0.48125
+&lt; 300ms: 122个, 占比0.190625
+&lt; 400ms: 21个, 占比0.0328125
+&lt; 500ms: 9个, 占比0.0140625
+&lt; 600ms: 0个, 占比0
+&lt; 700ms: 0个, 占比0
+&lt; 800ms: 1个, 占比0.0015625
+CPU: 100, MEM: 3253.16M
+MEM INFO: min: 1371.62, max: 4699.66, avg: 4179.12
+CPU INFO: max: 15.7538</p>
+<p><strong>500热词剪枝hou</strong></p>
+<p>音频统计信息:
+首片数量: 640
+中间片数量: 10905
+尾片数量: 640
+首片时长: 128000
+中间片时长: 2.181e+06
+尾片时长: 63502.2</p>
+<p>测试结果:</p>
+<p>首片超时数量: 0
+中间片超时数量: 14
+尾片超时数量: 19</p>
+<p>首片超时率: 0 中间片超时率: 0.00128381 尾片超时率:0.0296875</p>
+<p>首片rtf: 2.34375e-05 中间片rtf: 0.134193 尾片rtf: 1.41811</p>
+<p>首片平均耗时: 0ms 中间片平均耗时: 26ms 尾片平均耗时: 140ms</p>
+<p>首片最大耗时: 2ms 中间片最大耗时: 525ms 尾片最大耗时: 612ms</p>
+<p>总超时率: 0.00270825
+总rtf: 0.16132
+计算耗时分布: 0.16132
+&lt; 100ms: 214个, 占比0.334375
+&lt; 200ms: 314个, 占比0.490625
+&lt; 300ms: 93个, 占比0.145313
+&lt; 400ms: 18个, 占比0.028125
+&lt; 500ms: 0个, 占比0
+&lt; 600ms: 0个, 占比0
+&lt; 700ms: 1个, 占比0.0015625
+&lt; 800ms: 0个, 占比0
+MEM INFO: min: 1191.07, max: 2855.69, avg: 2380.81
+CPU INFO: max: 16</p>
+<p><strong>200热词剪枝后</strong></p>
+<p>音频统计信息:
+首片数量: 640
+中间片数量: 10905
+尾片数量: 640
+首片时长: 128000
+中间片时长: 2.181e+06
+尾片时长: 63502.2</p>
+<p>测试结果:</p>
+<p>首片超时数量: 0
+中间片超时数量: 9
+尾片超时数量: 17</p>
+<p>首片超时率: 0 中间片超时率: 0.000825309 尾片超时率:0.0265625</p>
+<p>首片rtf: 4.6875e-05 中间片rtf: 0.131058 尾片rtf: 1.40638</p>
+<p>首片平均耗时: 0ms 中间片平均耗时: 26ms 尾片平均耗时: 139ms</p>
+<p>首片最大耗时: 3ms 中间片最大耗时: 492ms 尾片最大耗时: 614ms</p>
+<p>总超时率: 0.00213377
+总rtf: 0.158125
+计算耗时分布: 0.158125
+&lt; 100ms: 215个, 占比0.335938
+&lt; 200ms: 309个, 占比0.482812
+&lt; 300ms: 99个, 占比0.154687
+&lt; 400ms: 16个, 占比0.025
+&lt; 500ms: 0个, 占比0
+&lt; 600ms: 0个, 占比0
+&lt; 700ms: 1个, 占比0.0015625
+&lt; 800ms: 0个, 占比0
+MEM INFO: min: 1195.12, max: 2697.07, avg: 2394.24
+CPU INFO: max: 15.75</p>
+<p>首片数量: 640
+中间片数量: 10905
+尾片数量: 640
+首片时长: 128000
+中间片时长: 2.181e+06
+尾片时长: 63502.2</p>
+<p>测试结果:</p>
+<p>首片超时数量: 0
+中间片超时数量: 62
+尾片超时数量: 53</p>
+<p>首片超时率: 0 中间片超时率: 0.00568547 尾片超时率:0.0828125</p>
+<p>首片rtf: 0 中间片rtf: 0.175417 尾片rtf: 1.75534</p>
+<p>首片平均耗时: 0ms 中间片平均耗时: 35ms 尾片平均耗时: 174ms</p>
+<p>首片最大耗时: 0ms 中间片最大耗时: 675ms 尾片最大耗时: 809ms</p>
+<p>总超时率: 0.00943783
+总rtf: 0.208241
+计算耗时分布: 0.208241
+&lt; 100ms: 134个, 占比0.209375
+&lt; 200ms: 301个, 占比0.470313
+&lt; 300ms: 152个, 占比0.2375
+&lt; 400ms: 36个, 占比0.05625
+&lt; 500ms: 15个, 占比0.0234375
+&lt; 600ms: 1个, 占比0.0015625
+&lt; 700ms: 0个, 占比0
+&lt; 800ms: 1个, 占比0.0015625
+CPU: 100, MEM: 3195.71M
+MEM INFO: min: 1429.28, max: 4806.31, avg: 4111.38
+CPU INFO: max: 15.8495</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>描述</th>
+<th>OS</th>
+<th>CPU型号</th>
+<th>逻辑核数</th>
+<th>逻辑核数内存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>测试集</th>
+<th>首帧延迟（avg|max）</th>
+<th>尾帧延迟（avg|max）</th>
+<th>超时率</th>
+<th>超时分布</th>
+<th>CPU消耗</th>
+<th>内存消耗</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>算法库</th>
+<th>模型</th>
+<th>推理引擎</th>
+<th>测试环境</th>
+<th>核数/路数</th>
+<th>malloc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Hugo Theme Stack Starter
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

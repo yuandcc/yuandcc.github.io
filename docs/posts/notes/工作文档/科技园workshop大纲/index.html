@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基于混合结构ASR系统的效果优化 大纲 混合结构ASR介绍。 ASR系统部署细节。 声学模型优化。 语言模型优化。 1. 混合结构ASR介绍 混合结构语音识别的数学表示：
+基本出发点
+$$W^* = \arg\max_W P(W|X)$$
+贝叶斯公式变换
+$$W^* = \arg\max_W P(X|W)P(W)$$
+$P(X|W)$：声学模型
+$P(W)$：语言模型
+注：端到端ASR直接计算 $P(W|X)$
+2. ASR系统部署细节 ASR系统在实际部署时需要的模块
+语音端点检测 (VAD) 作用：过滤噪声，提高准确率；降低ASR对计算资源的使用。 话者分离 例如一些业务需要将客服和客户分离出来，进行不同的处理。 一般流程： VAD SCD Speaker Embedding 聚类 性别识别 语种识别 后处理模块 后处理模块对ASR解码得到的句子做一些额外的处理，如标点预测，数字归一化等。 ASR系统在实际部署时需要关注的问题
+性能问题 在线场景：实时率和尾片超时率 $$RTF = \frac{process \ time }{audio \ time}$$ 离线场景：吞吐量 识别效果问题 字错率或字准率 $$ CER = \frac{#Insertion &#43; #Deletion &#43; #Substitute}{#Words}$$ 识别效果问题分类
+VAD等其他前置模块引入的错误。 如VAD可以造成人声漏识别和噪声误识别，一般情况根据噪声情况设置相关参数即可。 声学模型引入的错误。 出现如信道差异，噪声情况，方言或重口音，近场远场差异等音素。 语言模型引入的错误。 出现人名，地名，领域内专有名词等。 出现行业、领域、场景的话术，固定搭配等。 面向不同场景的优化'>
+<title></title>
+
+<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E7%A7%91%E6%8A%80%E5%9B%ADworkshop%E5%A4%A7%E7%BA%B2/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
+<meta property='og:description' content='基于混合结构ASR系统的效果优化 大纲 混合结构ASR介绍。 ASR系统部署细节。 声学模型优化。 语言模型优化。 1. 混合结构ASR介绍 混合结构语音识别的数学表示：
+基本出发点
+$$W^* = \arg\max_W P(W|X)$$
+贝叶斯公式变换
+$$W^* = \arg\max_W P(X|W)P(W)$$
+$P(X|W)$：声学模型
+$P(W)$：语言模型
+注：端到端ASR直接计算 $P(W|X)$
+2. ASR系统部署细节 ASR系统在实际部署时需要的模块
+语音端点检测 (VAD) 作用：过滤噪声，提高准确率；降低ASR对计算资源的使用。 话者分离 例如一些业务需要将客服和客户分离出来，进行不同的处理。 一般流程： VAD SCD Speaker Embedding 聚类 性别识别 语种识别 后处理模块 后处理模块对ASR解码得到的句子做一些额外的处理，如标点预测，数字归一化等。 ASR系统在实际部署时需要关注的问题
+性能问题 在线场景：实时率和尾片超时率 $$RTF = \frac{process \ time }{audio \ time}$$ 离线场景：吞吐量 识别效果问题 字错率或字准率 $$ CER = \frac{#Insertion &#43; #Deletion &#43; #Substitute}{#Words}$$ 识别效果问题分类
+VAD等其他前置模块引入的错误。 如VAD可以造成人声漏识别和噪声误识别，一般情况根据噪声情况设置相关参数即可。 声学模型引入的错误。 出现如信道差异，噪声情况，方言或重口音，近场远场差异等音素。 语言模型引入的错误。 出现人名，地名，领域内专有名词等。 出现行业、领域、场景的话术，固定搭配等。 面向不同场景的优化'>
+<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E7%A7%91%E6%8A%80%E5%9B%ADworkshop%E5%A4%A7%E7%BA%B2/'>
+<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="基于混合结构ASR系统的效果优化 大纲 混合结构ASR介绍。 ASR系统部署细节。 声学模型优化。 语言模型优化。 1. 混合结构ASR介绍 混合结构语音识别的数学表示：
+基本出发点
+$$W^* = \arg\max_W P(W|X)$$
+贝叶斯公式变换
+$$W^* = \arg\max_W P(X|W)P(W)$$
+$P(X|W)$：声学模型
+$P(W)$：语言模型
+注：端到端ASR直接计算 $P(W|X)$
+2. ASR系统部署细节 ASR系统在实际部署时需要的模块
+语音端点检测 (VAD) 作用：过滤噪声，提高准确率；降低ASR对计算资源的使用。 话者分离 例如一些业务需要将客服和客户分离出来，进行不同的处理。 一般流程： VAD SCD Speaker Embedding 聚类 性别识别 语种识别 后处理模块 后处理模块对ASR解码得到的句子做一些额外的处理，如标点预测，数字归一化等。 ASR系统在实际部署时需要关注的问题
+性能问题 在线场景：实时率和尾片超时率 $$RTF = \frac{process \ time }{audio \ time}$$ 离线场景：吞吐量 识别效果问题 字错率或字准率 $$ CER = \frac{#Insertion &#43; #Deletion &#43; #Substitute}{#Words}$$ 识别效果问题分类
+VAD等其他前置模块引入的错误。 如VAD可以造成人声漏识别和噪声误识别，一般情况根据噪声情况设置相关参数即可。 声学模型引入的错误。 出现如信道差异，噪声情况，方言或重口音，近场远场差异等音素。 语言模型引入的错误。 出现人名，地名，领域内专有名词等。 出现行业、领域、场景的话术，固定搭配等。 面向不同场景的优化">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#大纲">大纲</a>
+      <ol>
+        <li><a href="#1-混合结构asr介绍">1. 混合结构ASR介绍</a></li>
+        <li><a href="#2-asr系统部署细节">2. ASR系统部署细节</a></li>
+        <li><a href="#3-声学模型优化">3. 声学模型优化</a>
+          <ol>
+            <li><a href="#31-数据增强">3.1 数据增强</a></li>
+            <li><a href="#32-无监督预训练">3.2 无监督预训练</a></li>
+            <li><a href="#33-主动学习">3.3 主动学习</a></li>
+            <li><a href="#34-迁移学习">3.4 迁移学习</a></li>
+            <li><a href="#35-生成更好的对齐数据">3.5 生成更好的对齐数据</a></li>
+            <li><a href="#36-使用大模型训练小模型">3.6 使用大模型训练小模型</a></li>
+            <li><a href="#37-模型融合">3.7 模型融合</a></li>
+            <li><a href="#38-多流模型">3.8 多流模型</a></li>
+          </ol>
+        </li>
+        <li><a href="#4-语言模型优化方法">4. 语言模型优化方法</a>
+          <ol>
+            <li><a href="#41-插值语言模型">4.1 插值语言模型</a></li>
+            <li><a href="#42-语言模型重打分">4.2 语言模型重打分</a></li>
+            <li><a href="#43-热词增强">4.3 热词增强</a></li>
+            <li><a href="#44-语言模型得分前提">4.4 语言模型得分前提</a></li>
+            <li><a href="#45-纠错模型">4.5 纠错模型</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E7%A7%91%E6%8A%80%E5%9B%ADworkshop%E5%A4%A7%E7%BA%B2/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="基于混合结构asr系统的效果优化">基于混合结构ASR系统的效果优化</h1>
+<h2 id="大纲">大纲</h2>
+<ol>
+<li>混合结构ASR介绍。</li>
+<li>ASR系统部署细节。</li>
+<li>声学模型优化。</li>
+<li>语言模型优化。</li>
+</ol>
+<h3 id="1-混合结构asr介绍">1. 混合结构ASR介绍</h3>
+<p>混合结构语音识别的数学表示：</p>
+<ul>
+<li>
+<p>基本出发点</p>
+<p>$$W^* = \arg\max_W P(W|X)$$</p>
+</li>
+<li>
+<p>贝叶斯公式变换</p>
+</li>
+</ul>
+<p>$$W^* = \arg\max_W P(X|W)P(W)$$</p>
+<p>$P(X|W)$：声学模型</p>
+<p>$P(W)$：语言模型</p>
+<p>注：端到端ASR直接计算 $P(W|X)$</p>
+<h3 id="2-asr系统部署细节">2. ASR系统部署细节</h3>
+<ul>
+<li>
+<p>ASR系统在实际部署时需要的模块</p>
+<ul>
+<li>语音端点检测 (VAD)
+作用：过滤噪声，提高准确率；降低ASR对计算资源的使用。</li>
+<li>话者分离
+例如一些业务需要将客服和客户分离出来，进行不同的处理。
+一般流程：
+<ul>
+<li>VAD</li>
+<li>SCD</li>
+<li>Speaker Embedding</li>
+<li>聚类</li>
+</ul>
+</li>
+<li>性别识别</li>
+<li>语种识别</li>
+<li>后处理模块
+后处理模块对ASR解码得到的句子做一些额外的处理，如标点预测，数字归一化等。</li>
+</ul>
+</li>
+<li>
+<p>ASR系统在实际部署时需要关注的问题</p>
+<ul>
+<li>性能问题
+<ul>
+<li>在线场景：实时率和尾片超时率
+$$RTF =  \frac{process \ time }{audio \ time}$$</li>
+<li>离线场景：吞吐量</li>
+</ul>
+</li>
+<li>识别效果问题
+<ul>
+<li>字错率或字准率
+$$ CER = \frac{#Insertion + #Deletion + #Substitute}{#Words}$$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>识别效果问题分类</p>
+<ul>
+<li>VAD等其他前置模块引入的错误。
+如VAD可以造成人声漏识别和噪声误识别，一般情况根据噪声情况设置相关参数即可。</li>
+<li>声学模型引入的错误。
+出现如信道差异，噪声情况，方言或重口音，近场远场差异等音素。</li>
+<li>语言模型引入的错误。
+<ul>
+<li>出现人名，地名，领域内专有名词等。</li>
+<li>出现行业、领域、场景的话术，固定搭配等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>面向不同场景的优化</p>
+<ul>
+<li>通用模型迭代，提升通用模型的效果。
+特点： 效果和性能需要稳定，兼顾。</li>
+<li>特定场景调优（TO B业务）
+特点：针对某一业务或场景提升效果。</li>
+<li>比赛
+特点：效果优先。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-声学模型优化">3. 声学模型优化</h3>
+<ul>
+<li>标注数据较少时的优化方法
+<ul>
+<li>数据增强</li>
+<li>无监督预训练</li>
+<li>主动学习</li>
+<li>迁移学习</li>
+</ul>
+</li>
+<li>其他优化方法
+<ul>
+<li>生成更好的对齐数据</li>
+<li>使用大模型训练小模型</li>
+<li>模型融合</li>
+<li>多流声学模型</li>
+</ul>
+</li>
+</ul>
+<h4 id="31-数据增强">3.1 数据增强</h4>
+<p>在数据量较少或者特定音频（如远场）数据量较少时，通过数据增强方法可以有效降低字错误率，简单有效。</p>
+<ol>
+<li>噪声增强
+噪声数据集，<a class="link" href="http://www.openslr.org/17/"  target="_blank" rel="noopener"
+    >MUSAN</a></li>
+<li>混响增强
+混响数据集。<a class="link" href="https://www.openslr.org/28/"  target="_blank" rel="noopener"
+    >Room Impulse Response and Noise Database</a></li>
+<li>语速扰动</li>
+<li>音量扰动</li>
+<li>频谱增强
+论文：SpecAugment: A Simple Data Augmentation Method for Automatic Speech Recognition</li>
+</ol>
+<h4 id="32-无监督预训练">3.2 无监督预训练</h4>
+<p>预训练技术在NLP领域已经比较成熟，在语音领域也逐渐崭露头角。</p>
+<ul>
+<li>目标：从原始音频数据中学习一种特征表示，代替传统ASR中手工设计的特征（Fbank，MFCC等）。</li>
+<li>基于大量无标注数据，学习一个泛化性更好的特征表示 (鲁棒性更好)，学习的特征与具体任务无关。</li>
+<li>两种方法：Contrastive Predictive Coding (wav2vec) 和 Autoregressive Predictive Coding。</li>
+</ul>
+<h4 id="33-主动学习">3.3 主动学习</h4>
+<p>利用解码的置信度信息筛选对模型帮助更大的数据（即模型犯错最多的样本)进行标注。可以在有限时间内标注最有用的数据，提升模型的效果。简单有效。</p>
+<h4 id="34-迁移学习">3.4 迁移学习</h4>
+<ul>
+<li>
+<p>同类型语种 (可以共用发音词典) 的迁移学习
+不需要改变发音词典，可以直接调优 (近场远场，噪声情况，部分方言或重口音)。
+方法：</p>
+<ol>
+<li>
+<p>利用通用模型生成对齐数据。</p>
+</li>
+<li>
+<p>固定通用模型部分层的参数，调整学习率。</p>
+</li>
+<li>
+<p>利用对齐数据训练通用模型。</p>
+<p>效果（四川话调优案例）：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>数据量</th>
+<th>CER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>base</td>
+<td>45.437%</td>
+</tr>
+<tr>
+<td>1小时</td>
+<td>41.617%</td>
+</tr>
+<tr>
+<td>5小时</td>
+<td>32.526%</td>
+</tr>
+<tr>
+<td>50小时</td>
+<td>15.873%</td>
+</tr>
+</tbody>
+</table></div>
+</li>
+</ol>
+</li>
+<li>
+<p>不同语种之前的迁移学习
+因为发音词典不能共用（如普通话和粤语），因此无法直接利用迁移学习进行调优。
+方法：</p>
+<ol>
+<li>利用少量数据 (粤语数据) 构建基础模型，并生成对齐数据。</li>
+<li>利用大量数据（普通话）训练通用模型，通用模型泛化能力更好。</li>
+<li>将模型的输出层（包含了pdf-id信息）替换到通用模型的基础上。（不能直接训练，两个模型的输出层信息不一致，需要做个替换）</li>
+<li>固定通用模型的部分层参数，调整学习率系数。</li>
+<li>利用对齐数据进行调优。（可以利用通用模型基于大量数据训练的较好的表示能力）</li>
+</ol>
+<p>效果（400小时粤语数据案例）：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>数据量</th>
+<th>test1</th>
+<th>test2</th>
+<th>test3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>base</td>
+<td>15.44%</td>
+<td>27.61%</td>
+<td>28.32%</td>
+</tr>
+<tr>
+<td>优化</td>
+<td>15.92%</td>
+<td>16.05%</td>
+<td>20.80%</td>
+</tr>
+</tbody>
+</table></div>
+</li>
+</ul>
+<h4 id="35-生成更好的对齐数据">3.5 生成更好的对齐数据</h4>
+<p>传统的训练流程：</p>
+<ol>
+<li>训练GMM。</li>
+<li>GMM生成对齐数据。</li>
+<li>使用对齐数据训练DNN AM。</li>
+<li>使用训练好的DNN再次对齐数据，进行训练。</li>
+</ol>
+<p>训练DNN为有监督学习，训练数据的质量很大程度的影响了模型的效果。一般GMM阶段模型的字错误率在30%-40%左右，DNN模型的字错误率在20%以内。因此使用DNN模型可以获得更好的对齐结果训练模型。</p>
+<h4 id="36-使用大模型训练小模型">3.6 使用大模型训练小模型</h4>
+<p>使用大模型训练小模型是在<strong>3.5 生成更好的对齐数据</strong>思想上进一步延伸，使用更好的模型生成更好的训练数据，但是要注意输出层的适配问题。</p>
+<ul>
+<li>当数据量较多时，训练一个大声学模型保证效果最好（只考虑效果，不考虑推理速度）。</li>
+<li>使用大模型对齐数据。</li>
+<li>将大模型最后一层迁移到小模型上（保留pdf-id信息），利用对齐数据进行训练。</li>
+</ul>
+<p>另外，除了对数据重新对齐之外，还可以利用大模型的输出信息（后验概率分布）作为真值训练小模型（类似Teacher-Student）</p>
+<h4 id="37-模型融合">3.7 模型融合</h4>
+<p>帧级别的模型融合。</p>
+<ul>
+<li>多个模型使用相同的GMM结果（对齐结果，决策树）进行训练（保证模型输出信息一致）。</li>
+<li>多个模型可以结构不同（如LSTM和CNN），模型规模不同，也可以输入特征不同等。多个模型可以站在不同的角度进行预测。</li>
+<li>推理阶段，将多个模型的输出进行融合，可以求平均，可以取max等。</li>
+<li>对性能有一定影响，可以用在离线服务，或比赛中。</li>
+</ul>
+<h4 id="38-多流模型">3.8 多流模型</h4>
+<p>通过使用分辨率的数据训练模型，提升模型的泛化能力。</p>
+<ul>
+<li>使用不同的频带，多频带语音识别系统。</li>
+<li>使用不同的特征，多信道语音识别系统。</li>
+<li>使用不同的采样频率，窗大小，滤波器等。</li>
+</ul>
+<p>论文：Multistream CNN for  robust acoustic modeling
+相对于TDNN-F模型，Multistream CNN在Librispeech语料库中的WER相对改善了12%，RTF优化了15%。</p>
+<h3 id="4-语言模型优化方法">4. 语言模型优化方法</h3>
+<ul>
+<li>插值语言模型</li>
+<li>语言模型重打分</li>
+<li>热词增强技术</li>
+<li>语言模型得分前提</li>
+<li>纠错模型</li>
+</ul>
+<h4 id="41-插值语言模型">4.1 插值语言模型</h4>
+<p>相较于传统使用一份大语料生成Ngram语言模型的方法，通过在对特定测试语料上进行差值的方式，可以对降低特定场景或者特定任务的有一定效果。</p>
+<ul>
+<li>生成Ngram时，对语料进行分类（如通用语料，各场景语料等）</li>
+<li>同时为每份语料同时生成3-Gram和4-Gram语言模型</li>
+<li>在对应的测试集上寻找最优插值系数，降低混淆度，生成最后的Ngram模型。</li>
+</ul>
+<h4 id="42-语言模型重打分">4.2 语言模型重打分</h4>
+<p>语言模型重打分可以分为Ngram重打分和NNLM重打分。
+关键点：</p>
+<ul>
+<li>使用较小的语言模型构建解码图，保证解码速度。</li>
+<li>使用更大效果更好的语言模型进行二次打分。
+<ul>
+<li>一遍解码生成lattice或者Nbest。</li>
+<li>二遍解码时使用更好的语言模型对lattice和Nbest上的语言分数进行修改。</li>
+</ul>
+</li>
+<li>针对特定任务，一般还可以在大语言模型中融入更多领域语料，提升效果。</li>
+</ul>
+<p>效果（只是用特定领域文本做Ngram重打分）：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>数据量</th>
+<th>CER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>base</td>
+<td>12.746%</td>
+</tr>
+<tr>
+<td>200W行文本</td>
+<td>10.775%</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="43-热词增强">4.3 热词增强</h4>
+<p>热词增强是用来对特定词汇进行增强的技术。</p>
+<ul>
+<li>可以增强对人名，地名，机构名等专有名词的识别。</li>
+<li>可以解决oov的识别问题。只要可以用音素表示出来，就可以进行识别，包括英文单词。</li>
+<li>无需重新收集语料进行模型训练，可以实现分钟级别的效果调优。</li>
+</ul>
+<p>参考kaldi的on the fly grammar fst.</p>
+<ul>
+<li>生成的解码图的语料会将专有名词替换成特殊值(UNK)，此时解码图称为top fst。</li>
+<li>将配置的热词表构成单独的小fst，称为part fst。</li>
+<li>在解码算法中，如果在搜索top fst时遇到特殊值，便会跳转到part fst继续搜索。</li>
+<li>top fst和part fst&quot;动态缝合&quot;，无需提前compose成一个大图。</li>
+</ul>
+<h4 id="44-语言模型得分前提">4.4 语言模型得分前提</h4>
+<p>根据解码算法的特点，语言模型信息利用越早越好，不然正确的路径可能会被提前剪掉。</p>
+<ul>
+<li>lookahead：在解码搜索时，将路径上后续的语言得分前提，更早的加入语言模型的信息辅助剪枝策略剪枝。</li>
+<li>NNLM rescore on the fly
+<ul>
+<li>常规Rescoring：利用HCLG1先全部解码，生成lattice或者nbest，然后在G2上做lattice和nbest的Rescoring。</li>
+<li>on-the-fly Rescoring：使用HCLG1做解码，在解码过程中，每当解码出word时，立即加上G2中的LM 分数 (on-the-fly 形式)。</li>
+<li>可以参考Kaldi中的BigLM Decoder。</li>
+</ul>
+</li>
+</ul>
+<h4 id="45-纠错模型">4.5 纠错模型</h4>
+<p>利用seq2seq模型训练纠错模型。</p>
+<ul>
+<li>训练：模型输入为ASR识别结果，输出为标注结果。</li>
+<li>通过生成Nbset，可以提高纠错模型的训练数据的丰富度。</li>
+<li>可以较好的利用较长的上下文信息进行纠错，尤其是替换错误。</li>
+<li>作为一个单独的模块可以较好的接入到混合结构的ASR系统中。</li>
+</ul>
+<p>论文：Automatic Spelling Correction with Transformer for CTC-based End-to-End Speech Recognition</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Hugo Theme Stack Starter
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

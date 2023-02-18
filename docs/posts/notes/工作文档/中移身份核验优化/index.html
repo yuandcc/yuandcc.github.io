@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='中移身份核验项目 1. 通过率计算的问题 部分识别没有问题, 但是不一定适合中移侧需要的格式, 可能导致不通过, 最好可以明确一下.
+有些是客户没有&amp;quot;号&amp;quot;或&amp;quot;日&amp;quot;, 日期和手机号连在一起, 日期是否算通过, 手机号是否算通过. (识别没有问题, 如果中移侧有类似的规则, 我们可能需要做适配) 数字没有转小写是否算通过. (识别没有问题, 当日期和手机号连在一起时, 不会触发转小写, 同样是规则问题) 由于客户卡顿重复, 手机号大于11位是否算通过. 2. 统计脚本 计算日期，手机号通过率 单独计算日期错误和手机号错误详细类型占比 筛选相关训练文本 后处理错误修复 3. 模型优化 3.1 声学模型 训练数据 train 集合按出现日期和连续数字筛选 标注返回的数据 优化模型 340模型 350模型 360模型 3.2 解码图 训练数据 人名 基于日期，手机号和模板词的增强数据 优化模型 基于380模型的语言模型 3.3 神经网络语言模型 基于380的RNNLM调优 4. 安排 28号 脚本提供, 通过率计算, 训练数据筛选 数据入库 调优Ngram &#43; RNNLM, 并结合不同声学模型测试效果 验证声学模型调优 29号 全量标注数据数据 声学模型调优 提供模型 结果记录 3.8.0 全量数据： Building prefix dict from the default dictionary &amp;hellip; Loading model from cache /tmp/jieba.'>
+<title></title>
+
+<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E4%B8%AD%E7%A7%BB%E8%BA%AB%E4%BB%BD%E6%A0%B8%E9%AA%8C%E4%BC%98%E5%8C%96/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
+<meta property='og:description' content='中移身份核验项目 1. 通过率计算的问题 部分识别没有问题, 但是不一定适合中移侧需要的格式, 可能导致不通过, 最好可以明确一下.
+有些是客户没有&amp;quot;号&amp;quot;或&amp;quot;日&amp;quot;, 日期和手机号连在一起, 日期是否算通过, 手机号是否算通过. (识别没有问题, 如果中移侧有类似的规则, 我们可能需要做适配) 数字没有转小写是否算通过. (识别没有问题, 当日期和手机号连在一起时, 不会触发转小写, 同样是规则问题) 由于客户卡顿重复, 手机号大于11位是否算通过. 2. 统计脚本 计算日期，手机号通过率 单独计算日期错误和手机号错误详细类型占比 筛选相关训练文本 后处理错误修复 3. 模型优化 3.1 声学模型 训练数据 train 集合按出现日期和连续数字筛选 标注返回的数据 优化模型 340模型 350模型 360模型 3.2 解码图 训练数据 人名 基于日期，手机号和模板词的增强数据 优化模型 基于380模型的语言模型 3.3 神经网络语言模型 基于380的RNNLM调优 4. 安排 28号 脚本提供, 通过率计算, 训练数据筛选 数据入库 调优Ngram &#43; RNNLM, 并结合不同声学模型测试效果 验证声学模型调优 29号 全量标注数据数据 声学模型调优 提供模型 结果记录 3.8.0 全量数据： Building prefix dict from the default dictionary &amp;hellip; Loading model from cache /tmp/jieba.'>
+<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E4%B8%AD%E7%A7%BB%E8%BA%AB%E4%BB%BD%E6%A0%B8%E9%AA%8C%E4%BC%98%E5%8C%96/'>
+<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="中移身份核验项目 1. 通过率计算的问题 部分识别没有问题, 但是不一定适合中移侧需要的格式, 可能导致不通过, 最好可以明确一下.
+有些是客户没有&amp;quot;号&amp;quot;或&amp;quot;日&amp;quot;, 日期和手机号连在一起, 日期是否算通过, 手机号是否算通过. (识别没有问题, 如果中移侧有类似的规则, 我们可能需要做适配) 数字没有转小写是否算通过. (识别没有问题, 当日期和手机号连在一起时, 不会触发转小写, 同样是规则问题) 由于客户卡顿重复, 手机号大于11位是否算通过. 2. 统计脚本 计算日期，手机号通过率 单独计算日期错误和手机号错误详细类型占比 筛选相关训练文本 后处理错误修复 3. 模型优化 3.1 声学模型 训练数据 train 集合按出现日期和连续数字筛选 标注返回的数据 优化模型 340模型 350模型 360模型 3.2 解码图 训练数据 人名 基于日期，手机号和模板词的增强数据 优化模型 基于380模型的语言模型 3.3 神经网络语言模型 基于380的RNNLM调优 4. 安排 28号 脚本提供, 通过率计算, 训练数据筛选 数据入库 调优Ngram &#43; RNNLM, 并结合不同声学模型测试效果 验证声学模型调优 29号 全量标注数据数据 声学模型调优 提供模型 结果记录 3.8.0 全量数据： Building prefix dict from the default dictionary &amp;hellip; Loading model from cache /tmp/jieba.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-通过率计算的问题">1. 通过率计算的问题</a></li>
+    <li><a href="#2-统计脚本">2. 统计脚本</a></li>
+    <li><a href="#3-模型优化">3. 模型优化</a>
+      <ol>
+        <li><a href="#31-声学模型">3.1 声学模型</a>
+          <ol>
+            <li><a href="#训练数据">训练数据</a></li>
+            <li><a href="#优化模型">优化模型</a></li>
+          </ol>
+        </li>
+        <li><a href="#32-解码图">3.2 解码图</a>
+          <ol>
+            <li><a href="#训练数据-1">训练数据</a></li>
+            <li><a href="#优化模型-1">优化模型</a></li>
+          </ol>
+        </li>
+        <li><a href="#33-神经网络语言模型">3.3 神经网络语言模型</a></li>
+      </ol>
+    </li>
+    <li><a href="#4-安排">4. 安排</a>
+      <ol>
+        <li><a href="#28号">28号</a></li>
+        <li><a href="#29号">29号</a></li>
+      </ol>
+    </li>
+    <li><a href="#结果记录">结果记录</a>
+      <ol>
+        <li><a href="#380">3.8.0</a></li>
+        <li><a href="#370">3.7.0</a></li>
+        <li><a href="#340">3.4.0</a></li>
+        <li><a href="#350">3.5.0</a></li>
+        <li><a href="#340模型性能">340模型性能</a>
+          <ol>
+            <li><a href="#开后处理">开后处理</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E4%B8%AD%E7%A7%BB%E8%BA%AB%E4%BB%BD%E6%A0%B8%E9%AA%8C%E4%BC%98%E5%8C%96/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="中移身份核验项目">中移身份核验项目</h1>
+<h2 id="1-通过率计算的问题">1. 通过率计算的问题</h2>
+<p>部分识别没有问题, 但是不一定适合中移侧需要的格式, 可能导致不通过, 最好可以明确一下.</p>
+<ol>
+<li>有些是客户没有&quot;号&quot;或&quot;日&quot;, 日期和手机号连在一起, 日期是否算通过, 手机号是否算通过. (识别没有问题, 如果中移侧有类似的规则, 我们可能需要做适配)</li>
+<li>数字没有转小写是否算通过. (识别没有问题, 当日期和手机号连在一起时, 不会触发转小写, 同样是规则问题)</li>
+<li>由于客户卡顿重复, 手机号大于11位是否算通过.</li>
+</ol>
+<h2 id="2-统计脚本">2. 统计脚本</h2>
+<ol>
+<li>计算日期，手机号通过率</li>
+<li>单独计算日期错误和手机号错误详细类型占比</li>
+<li>筛选相关训练文本</li>
+<li>后处理错误修复</li>
+</ol>
+<h2 id="3-模型优化">3. 模型优化</h2>
+<h3 id="31-声学模型">3.1 声学模型</h3>
+<h4 id="训练数据">训练数据</h4>
+<ol>
+<li>train 集合按出现日期和连续数字筛选</li>
+<li>标注返回的数据</li>
+</ol>
+<h4 id="优化模型">优化模型</h4>
+<ol>
+<li>340模型</li>
+<li>350模型</li>
+<li>360模型</li>
+</ol>
+<h3 id="32-解码图">3.2 解码图</h3>
+<h4 id="训练数据-1">训练数据</h4>
+<ol>
+<li>人名</li>
+<li>基于日期，手机号和模板词的增强数据</li>
+</ol>
+<h4 id="优化模型-1">优化模型</h4>
+<ol>
+<li>基于380模型的语言模型</li>
+</ol>
+<h3 id="33-神经网络语言模型">3.3 神经网络语言模型</h3>
+<ol>
+<li>基于380的RNNLM调优</li>
+</ol>
+<h2 id="4-安排">4. 安排</h2>
+<h3 id="28号">28号</h3>
+<ol>
+<li>脚本提供, 通过率计算, 训练数据筛选</li>
+<li>数据入库</li>
+<li>调优Ngram + RNNLM, 并结合不同声学模型测试效果</li>
+<li>验证声学模型调优</li>
+</ol>
+<h3 id="29号">29号</h3>
+<ol>
+<li>全量标注数据数据</li>
+<li>声学模型调优</li>
+<li>提供模型</li>
+</ol>
+<h2 id="结果记录">结果记录</h2>
+<h3 id="380">3.8.0</h3>
+<p>全量数据：
+Building prefix dict from the default dictionary &hellip;
+Loading model from cache /tmp/jieba.cache
+Loading model cost 0.468 seconds.
+Prefix dict has been built successfully.
+phone number pass rate:  0.7491148204350025
+date pass rate:  0.7895801719777441
+name pass rate:  0.556398583712696
+name cer value:  0.07952223793807953</p>
+<h3 id="370">3.7.0</h3>
+<p>解码图:
+phone number pass rate:  0.8893805309734514
+date pass rate:  0.9424778761061947
+name pass rate:  0.6460176991150443
+name cer value:  0.0615188799321171</p>
+<p>phone number pass rate:  0.8012139605462822
+date pass rate:  0.8431967627718766
+name pass rate:  0.5397066262013152
+name cer value:  0.08338875530771986</p>
+<p>解码图 + AM:
+phone number pass rate:  0.9247787610619469
+date pass rate:  0.9247787610619469
+name pass rate:  0.5530973451327433
+name cer value:  0.09318085556967387</p>
+<p>解码图 + NNLM:
+phone number pass rate:  0.8849557522123894
+date pass rate:  0.9469026548672567
+name pass rate:  0.6283185840707964
+name cer value:  0.0720233139050791</p>
+<h3 id="340">3.4.0</h3>
+<p>解码图:
+phone number pass rate:  0.9026548672566371
+date pass rate:  0.9380530973451328
+name pass rate:  0.6371681415929203
+name cer value:  0.07415165479681608</p>
+<p>全量数据：
+phone number pass rate:  0.8174001011633789
+date pass rate:  0.860900354071826
+name pass rate:  0.5250379362670713
+name cer value:  0.08857561517861655</p>
+<p>解码图 + AM:
+phone number pass rate:  0.911504424778761
+date pass rate:  0.9336283185840708
+name pass rate:  0.5309734513274337
+name cer value:  0.09395109395109395</p>
+<p>phone number pass rate:  0.8148710166919575
+date pass rate:  0.8603945371775418
+name pass rate:  0.45472938796155793
+name cer value:  0.10690030587381409</p>
+<h3 id="350">3.5.0</h3>
+<p>phone number pass rate:  0.915929203539823
+date pass rate:  0.9336283185840708</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>优化</th>
+<th>通过率</th>
+<th>姓名通过率</th>
+<th>日期通过率</th>
+<th>手机号通过率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>380-opt</td>
+<td>ngram-v1</td>
+<td>43%</td>
+<td>57%</td>
+<td>80%</td>
+<td>72%</td>
+</tr>
+<tr>
+<td>380-opt</td>
+<td>ngram-v2</td>
+<td>44%</td>
+<td>55%</td>
+<td>85%</td>
+<td>79%</td>
+</tr>
+<tr>
+<td>380-opt</td>
+<td>ngram-v2 + am-v2</td>
+<td>48%</td>
+<td>56%</td>
+<td>90%</td>
+<td>88%</td>
+</tr>
+<tr>
+<td>380-opt</td>
+<td>ngram-v2 + am-v2 + nnlm-v2</td>
+<td>48%</td>
+<td>56%</td>
+<td>91%</td>
+<td>88%</td>
+</tr>
+<tr>
+<td>340-opt</td>
+<td>ngram-v2</td>
+<td>44%</td>
+<td>53%</td>
+<td>87%</td>
+<td>82%</td>
+</tr>
+<tr>
+<td>340-opt</td>
+<td>ngram-v2 + am-v1</td>
+<td>44%</td>
+<td>51%</td>
+<td>91%</td>
+<td>87%</td>
+</tr>
+<tr>
+<td>340-opt</td>
+<td>ngram-v2 + am-v2</td>
+<td>11%</td>
+<td>19%</td>
+<td>81%</td>
+<td>65%</td>
+</tr>
+<tr>
+<td>340-opt</td>
+<td>ngram-v2 + nnlm-v1</td>
+<td>45%</td>
+<td>55%</td>
+<td>88%</td>
+<td>80%</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>优化</th>
+<th>通过率</th>
+<th>姓名通过率</th>
+<th>日期通过率</th>
+<th>手机号通过率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>380-opt</td>
+<td>ngram-v1</td>
+<td>43%</td>
+<td>57%</td>
+<td>80%</td>
+<td>72%</td>
+</tr>
+<tr>
+<td>380-opt</td>
+<td>ngram-v2 + am-v2 + nnlm-v2</td>
+<td>48%</td>
+<td>56%</td>
+<td>91%</td>
+<td>88%</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="340模型性能">340模型性能</h3>
+<h4 id="开后处理">开后处理</h4>
+<p>测试结果:</p>
+<p>首片超时率: 0 中间片超时率: 0 尾片超时率:0.0272277
+首片rtf: 7.07214e-05 中间片rtf: 0.165046 尾片rtf: 2.84044
+首片平均耗时: 0ms 中间片平均耗时: 33ms 尾片平均耗时: 135ms
+首片最大耗时: 6ms 中间片最大耗时: 173ms 尾片最大耗时: 472ms
+总超时率: 0.000746725
+总rtf: 0.178819
+计算耗时分布: 0.178819
+&lt; 100ms: 232个, 占比0.287129
+&lt; 200ms: 483个, 占比0.597772
+&lt; 300ms: 71个, 占比0.0878713
+&lt; 400ms: 17个, 占比0.0210396
+&lt; 500ms: 5个, 占比0.00618812
+&lt; 600ms: 0个, 占比0
+&lt; 700ms: 0个, 占比0
+&lt; 800ms: 0个, 占比0</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>尾片平均延迟</th>
+<th>尾片最大延迟</th>
+<th>尾片超时率</th>
+<th>RTF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>380 (不开后处理)</td>
+<td></td>
+<td></td>
+<td>0.99%</td>
+<td>0.102</td>
+</tr>
+<tr>
+<td>340 (开后处理)</td>
+<td>135ms</td>
+<td>472ms</td>
+<td>2.72%</td>
+<td>0.17</td>
+</tr>
+</tbody>
+</table></div>
+<p>res_340_ngram_v1_rnnlm_v2</p>
+<p>res_370_ngram_v1_rnnlm_v2.txt</p>
+<p>res_370_opt1_rnnlm.txt</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Hugo Theme Stack Starter
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

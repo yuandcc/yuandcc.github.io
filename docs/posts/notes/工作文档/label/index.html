@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='追一 ASR 标注通用规范v2 一、音频切分项 音频切分是语音标注基础，需要按照音频波形进行切割，将有声频段切分出来，例： 切分前后贴合音频波形，前后留空不能超过 50ms，贴合音频波形就对了。 一段波形的切分不能超过 30s，若超过 30s 则在不影响主要内容处切开。 非正常人声大段噪音的情况中间静音部分超过 200ms 需要切分开，正常人声部分参考下图： 二、音频标签项（M/N/B/P/S/C/O） 句中标签 M 句中标签即音频内容根据语义为完整的一句话，但出现非正常人声部分（空白、噪音），例如下图中，蓝色框根据语义为完整的句子，但中间出现了超过100ms 的非正常人声 B 部分，因此将 B 单独切分出来，标记句中标签 M。 M 标签只会出现在前后标签都为 C、O、B 且都有文本的情况下，例如当段落前面能正常转写出文本，但是后半部分无法听清转写文本，中间不需要标记句中标签。 噪音标签 N 噪音标签是指音频有波形，但音频内容为非正常对话内容，例如：
+波形中是电话按键音、纯唱歌彩铃等嘈杂音频标记为噪音标签 N。 一人说话，连续的笑声，哈欠声等作为噪音标签，极其轻声的可以不标。 重叠标签 P 重叠标签主要通过音频波形图判断，所有角色说话清晰，但波形图上大块重叠，标注重叠标签 P。
+当主要角色音频清晰，其余角色声音小，不影响主要角色音频内容，只进行主要角色的正常转写与角色标签。 若出现下图中的情况，只需要将 C 部分切分出来标记重叠，其余 A、B 部分正常切分转写。 背景人声标签 B 背景人声标签主要为远场人说话的音频，能听清识别的正常转写文本，无法听清的只标注标签即可，例如两个人说话，另一个人在远处说话，波形上没有重叠，归为背景人声。
+角色标签 C/O/S
+客户，说话角色为客户的标记为客户 C，如果整段音频有其他客户音频， 标记为客户 1-C，客户 2-C1，依次类推。 客服，说话角色为客服的标记为客服 O，如果整段音频有其他客户音频，标记为客服 1-O，客服 2-O1，依次类推。 非顾客或者客服音频、电话录音系统、电话彩铃出现正常人声、机器人音频标记其他角色 S，不需要转写文本。例如：电话系统中播放&amp;quot;工号 3233为您服务&amp;quot;&amp;ldquo;您拨打的电话正在通话中&amp;quot;&amp;ldquo;喜欢这首彩铃吗？…&amp;rdquo; 平台上只添加了标签出现一个的情况，若出现多个，手动依次添加即可。 其他情况
+若主要角色说话时，有其他角色插入&amp;quot;嗯、哦&amp;quot;等简短字词，可以切分为一 个音频框，正常转写。 方言，标注角色层中的角色信息即可，方言的部分超过 3 个字或带有很强的方言口音算方言。 标记 N/P/M/S 标签后，不能出现文本，标记了文本只能出现 C/O/B 回声音频； 说话人背景音有回音，背后回声不影响主要说话人，正常转写。 说话人说完有延迟回音出现，将说话人音频切出来转写，回音按标签背景人声 B 操作。 回声单独出现，按标签背景人声 B 操作。 三、音频文本项 角色说话不清晰的音频按照音频标签项要求标注对应角色标签即可，角色说话内容清晰的音频正常转写文本，文本转写要求如下：'>
+<title></title>
+
+<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
+<meta property='og:description' content='追一 ASR 标注通用规范v2 一、音频切分项 音频切分是语音标注基础，需要按照音频波形进行切割，将有声频段切分出来，例： 切分前后贴合音频波形，前后留空不能超过 50ms，贴合音频波形就对了。 一段波形的切分不能超过 30s，若超过 30s 则在不影响主要内容处切开。 非正常人声大段噪音的情况中间静音部分超过 200ms 需要切分开，正常人声部分参考下图： 二、音频标签项（M/N/B/P/S/C/O） 句中标签 M 句中标签即音频内容根据语义为完整的一句话，但出现非正常人声部分（空白、噪音），例如下图中，蓝色框根据语义为完整的句子，但中间出现了超过100ms 的非正常人声 B 部分，因此将 B 单独切分出来，标记句中标签 M。 M 标签只会出现在前后标签都为 C、O、B 且都有文本的情况下，例如当段落前面能正常转写出文本，但是后半部分无法听清转写文本，中间不需要标记句中标签。 噪音标签 N 噪音标签是指音频有波形，但音频内容为非正常对话内容，例如：
+波形中是电话按键音、纯唱歌彩铃等嘈杂音频标记为噪音标签 N。 一人说话，连续的笑声，哈欠声等作为噪音标签，极其轻声的可以不标。 重叠标签 P 重叠标签主要通过音频波形图判断，所有角色说话清晰，但波形图上大块重叠，标注重叠标签 P。
+当主要角色音频清晰，其余角色声音小，不影响主要角色音频内容，只进行主要角色的正常转写与角色标签。 若出现下图中的情况，只需要将 C 部分切分出来标记重叠，其余 A、B 部分正常切分转写。 背景人声标签 B 背景人声标签主要为远场人说话的音频，能听清识别的正常转写文本，无法听清的只标注标签即可，例如两个人说话，另一个人在远处说话，波形上没有重叠，归为背景人声。
+角色标签 C/O/S
+客户，说话角色为客户的标记为客户 C，如果整段音频有其他客户音频， 标记为客户 1-C，客户 2-C1，依次类推。 客服，说话角色为客服的标记为客服 O，如果整段音频有其他客户音频，标记为客服 1-O，客服 2-O1，依次类推。 非顾客或者客服音频、电话录音系统、电话彩铃出现正常人声、机器人音频标记其他角色 S，不需要转写文本。例如：电话系统中播放&amp;quot;工号 3233为您服务&amp;quot;&amp;ldquo;您拨打的电话正在通话中&amp;quot;&amp;ldquo;喜欢这首彩铃吗？…&amp;rdquo; 平台上只添加了标签出现一个的情况，若出现多个，手动依次添加即可。 其他情况
+若主要角色说话时，有其他角色插入&amp;quot;嗯、哦&amp;quot;等简短字词，可以切分为一 个音频框，正常转写。 方言，标注角色层中的角色信息即可，方言的部分超过 3 个字或带有很强的方言口音算方言。 标记 N/P/M/S 标签后，不能出现文本，标记了文本只能出现 C/O/B 回声音频； 说话人背景音有回音，背后回声不影响主要说话人，正常转写。 说话人说完有延迟回音出现，将说话人音频切出来转写，回音按标签背景人声 B 操作。 回声单独出现，按标签背景人声 B 操作。 三、音频文本项 角色说话不清晰的音频按照音频标签项要求标注对应角色标签即可，角色说话内容清晰的音频正常转写文本，文本转写要求如下：'>
+<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label/'>
+<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="追一 ASR 标注通用规范v2 一、音频切分项 音频切分是语音标注基础，需要按照音频波形进行切割，将有声频段切分出来，例： 切分前后贴合音频波形，前后留空不能超过 50ms，贴合音频波形就对了。 一段波形的切分不能超过 30s，若超过 30s 则在不影响主要内容处切开。 非正常人声大段噪音的情况中间静音部分超过 200ms 需要切分开，正常人声部分参考下图： 二、音频标签项（M/N/B/P/S/C/O） 句中标签 M 句中标签即音频内容根据语义为完整的一句话，但出现非正常人声部分（空白、噪音），例如下图中，蓝色框根据语义为完整的句子，但中间出现了超过100ms 的非正常人声 B 部分，因此将 B 单独切分出来，标记句中标签 M。 M 标签只会出现在前后标签都为 C、O、B 且都有文本的情况下，例如当段落前面能正常转写出文本，但是后半部分无法听清转写文本，中间不需要标记句中标签。 噪音标签 N 噪音标签是指音频有波形，但音频内容为非正常对话内容，例如：
+波形中是电话按键音、纯唱歌彩铃等嘈杂音频标记为噪音标签 N。 一人说话，连续的笑声，哈欠声等作为噪音标签，极其轻声的可以不标。 重叠标签 P 重叠标签主要通过音频波形图判断，所有角色说话清晰，但波形图上大块重叠，标注重叠标签 P。
+当主要角色音频清晰，其余角色声音小，不影响主要角色音频内容，只进行主要角色的正常转写与角色标签。 若出现下图中的情况，只需要将 C 部分切分出来标记重叠，其余 A、B 部分正常切分转写。 背景人声标签 B 背景人声标签主要为远场人说话的音频，能听清识别的正常转写文本，无法听清的只标注标签即可，例如两个人说话，另一个人在远处说话，波形上没有重叠，归为背景人声。
+角色标签 C/O/S
+客户，说话角色为客户的标记为客户 C，如果整段音频有其他客户音频， 标记为客户 1-C，客户 2-C1，依次类推。 客服，说话角色为客服的标记为客服 O，如果整段音频有其他客户音频，标记为客服 1-O，客服 2-O1，依次类推。 非顾客或者客服音频、电话录音系统、电话彩铃出现正常人声、机器人音频标记其他角色 S，不需要转写文本。例如：电话系统中播放&amp;quot;工号 3233为您服务&amp;quot;&amp;ldquo;您拨打的电话正在通话中&amp;quot;&amp;ldquo;喜欢这首彩铃吗？…&amp;rdquo; 平台上只添加了标签出现一个的情况，若出现多个，手动依次添加即可。 其他情况
+若主要角色说话时，有其他角色插入&amp;quot;嗯、哦&amp;quot;等简短字词，可以切分为一 个音频框，正常转写。 方言，标注角色层中的角色信息即可，方言的部分超过 3 个字或带有很强的方言口音算方言。 标记 N/P/M/S 标签后，不能出现文本，标记了文本只能出现 C/O/B 回声音频； 说话人背景音有回音，背后回声不影响主要说话人，正常转写。 说话人说完有延迟回音出现，将说话人音频切出来转写，回音按标签背景人声 B 操作。 回声单独出现，按标签背景人声 B 操作。 三、音频文本项 角色说话不清晰的音频按照音频标签项要求标注对应角色标签即可，角色说话内容清晰的音频正常转写文本，文本转写要求如下：">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#一音频切分项">一、音频切分项</a></li>
+    <li><a href="#二音频标签项mnbpsco">二、音频标签项（M/N/B/P/S/C/O）</a></li>
+    <li><a href="#三音频文本项">三、音频文本项</a></li>
+    <li><a href="#四标注结果导出">四、标注结果导出</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/label/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="追一-asr-标注通用规范v2">追一 ASR 标注通用规范v2</h1>
+<h2 id="一音频切分项">一、音频切分项</h2>
+<ol>
+<li>音频切分是语音标注基础，需要按照音频波形进行切割，将有声频段切分出来，例：
+<img src="/.resouces/label/1-1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1"
+	
+	
+></li>
+<li>切分前后贴合音频波形，前后留空不能超过 50ms，贴合音频波形就对了。</li>
+<li>一段波形的切分不能超过 30s，若超过 30s 则在不影响主要内容处切开。</li>
+<li>非正常人声大段噪音的情况中间静音部分超过 200ms 需要切分开，正常人声部分参考下图：
+<img src="/.resouces/label/1-2.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="2"
+	
+	
+></li>
+</ol>
+<h2 id="二音频标签项mnbpsco">二、音频标签项（M/N/B/P/S/C/O）</h2>
+<ol>
+<li>
+<p>句中标签 M
+句中标签即音频内容根据语义为完整的一句话，但出现非正常人声部分（空白、噪音），例如下图中，蓝色框根据语义为完整的句子，但中间出现了超过100ms 的非正常人声 B 部分，因此将 B 单独切分出来，标记句中标签 M。
+<img src="/.resouces/label/2-1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="3"
+	
+	
+></p>
+<ol>
+<li>M 标签只会出现在前后标签都为 C、O、B 且都有文本的情况下，例如当段落前面能正常转写出文本，但是后半部分无法听清转写文本，中间不需要标记句中标签。</li>
+</ol>
+</li>
+<li>
+<p>噪音标签 N
+噪音标签是指音频有波形，但音频内容为非正常对话内容，例如：</p>
+<ol>
+<li>波形中是电话按键音、纯唱歌彩铃等嘈杂音频标记为噪音标签 N。</li>
+<li>一人说话，连续的笑声，哈欠声等作为噪音标签，极其轻声的可以不标。</li>
+</ol>
+</li>
+<li>
+<p>重叠标签 P
+重叠标签主要通过音频波形图判断，所有角色说话清晰，但波形图上大块重叠，标注重叠标签 P。</p>
+<ol>
+<li>当主要角色音频清晰，其余角色声音小，不影响主要角色音频内容，只进行主要角色的正常转写与角色标签。</li>
+<li>若出现下图中的情况，只需要将 C 部分切分出来标记重叠，其余 A、B 部分正常切分转写。
+<img src="/.resouces/label/2-2.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="4"
+	
+	
+></li>
+</ol>
+</li>
+<li>
+<p>背景人声标签 B
+背景人声标签主要为远场人说话的音频，能听清识别的正常转写文本，无法听清的只标注标签即可，例如两个人说话，另一个人在远处说话，波形上没有重叠，归为背景人声。</p>
+</li>
+<li>
+<p>角色标签 C/O/S</p>
+<ol>
+<li>客户，说话角色为客户的标记为<code>客户 C</code>，如果整段音频有其他客户音频， 标记为客户 1-C，客户 2-C1，依次类推。</li>
+<li>客服，说话角色为客服的标记为<code>客服 O</code>，如果整段音频有其他客户音频，标记为客服 1-O，客服 2-O1，依次类推。</li>
+<li>非顾客或者客服音频、电话录音系统、电话彩铃出现正常人声、机器人音频标记<code>其他角色 S</code>，不需要转写文本。例如：电话系统中播放&quot;工号 3233为您服务&quot;&ldquo;您拨打的电话正在通话中&quot;&ldquo;喜欢这首彩铃吗？…&rdquo;</li>
+<li>平台上只添加了标签出现一个的情况，若出现多个，手动依次添加即可。</li>
+</ol>
+</li>
+<li>
+<p>其他情况</p>
+<ol>
+<li>若主要角色说话时，有其他角色插入&quot;嗯、哦&quot;等简短字词，可以切分为一 个音频框，正常转写。</li>
+<li>方言，标注<code>角色层</code>中的<code>角色</code>信息即可，方言的部分超过 3 个字或带有很强的方言口音算方言。</li>
+<li>标记 N/P/M/S 标签后，不能出现文本，标记了文本只能出现 C/O/B</li>
+<li>回声音频；
+<ol>
+<li>说话人背景音有回音，背后回声不影响主要说话人，正常转写。</li>
+<li>说话人说完有延迟回音出现，将说话人音频切出来转写，回音按标签背景人声 B 操作。</li>
+<li>回声单独出现，按标签背景人声 B 操作。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="三音频文本项">三、音频文本项</h2>
+<p>角色说话不清晰的音频按照音频标签项要求标注对应角色标签即可，角色说话内容清晰的音频正常转写文本，文本转写要求如下：</p>
+<ol>
+<li>标注的时候，可以每个词之间加个空格或者标点符号（不强制要求）</li>
+<li>语音标注原则是音要对，按照正确发音进行转写。必须和听到的内容完全一致，按照发音转写相应文字，不能多字、少字、错字。无法确定的可用近音字替代。</li>
+<li>&ldquo;你&quot;和&quot;您&quot;在发音相似无法区分的时候，根据身份标注，客服为&quot;您&rdquo;，客户为&quot;你&rdquo;。</li>
+<li>文本只能为简体字，不能出现繁体字或异体字。</li>
+<li>百分之九十以上可以听辨出，只有个别字听不清楚，如果能根据上下文语义猜出文本的，正常标注。否则标记角色层即可。</li>
+<li>标点符号
+<ol>
+<li>若出现标点符号只能含有中文、英文以及常用标点符号。</li>
+<li>符号被读出，则根据发音转写相应汉字或英文，例如&quot;@&ldquo;读&quot;艾特&quot;时要写为&quot;艾特&rdquo;，&quot;.com&quot;读成&quot;点  com&quot;时要写成&quot;点 com&quot;。</li>
+</ol>
+</li>
+<li>数字
+<ol>
+<li>数字部分需根据发音情况转写为对应汉字，数字全部用汉字。例如&quot;23818→&quot;二三八幺（与发音相同）八&quot;。</li>
+<li>所有涉及金额、钱的标注，只转写小写的一二三四百千，不标注大写的贰叁肆佰仟。</li>
+<li>幺（1）、两（2）、三、四、五、六、拐（7）、八、勾（9）、洞（0）有出现的情况，按照实际发音转写。</li>
+</ol>
+</li>
+<li>英文
+<ol>
+<li>对于语音中简单的英文单词，能听懂的情况下，直接标出即可。例如： 网 址 是 三 w 点 sina 点 com 。</li>
+<li>如果单词和字母发音一样，每个字母中间用空格隔开，例如 ppt 标 p p t，ok 标 o k，iphone 七标称 iphone 七，因为 iphone 是一个单词没法拆分成字母，但是七这个数据是单独的。</li>
+<li>如果英文单词只读到一半，例如 i pad，读一半是 i pai 的音，但是 pai 不是一个英文单词，就用汉字标注，例如 i 派。</li>
+<li>英文字母统一用小写表示。</li>
+</ol>
+</li>
+<li>口语词
+<ol>
+<li>发 ao 四声的时候，用&quot;奥&quot;进行转写。</li>
+<li>呃发音【è】的时候用呃表示，发音【e】用<code>{um}</code>表示。</li>
+<li>出现拖长音&quot;嗯&quot;或者&quot;哦&quot;的情况，被识别成&quot;嗯 嗯&quot;或者&quot;哦 哦&quot;的情况下， 应该改成一个字的&quot;嗯&quot;或&quot;哦&quot;。</li>
+<li>一个人说一整句话的时候，另一个人在中间插了一句&quot;嗯&quot;的情况下，语音没有重叠，需要标&quot;嗯&quot;。</li>
+<li>详细发音及语义区分建议参考：http://www.zdic.net</li>
+</ol>
+</li>
+<li>儿化音要标
+<ol>
+<li>如芋儿（yùr）、老头儿（lǎotóur）等。</li>
+</ol>
+</li>
+<li>虚词
+<ol>
+<li>&ldquo;xxx 的 xxx&rdquo; 这样的句式里, &ldquo;的&quot;经常被弱化读出来时，这种若有若无模棱两可的，根据文本含义来判断，如果加上比较顺就加上，否则去掉。其他不影响实际含义的虚词也用同样方法判断。比如，&ldquo;打扰到您了&quot;这句话里，要有&quot;到&rdquo;。</li>
+<li>助词&quot;的&quot;接在副词以外的实词后，组成带有有名词功能的词组，在句子中当作主语或宾语使用，此时如果听到的&quot;的&quot;发音类似&quot;呢&rdquo;，不标注&quot;呢&quot;，标&quot;的&quot;。例如：xxx是xxx的。</li>
+</ol>
+</li>
+<li>拼音
+<ol>
+<li>按听到的发音写对应的汉字。 例如：g — 哥； 拼读 wu(吴) xue(雪)时： 呜呜吴，西约雪。</li>
+</ol>
+</li>
+</ol>
+<h2 id="四标注结果导出">四、标注结果导出</h2>
+<ol>
+<li>
+<p>标注结果导出 TextGrid 格式，采取 <code>2 层</code>记录信息，</p>
+<ol>
+<li>第一层内容层：标记文本</li>
+<li>第二层角色层：角色层互斥，只允许出现<code>唯一</code>标签项。</li>
+</ol>
+<p>内容层正常转写的需要标注对应的<code>角色标签</code>，无法正常转写的，只需要标记对应角色标签即可。
+<img src="/.resouces/label/4-1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="5"
+	
+	
+></p>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Hugo Theme Stack Starter
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

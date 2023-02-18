@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='声学模型训练数据标注规范简化版 本标注规范在通用标注规范的基础上进行简化，仅适用于私有化调优声学模型时快速标注音频数据。
+1. 音频切分 音频切分需要按照音频波形进行切割，将有声频段切分出来。如图 音频波形中出现200ms静音时需要切分开。 切分前后贴合音频波形，前后留空不能超过 100ms。 一段波形的切分不能超过 30s，若超过 30s 则在不影响主要内容处切开。 2. 音频标签项（N/P/C） 正常人声标签为 C 噪音标签 N 噪音标签是指音频有波形，但音频内容为非正常对话内容，例如： 波形中是电话按键音、纯唱歌彩铃等嘈杂音频标记为噪音标签 N。 一人说话，连续的笑声，哈欠声等作为噪音标签，极其轻声的可以不标。 重叠标签为 P 重叠标签主要通过音频波形图判断，所有角色说话清晰，但波形图上大块重叠，标注重叠标签。 当主要角色音频清晰，其余角色声音小，不影响主要角色音频内容，只进行主要角色的正常转写与角色标签。 若出现下图中的情况，只需要将 C 部分切分出来标记重叠，其余 A、B 部分正常切分转写。 标记 N/P 标签后，不能出现文本。
+3. 音频文本项 角色说话不清晰的音频按照音频标签项要求标注对应角色标签即可，角色说 话内容清晰的音频正常转写文本，文本转写要求如下：
+语音标注原则是音要对，按照正确发音进行转写。必须和听到的内容完全一 致，按照发音转写相应文字，不能多字、少字、错字。无法确定的可用近音 字替代。 “你”和“您”在发音相似无法区分的时候，根据身份标注，客服为“您”，客户为 “你”。 文本只能为简体字，不能出现繁体字或异体字。 百分之九十以上可以听辨出，只有个别字听不清楚，如果能根据上下文语义 猜出文本的，正常标注。否则标记角色层即可。 标点符号 若出现标点符号只能含有中文、英文以及常用标点符号。 符号被读出，则根据发音转写相应汉字或英文，例如“@”读“艾特”时要写 为“艾特”，“.com”读成“点 com”时要写成“点 com”。 数字 数字部分需根据发音情况转写为对应汉字，数字全部用汉字。例如 “23818→“二三八幺（与发音相同）八”。 所有涉及金额、钱的标注，只转写小写的一二三四百千，不标注大写的 贰叁肆佰仟。 幺（1）、两（2）、三、四、五、六、拐（7）、八、勾（9）、洞（0）有出 现的情况，按照实际发音转写。 英文 对于语音中简单的英文单词，能听懂的情况下，直接标出即可。例如： 网址是三 w 点 sina 点 com。 如果单词和字母发音一样，每个字母中间用空格隔开，例如 ppt 标 p p t，ok 标 o k，iphone 七标称 iphone 七，因为 iphone 是一个单词没法拆 分成字母，但是七这个数据是单独的。 如果英文单词只读到一半，例如 i pad，读一半是 i pai 的音，但是 pai 不 是一个英文单词，就用汉字标注，例如 i 派 英文字母统一用小写表示。 口语词 发 ao 四声的时候，用“奥”进行转写。 呃发音【è】的时候用呃表示，发音【e】用“{um}”表示。 出现拖长音“嗯”或者“哦”的情况，被识别成”嗯 嗯“或者”哦 哦“的情况下， 应该改成一个字的”嗯“或”哦“。 一个人说一整句话的时候，另一个人在中间插了一句“嗯”的情况下，语音 没有重叠，需要标“嗯”。 详细发音及语义区分建议参考：http://www.'>
+<title></title>
+
+<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E5%A3%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E8%A7%84%E8%8C%83/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
+<meta property='og:description' content='声学模型训练数据标注规范简化版 本标注规范在通用标注规范的基础上进行简化，仅适用于私有化调优声学模型时快速标注音频数据。
+1. 音频切分 音频切分需要按照音频波形进行切割，将有声频段切分出来。如图 音频波形中出现200ms静音时需要切分开。 切分前后贴合音频波形，前后留空不能超过 100ms。 一段波形的切分不能超过 30s，若超过 30s 则在不影响主要内容处切开。 2. 音频标签项（N/P/C） 正常人声标签为 C 噪音标签 N 噪音标签是指音频有波形，但音频内容为非正常对话内容，例如： 波形中是电话按键音、纯唱歌彩铃等嘈杂音频标记为噪音标签 N。 一人说话，连续的笑声，哈欠声等作为噪音标签，极其轻声的可以不标。 重叠标签为 P 重叠标签主要通过音频波形图判断，所有角色说话清晰，但波形图上大块重叠，标注重叠标签。 当主要角色音频清晰，其余角色声音小，不影响主要角色音频内容，只进行主要角色的正常转写与角色标签。 若出现下图中的情况，只需要将 C 部分切分出来标记重叠，其余 A、B 部分正常切分转写。 标记 N/P 标签后，不能出现文本。
+3. 音频文本项 角色说话不清晰的音频按照音频标签项要求标注对应角色标签即可，角色说 话内容清晰的音频正常转写文本，文本转写要求如下：
+语音标注原则是音要对，按照正确发音进行转写。必须和听到的内容完全一 致，按照发音转写相应文字，不能多字、少字、错字。无法确定的可用近音 字替代。 “你”和“您”在发音相似无法区分的时候，根据身份标注，客服为“您”，客户为 “你”。 文本只能为简体字，不能出现繁体字或异体字。 百分之九十以上可以听辨出，只有个别字听不清楚，如果能根据上下文语义 猜出文本的，正常标注。否则标记角色层即可。 标点符号 若出现标点符号只能含有中文、英文以及常用标点符号。 符号被读出，则根据发音转写相应汉字或英文，例如“@”读“艾特”时要写 为“艾特”，“.com”读成“点 com”时要写成“点 com”。 数字 数字部分需根据发音情况转写为对应汉字，数字全部用汉字。例如 “23818→“二三八幺（与发音相同）八”。 所有涉及金额、钱的标注，只转写小写的一二三四百千，不标注大写的 贰叁肆佰仟。 幺（1）、两（2）、三、四、五、六、拐（7）、八、勾（9）、洞（0）有出 现的情况，按照实际发音转写。 英文 对于语音中简单的英文单词，能听懂的情况下，直接标出即可。例如： 网址是三 w 点 sina 点 com。 如果单词和字母发音一样，每个字母中间用空格隔开，例如 ppt 标 p p t，ok 标 o k，iphone 七标称 iphone 七，因为 iphone 是一个单词没法拆 分成字母，但是七这个数据是单独的。 如果英文单词只读到一半，例如 i pad，读一半是 i pai 的音，但是 pai 不 是一个英文单词，就用汉字标注，例如 i 派 英文字母统一用小写表示。 口语词 发 ao 四声的时候，用“奥”进行转写。 呃发音【è】的时候用呃表示，发音【e】用“{um}”表示。 出现拖长音“嗯”或者“哦”的情况，被识别成”嗯 嗯“或者”哦 哦“的情况下， 应该改成一个字的”嗯“或”哦“。 一个人说一整句话的时候，另一个人在中间插了一句“嗯”的情况下，语音 没有重叠，需要标“嗯”。 详细发音及语义区分建议参考：http://www.'>
+<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E5%A3%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E8%A7%84%E8%8C%83/'>
+<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="声学模型训练数据标注规范简化版 本标注规范在通用标注规范的基础上进行简化，仅适用于私有化调优声学模型时快速标注音频数据。
+1. 音频切分 音频切分需要按照音频波形进行切割，将有声频段切分出来。如图 音频波形中出现200ms静音时需要切分开。 切分前后贴合音频波形，前后留空不能超过 100ms。 一段波形的切分不能超过 30s，若超过 30s 则在不影响主要内容处切开。 2. 音频标签项（N/P/C） 正常人声标签为 C 噪音标签 N 噪音标签是指音频有波形，但音频内容为非正常对话内容，例如： 波形中是电话按键音、纯唱歌彩铃等嘈杂音频标记为噪音标签 N。 一人说话，连续的笑声，哈欠声等作为噪音标签，极其轻声的可以不标。 重叠标签为 P 重叠标签主要通过音频波形图判断，所有角色说话清晰，但波形图上大块重叠，标注重叠标签。 当主要角色音频清晰，其余角色声音小，不影响主要角色音频内容，只进行主要角色的正常转写与角色标签。 若出现下图中的情况，只需要将 C 部分切分出来标记重叠，其余 A、B 部分正常切分转写。 标记 N/P 标签后，不能出现文本。
+3. 音频文本项 角色说话不清晰的音频按照音频标签项要求标注对应角色标签即可，角色说 话内容清晰的音频正常转写文本，文本转写要求如下：
+语音标注原则是音要对，按照正确发音进行转写。必须和听到的内容完全一 致，按照发音转写相应文字，不能多字、少字、错字。无法确定的可用近音 字替代。 “你”和“您”在发音相似无法区分的时候，根据身份标注，客服为“您”，客户为 “你”。 文本只能为简体字，不能出现繁体字或异体字。 百分之九十以上可以听辨出，只有个别字听不清楚，如果能根据上下文语义 猜出文本的，正常标注。否则标记角色层即可。 标点符号 若出现标点符号只能含有中文、英文以及常用标点符号。 符号被读出，则根据发音转写相应汉字或英文，例如“@”读“艾特”时要写 为“艾特”，“.com”读成“点 com”时要写成“点 com”。 数字 数字部分需根据发音情况转写为对应汉字，数字全部用汉字。例如 “23818→“二三八幺（与发音相同）八”。 所有涉及金额、钱的标注，只转写小写的一二三四百千，不标注大写的 贰叁肆佰仟。 幺（1）、两（2）、三、四、五、六、拐（7）、八、勾（9）、洞（0）有出 现的情况，按照实际发音转写。 英文 对于语音中简单的英文单词，能听懂的情况下，直接标出即可。例如： 网址是三 w 点 sina 点 com。 如果单词和字母发音一样，每个字母中间用空格隔开，例如 ppt 标 p p t，ok 标 o k，iphone 七标称 iphone 七，因为 iphone 是一个单词没法拆 分成字母，但是七这个数据是单独的。 如果英文单词只读到一半，例如 i pad，读一半是 i pai 的音，但是 pai 不 是一个英文单词，就用汉字标注，例如 i 派 英文字母统一用小写表示。 口语词 发 ao 四声的时候，用“奥”进行转写。 呃发音【è】的时候用呃表示，发音【e】用“{um}”表示。 出现拖长音“嗯”或者“哦”的情况，被识别成”嗯 嗯“或者”哦 哦“的情况下， 应该改成一个字的”嗯“或”哦“。 一个人说一整句话的时候，另一个人在中间插了一句“嗯”的情况下，语音 没有重叠，需要标“嗯”。 详细发音及语义区分建议参考：http://www.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-音频切分">1. 音频切分</a></li>
+    <li><a href="#2-音频标签项npc">2. 音频标签项（N/P/C）</a></li>
+    <li><a href="#3-音频文本项">3. 音频文本项</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E5%A3%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8%E8%A7%84%E8%8C%83/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="声学模型训练数据标注规范简化版">声学模型训练数据标注规范简化版</h1>
+<p>本标注规范在通用标注规范的基础上进行简化，仅适用于私有化调优声学模型时快速标注音频数据。</p>
+<h2 id="1-音频切分">1. 音频切分</h2>
+<ol>
+<li>音频切分需要按照音频波形进行切割，将有声频段切分出来。如图
+<img src="/1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="avatar"
+	
+	
+></li>
+<li>音频波形中出现200ms静音时需要切分开。</li>
+<li>切分前后贴合音频波形，前后留空不能超过 100ms。</li>
+<li>一段波形的切分不能超过 30s，若超过 30s 则在不影响主要内容处切开。</li>
+</ol>
+<h2 id="2-音频标签项npc">2. 音频标签项（N/P/C）</h2>
+<ol>
+<li>正常人声标签为 C</li>
+<li>噪音标签 N
+噪音标签是指音频有波形，但音频内容为非正常对话内容，例如：
+<ol>
+<li>波形中是电话按键音、纯唱歌彩铃等嘈杂音频标记为噪音标签 N。</li>
+<li>一人说话，连续的笑声，哈欠声等作为噪音标签，极其轻声的可以不标。</li>
+</ol>
+</li>
+<li>重叠标签为 P
+重叠标签主要通过音频波形图判断，所有角色说话清晰，但波形图上大块重叠，标注重叠标签。
+<ol>
+<li>当主要角色音频清晰，其余角色声音小，不影响主要角色音频内容，只进行主要角色的正常转写与角色标签。</li>
+<li>若出现下图中的情况，只需要将 C 部分切分出来标记重叠，其余 A、B 部分正常切分转写。
+<img src="/2.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="avatar"
+	
+	
+></li>
+</ol>
+</li>
+</ol>
+<p>标记 N/P 标签后，不能出现文本。</p>
+<h2 id="3-音频文本项">3. 音频文本项</h2>
+<p>角色说话不清晰的音频按照音频标签项要求标注对应角色标签即可，角色说
+话内容清晰的音频正常转写文本，文本转写要求如下：</p>
+<ol>
+<li>语音标注原则是音要对，按照正确发音进行转写。必须和听到的内容完全一
+致，按照发音转写相应文字，不能多字、少字、错字。无法确定的可用近音
+字替代。</li>
+<li>“你”和“您”在发音相似无法区分的时候，根据身份标注，客服为“您”，客户为
+“你”。</li>
+<li>文本只能为简体字，不能出现繁体字或异体字。</li>
+<li>百分之九十以上可以听辨出，只有个别字听不清楚，如果能根据上下文语义
+猜出文本的，正常标注。否则标记角色层即可。</li>
+<li>标点符号
+<ol>
+<li>若出现标点符号只能含有中文、英文以及常用标点符号。</li>
+<li>符号被读出，则根据发音转写相应汉字或英文，例如“@”读“艾特”时要写
+为“艾特”，“.com”读成“点 com”时要写成“点 com”。</li>
+</ol>
+</li>
+<li>数字
+<ol>
+<li>数字部分需根据发音情况转写为对应汉字，数字全部用汉字。例如
+“23818→“二三八幺（与发音相同）八”。</li>
+<li>所有涉及金额、钱的标注，只转写小写的一二三四百千，不标注大写的
+贰叁肆佰仟。</li>
+<li>幺（1）、两（2）、三、四、五、六、拐（7）、八、勾（9）、洞（0）有出
+现的情况，按照实际发音转写。</li>
+</ol>
+</li>
+<li>英文
+<ol>
+<li>对于语音中简单的英文单词，能听懂的情况下，直接标出即可。例如：
+网址是三 w 点 sina 点 com。</li>
+<li>如果单词和字母发音一样，每个字母中间用空格隔开，例如 ppt 标 p p
+t，ok 标 o k，iphone 七标称 iphone 七，因为 iphone 是一个单词没法拆
+分成字母，但是七这个数据是单独的。</li>
+<li>如果英文单词只读到一半，例如 i pad，读一半是 i pai 的音，但是 pai 不
+是一个英文单词，就用汉字标注，例如 i 派</li>
+<li>英文字母统一用小写表示。</li>
+</ol>
+</li>
+<li>口语词
+<ol>
+<li>发 ao 四声的时候，用“奥”进行转写。</li>
+<li>呃发音【è】的时候用呃表示，发音【e】用“{um}”表示。</li>
+<li>出现拖长音“嗯”或者“哦”的情况，被识别成”嗯 嗯“或者”哦 哦“的情况下，
+应该改成一个字的”嗯“或”哦“。</li>
+<li>一个人说一整句话的时候，另一个人在中间插了一句“嗯”的情况下，语音
+没有重叠，需要标“嗯”。</li>
+<li>详细发音及语义区分建议参考：http://www.zdic.net</li>
+</ol>
+</li>
+<li>儿化音要标
+如芋儿（yùr）、老头儿（lǎotóur）等</li>
+<li>虚词
+<ol>
+<li>“……的……” 这样的句式里 “的”经常被弱化读出来时，这种若有若无模
+棱两可的，根据文本含义来判断，如果加上比较顺就加上，否则去掉。
+其他不影响实际含义的虚词也用同样方法判断。比如，“打扰到您了”这句
+话里，要有“到”。</li>
+<li>助词“的”接在副词以外的实词后，组成带有有名词功能的词组，在句子中
+当作主语或宾语使用，此时如果听到的“的”发音类似“呢”，不标注“呢”， 标“的”。例如：……是……的。</li>
+</ol>
+</li>
+<li>拼音
+按听到的发音写对应的汉字。 例如：g — 哥； 拼读 wu(吴) xue(雪)时：
+呜呜吴，西约雪。</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Hugo Theme Stack Starter
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

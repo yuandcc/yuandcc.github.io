@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='工作目标 2022年第2季度 算法库 算法库支持端到端方案（在线 &#43; 离线）。 算法库支持GPU推理。 算法库CPU性能加速。 算法库发版v2.8.0版本。 端到端 ASR 在线asr效果优化，优于kaldi系统。 离线asr效果优化，0.5-1个点提升。 支持TLG解码方式。 端到端ASR自学习平台支持。 kaldi ASR 线上在用系统持续优化，测试集效果平均提升0.5-1个点。
+声学模型效果优化。 针对文本领域补充文本语料优化语言模型。 日常事务 完成组内服务器安全改造。 项目支持等其他日常事务。 2022年第3季度 算法库 端到端ASR支持流式及非流式GPU推理。
+优化ASR结果置信度功能。
+优化数字归一化接口。
+其他模块的更新支持。
+语音预训练模型 语音预训练模型调研和方案选型。
+结合ASR及其他下游任务进行前期实验工作。
+ASR模型 ASR端到端模型迭代
+优化流式效果，目标0.5%-1%。
+优化非流式效果，目标0.5-1%。
+日常事务 ASR相关项目的开发支持: ASR相关训练，评测等项目。
+ASR及其他模块代码的code review。
+服务器管理等。
+ASR TEAM TODO LIST 算法库 话者分离工程化
+文本语料库
+OPENVINO更新2.0
+ASR 前端 VAD效果优化 话者分离效果优化 ASR 模型 方言模型
+端到端模型
+使用350版本优化
+方言模型重新对齐优化
+粤语发音词典验收
+英文模型
+端到端模型
+英文模型重新对齐优化
+中英混合模型
+中英混模型
+端到端模型 其他 BPO京东金融效果优化
+base_utils install_requires增加opencc， textgrid依赖'>
+<title></title>
+
+<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/asr/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
+<meta property='og:description' content='工作目标 2022年第2季度 算法库 算法库支持端到端方案（在线 &#43; 离线）。 算法库支持GPU推理。 算法库CPU性能加速。 算法库发版v2.8.0版本。 端到端 ASR 在线asr效果优化，优于kaldi系统。 离线asr效果优化，0.5-1个点提升。 支持TLG解码方式。 端到端ASR自学习平台支持。 kaldi ASR 线上在用系统持续优化，测试集效果平均提升0.5-1个点。
+声学模型效果优化。 针对文本领域补充文本语料优化语言模型。 日常事务 完成组内服务器安全改造。 项目支持等其他日常事务。 2022年第3季度 算法库 端到端ASR支持流式及非流式GPU推理。
+优化ASR结果置信度功能。
+优化数字归一化接口。
+其他模块的更新支持。
+语音预训练模型 语音预训练模型调研和方案选型。
+结合ASR及其他下游任务进行前期实验工作。
+ASR模型 ASR端到端模型迭代
+优化流式效果，目标0.5%-1%。
+优化非流式效果，目标0.5-1%。
+日常事务 ASR相关项目的开发支持: ASR相关训练，评测等项目。
+ASR及其他模块代码的code review。
+服务器管理等。
+ASR TEAM TODO LIST 算法库 话者分离工程化
+文本语料库
+OPENVINO更新2.0
+ASR 前端 VAD效果优化 话者分离效果优化 ASR 模型 方言模型
+端到端模型
+使用350版本优化
+方言模型重新对齐优化
+粤语发音词典验收
+英文模型
+端到端模型
+英文模型重新对齐优化
+中英混合模型
+中英混模型
+端到端模型 其他 BPO京东金融效果优化
+base_utils install_requires增加opencc， textgrid依赖'>
+<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/asr/'>
+<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="工作目标 2022年第2季度 算法库 算法库支持端到端方案（在线 &#43; 离线）。 算法库支持GPU推理。 算法库CPU性能加速。 算法库发版v2.8.0版本。 端到端 ASR 在线asr效果优化，优于kaldi系统。 离线asr效果优化，0.5-1个点提升。 支持TLG解码方式。 端到端ASR自学习平台支持。 kaldi ASR 线上在用系统持续优化，测试集效果平均提升0.5-1个点。
+声学模型效果优化。 针对文本领域补充文本语料优化语言模型。 日常事务 完成组内服务器安全改造。 项目支持等其他日常事务。 2022年第3季度 算法库 端到端ASR支持流式及非流式GPU推理。
+优化ASR结果置信度功能。
+优化数字归一化接口。
+其他模块的更新支持。
+语音预训练模型 语音预训练模型调研和方案选型。
+结合ASR及其他下游任务进行前期实验工作。
+ASR模型 ASR端到端模型迭代
+优化流式效果，目标0.5%-1%。
+优化非流式效果，目标0.5-1%。
+日常事务 ASR相关项目的开发支持: ASR相关训练，评测等项目。
+ASR及其他模块代码的code review。
+服务器管理等。
+ASR TEAM TODO LIST 算法库 话者分离工程化
+文本语料库
+OPENVINO更新2.0
+ASR 前端 VAD效果优化 话者分离效果优化 ASR 模型 方言模型
+端到端模型
+使用350版本优化
+方言模型重新对齐优化
+粤语发音词典验收
+英文模型
+端到端模型
+英文模型重新对齐优化
+中英混合模型
+中英混模型
+端到端模型 其他 BPO京东金融效果优化
+base_utils install_requires增加opencc， textgrid依赖">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#2022年第2季度">2022年第2季度</a>
+      <ol>
+        <li><a href="#算法库">算法库</a></li>
+        <li><a href="#端到端-asr">端到端 ASR</a></li>
+        <li><a href="#kaldi-asr">kaldi ASR</a></li>
+        <li><a href="#日常事务">日常事务</a></li>
+      </ol>
+    </li>
+    <li><a href="#2022年第3季度">2022年第3季度</a>
+      <ol>
+        <li><a href="#算法库-1">算法库</a></li>
+        <li><a href="#语音预训练模型">语音预训练模型</a></li>
+        <li><a href="#asr模型">ASR模型</a></li>
+        <li><a href="#日常事务-1">日常事务</a></li>
+      </ol>
+    </li>
+    <li><a href="#asr-team-todo-list">ASR TEAM TODO LIST</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#算法库-2">算法库</a></li>
+            <li><a href="#asr-前端">ASR 前端</a></li>
+            <li><a href="#asr-模型">ASR 模型</a></li>
+            <li><a href="#其他">其他</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#yuan-todo-list">Yuan TODO LIST</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#算法库-3">算法库</a></li>
+            <li><a href="#端到端-asr-1">端到端 ASR</a></li>
+            <li><a href="#kaldi-asr-1">kaldi ASR</a></li>
+            <li><a href="#asr-前端-1">ASR 前端</a></li>
+            <li><a href="#其他-1">其他</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#项目支持">项目支持</a>
+      <ol>
+        <li><a href="#bpo项目">BPO项目</a></li>
+        <li><a href="#广发银行">广发银行</a></li>
+        <li><a href="#vc--数字人">VC / 数字人</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/asr%E6%AF%8F%E5%91%A8%E5%B7%A5%E4%BD%9C%E5%8A%A8%E6%80%81/asr/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="工作目标">工作目标</h1>
+<h2 id="2022年第2季度">2022年第2季度</h2>
+<h3 id="算法库">算法库</h3>
+<ol>
+<li>算法库支持端到端方案（在线 + 离线）。</li>
+<li>算法库支持GPU推理。</li>
+<li>算法库CPU性能加速。</li>
+<li>算法库发版v2.8.0版本。</li>
+</ol>
+<h3 id="端到端-asr">端到端 ASR</h3>
+<ol>
+<li>在线asr效果优化，优于kaldi系统。</li>
+<li>离线asr效果优化，0.5-1个点提升。</li>
+<li>支持TLG解码方式。</li>
+<li>端到端ASR自学习平台支持。</li>
+</ol>
+<h3 id="kaldi-asr">kaldi ASR</h3>
+<p>线上在用系统持续优化，测试集效果平均提升0.5-1个点。</p>
+<ol>
+<li>声学模型效果优化。</li>
+<li>针对文本领域补充文本语料优化语言模型。</li>
+</ol>
+<h3 id="日常事务">日常事务</h3>
+<ol>
+<li>完成组内服务器安全改造。</li>
+<li>项目支持等其他日常事务。</li>
+</ol>
+<h2 id="2022年第3季度">2022年第3季度</h2>
+<h3 id="算法库-1">算法库</h3>
+<ol>
+<li>
+<p>端到端ASR支持流式及非流式GPU推理。</p>
+</li>
+<li>
+<p>优化ASR结果置信度功能。</p>
+</li>
+<li>
+<p>优化数字归一化接口。</p>
+</li>
+<li>
+<p>其他模块的更新支持。</p>
+</li>
+</ol>
+<h3 id="语音预训练模型">语音预训练模型</h3>
+<ol>
+<li>
+<p>语音预训练模型调研和方案选型。</p>
+</li>
+<li>
+<p>结合ASR及其他下游任务进行前期实验工作。</p>
+</li>
+</ol>
+<h3 id="asr模型">ASR模型</h3>
+<p>ASR端到端模型迭代</p>
+<ol>
+<li>
+<p>优化流式效果，目标0.5%-1%。</p>
+</li>
+<li>
+<p>优化非流式效果，目标0.5-1%。</p>
+</li>
+</ol>
+<h3 id="日常事务-1">日常事务</h3>
+<ol>
+<li>
+<p>ASR相关项目的开发支持: ASR相关训练，评测等项目。</p>
+</li>
+<li>
+<p>ASR及其他模块代码的code review。</p>
+</li>
+<li>
+<p>服务器管理等。</p>
+</li>
+</ol>
+<h2 id="asr-team-todo-list">ASR TEAM TODO LIST</h2>
+<h4 id="算法库-2">算法库</h4>
+<ol>
+<li>
+<p><del>话者分离工程化</del></p>
+</li>
+<li>
+<p>文本语料库</p>
+</li>
+<li>
+<p>OPENVINO更新2.0</p>
+</li>
+</ol>
+<h4 id="asr-前端">ASR 前端</h4>
+<ol>
+<li>VAD效果优化</li>
+<li>话者分离效果优化</li>
+</ol>
+<h4 id="asr-模型">ASR 模型</h4>
+<ol>
+<li>
+<p>方言模型</p>
+<ul>
+<li>
+<p>端到端模型</p>
+</li>
+<li>
+<p>使用350版本优化</p>
+</li>
+<li>
+<p>方言模型重新对齐优化</p>
+</li>
+<li>
+<p>粤语发音词典验收</p>
+</li>
+</ul>
+</li>
+<li>
+<p>英文模型</p>
+<ul>
+<li>
+<p>端到端模型</p>
+</li>
+<li>
+<p>英文模型重新对齐优化</p>
+</li>
+<li>
+<p>中英混合模型</p>
+</li>
+</ul>
+</li>
+<li>
+<p>中英混模型</p>
+<ul>
+<li>端到端模型</li>
+</ul>
+</li>
+</ol>
+<h4 id="其他">其他</h4>
+<ol>
+<li>
+<p>BPO京东金融效果优化</p>
+</li>
+<li>
+<p>base_utils install_requires增加opencc， textgrid依赖</p>
+</li>
+<li>
+<p>语种识别实验: 普通话，粤语，四川话</p>
+</li>
+<li>
+<p>自学习平台调优数据指南</p>
+</li>
+<li>
+<p>自学习平台openvino支持</p>
+</li>
+<li>
+<p>专有名词清洗</p>
+</li>
+</ol>
+<h2 id="yuan-todo-list">Yuan TODO LIST</h2>
+<h4 id="算法库-3">算法库</h4>
+<ol>
+<li>
+<p><strong>算法库 v2.x</strong></p>
+<ul>
+<li>
+<p><del>缓存功能合并主分支</del></p>
+</li>
+<li>
+<p>算法库ppg支持动态chunk和动态上下文</p>
+</li>
+<li>
+<p>停用词后处理合并主分支</p>
+</li>
+<li>
+<p><del>kaldi声学模型batch推理调研</del></p>
+</li>
+<li>
+<p>kaldi-onnx项目缓存功能合并主分支</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>算法库 v3.x</strong></p>
+<ul>
+<li>
+<p><del>所有项目支持c++14标准</del></p>
+</li>
+<li>
+<p><del>bazel支持v3.0.0以上版本</del></p>
+</li>
+<li>
+<p><del>dependency_rules项目支持wenet</del></p>
+</li>
+<li>
+<p><del>算法库支持wenet</del></p>
+<ul>
+<li>
+<p>调整传入的符号表</p>
+</li>
+<li>
+<p>传入音频尾片padding 200ms静音</p>
+</li>
+</ul>
+</li>
+<li>
+<p>升级tf版本到2.0+</p>
+</li>
+<li>
+<p>padding 200ms逻辑差异导致的效果差异</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="端到端-asr-1">端到端 ASR</h4>
+<ul>
+<li>
+<p>流式效果优化</p>
+<ul>
+<li>
+<p>padding 静音数据训练</p>
+</li>
+<li>
+<p>去掉超短句</p>
+</li>
+<li>
+<p>调整学习率</p>
+</li>
+</ul>
+</li>
+<li>
+<p>非流式模型效果优化</p>
+<ul>
+<li>
+<p>英文使用CHAR建模实验</p>
+</li>
+<li>
+<p>增大学习率</p>
+</li>
+<li>
+<p>增大epoch</p>
+</li>
+</ul>
+</li>
+<li>
+<p><del>支持语言模型</del></p>
+</li>
+</ul>
+<h4 id="kaldi-asr-1">kaldi ASR</h4>
+<ul>
+<li><del>350模型使用神经网络对齐优化</del></li>
+<li>continue learning</li>
+<li>mutil stream cnn</li>
+</ul>
+<h4 id="asr-前端-1">ASR 前端</h4>
+<ul>
+<li>VAD逻辑工程侧和算法侧对齐</li>
+</ul>
+<h4 id="其他-1">其他</h4>
+<ul>
+<li>
+<p>压测</p>
+<ul>
+<li>
+<p>英文测试语料</p>
+</li>
+<li>
+<p>粤语测试语料</p>
+</li>
+</ul>
+</li>
+<li>
+<p>自学习平台</p>
+<ul>
+<li>
+<p>支持openvino</p>
+</li>
+<li>
+<p>发版v1.0.0版本</p>
+</li>
+<li>
+<p>调优指南 - 问题判断</p>
+</li>
+</ul>
+</li>
+<li>
+<p>代码review</p>
+<ul>
+<li>
+<p>文本语料库</p>
+</li>
+<li>
+<p>Yispeech 话者分离开放调优参数</p>
+</li>
+</ul>
+</li>
+<li>
+<p>百度SMLTA方案</p>
+</li>
+<li>
+<p>base_utils: 更新安装依赖</p>
+</li>
+<li>
+<p>数据迁移</p>
+<ul>
+<li>
+<p>性能测试机测试docker 镜像备份</p>
+</li>
+<li>
+<p>流水线测试机迁移</p>
+</li>
+<li>
+<p>数据库服务器迁移</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="项目支持">项目支持</h2>
+<h3 id="bpo项目">BPO项目</h3>
+<ol>
+<li>
+<p>Asr_model_v3.10.0-bpo模型</p>
+</li>
+<li>
+<p>100 小时标注调优</p>
+</li>
+</ol>
+<h3 id="广发银行">广发银行</h3>
+<p>时间：8.10</p>
+<ol>
+<li>
+<p>专有语料调优</p>
+</li>
+<li>
+<p>地名调优</p>
+</li>
+</ol>
+<h3 id="vc--数字人">VC / 数字人</h3>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Hugo Theme Stack Starter
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

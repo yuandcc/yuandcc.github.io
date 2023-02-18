@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='ASR安排季度安排 以往季度计划
+红色表示优先级最高 橙色表示优先级次高 2021年 第四季度 季度重点专项工作 高优先级 数字人对接 现有方案调优 新方案调研和尝试 端到端方案 流式模型正式版本 调优方案 中优先级 算法库 基于端到端的GPU方案 多租户热词CPU版本 模型 ASR通用模型 | 英语模型迭代 | 粤语模型 | 四川话模型 VAD效果优化 人力安排重点 yuanding 数字人新方案支持 端到端方案实验 dongcai 英文ASR优化 | 中英code-switch方案 VAD效果优化 fangcheng 数字人现有方案调优 四川方言ASR优化 | 方言混合识别方案 1. 事务性工作 1.1 内部事务 代码相关：code review (yuan) 数据相关 语音数据管理 (dongcai) 文本数据管理 (fangcheng) 版本发布 (yuan) 算法库发布 模型发布 竞品评测定期维护: vad | asr (fangcheng) 服务器维护 (yuan) 语音数据库维护 (yuan) 1.2 外部事物 需求对接，音频处理，效果验证，badcase分析 (all) 数字人项目对接 | 对接tts音色转换 (yuan &#43; fangcheng) 自学习平台，对接工程 | POC项目调优支持 (all) 对接ASR识别文本后处理纠错(调研阶段) 2.'>
+<title></title>
+
+<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
+<meta property='og:description' content='ASR安排季度安排 以往季度计划
+红色表示优先级最高 橙色表示优先级次高 2021年 第四季度 季度重点专项工作 高优先级 数字人对接 现有方案调优 新方案调研和尝试 端到端方案 流式模型正式版本 调优方案 中优先级 算法库 基于端到端的GPU方案 多租户热词CPU版本 模型 ASR通用模型 | 英语模型迭代 | 粤语模型 | 四川话模型 VAD效果优化 人力安排重点 yuanding 数字人新方案支持 端到端方案实验 dongcai 英文ASR优化 | 中英code-switch方案 VAD效果优化 fangcheng 数字人现有方案调优 四川方言ASR优化 | 方言混合识别方案 1. 事务性工作 1.1 内部事务 代码相关：code review (yuan) 数据相关 语音数据管理 (dongcai) 文本数据管理 (fangcheng) 版本发布 (yuan) 算法库发布 模型发布 竞品评测定期维护: vad | asr (fangcheng) 服务器维护 (yuan) 语音数据库维护 (yuan) 1.2 外部事物 需求对接，音频处理，效果验证，badcase分析 (all) 数字人项目对接 | 对接tts音色转换 (yuan &#43; fangcheng) 自学习平台，对接工程 | POC项目调优支持 (all) 对接ASR识别文本后处理纠错(调研阶段) 2.'>
+<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/'>
+<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="ASR安排季度安排 以往季度计划
+红色表示优先级最高 橙色表示优先级次高 2021年 第四季度 季度重点专项工作 高优先级 数字人对接 现有方案调优 新方案调研和尝试 端到端方案 流式模型正式版本 调优方案 中优先级 算法库 基于端到端的GPU方案 多租户热词CPU版本 模型 ASR通用模型 | 英语模型迭代 | 粤语模型 | 四川话模型 VAD效果优化 人力安排重点 yuanding 数字人新方案支持 端到端方案实验 dongcai 英文ASR优化 | 中英code-switch方案 VAD效果优化 fangcheng 数字人现有方案调优 四川方言ASR优化 | 方言混合识别方案 1. 事务性工作 1.1 内部事务 代码相关：code review (yuan) 数据相关 语音数据管理 (dongcai) 文本数据管理 (fangcheng) 版本发布 (yuan) 算法库发布 模型发布 竞品评测定期维护: vad | asr (fangcheng) 服务器维护 (yuan) 语音数据库维护 (yuan) 1.2 外部事物 需求对接，音频处理，效果验证，badcase分析 (all) 数字人项目对接 | 对接tts音色转换 (yuan &#43; fangcheng) 自学习平台，对接工程 | POC项目调优支持 (all) 对接ASR识别文本后处理纠错(调研阶段) 2.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#2021年">2021年</a>
+      <ol>
+        <li><a href="#第四季度">第四季度</a></li>
+        <li><a href="#季度重点专项工作">季度重点专项工作</a></li>
+        <li><a href="#人力安排重点">人力安排重点</a></li>
+        <li><a href="#1-事务性工作">1. 事务性工作</a>
+          <ol>
+            <li><a href="#11-内部事务">1.1 内部事务</a></li>
+            <li><a href="#12-外部事物">1.2 外部事物</a></li>
+          </ol>
+        </li>
+        <li><a href="#2-算法库-yuan">2. 算法库 (yuan)</a></li>
+        <li><a href="#3-asr声学模型">3. ASR声学模型</a></li>
+        <li><a href="#4-asr语言模型-yuan">4. ASR语言模型 (yuan)</a></li>
+        <li><a href="#5-自学习平台-fangcheng">5. 自学习平台 (fangcheng)</a></li>
+        <li><a href="#6-英文asr-dongcai">6. 英文ASR (dongcai)</a></li>
+        <li><a href="#7-粤语asr-yuan">7. 粤语ASR (yuan)</a></li>
+        <li><a href="#8-端到端asr-yuan">8. 端到端ASR (yuan)</a></li>
+        <li><a href="#9-方言支持-fangcheng">9. 方言支持 (fangcheng)</a></li>
+        <li><a href="#10-asr-前端">10. ASR 前端</a></li>
+      </ol>
+    </li>
+    <li><a href="#2022年第一季度">2022年第一季度</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="asr安排季度安排">ASR安排季度安排</h1>
+<p><a class="link" href="https://docs.qq.com/doc/DZHJqZFNBcFdDc1Vq"  target="_blank" rel="noopener"
+    >以往季度计划</a></p>
+<p><!-- raw HTML omitted --> 红色表示优先级最高 <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> 橙色表示优先级次高 <!-- raw HTML omitted --></p>
+<h2 id="2021年">2021年</h2>
+<h3 id="第四季度">第四季度</h3>
+<h3 id="季度重点专项工作">季度重点专项工作</h3>
+<p><!-- raw HTML omitted --> 高优先级 <!-- raw HTML omitted --></p>
+<ul>
+<li>数字人对接
+<ul>
+<li>现有方案调优</li>
+<li>新方案调研和尝试</li>
+</ul>
+</li>
+<li>端到端方案
+<ul>
+<li>流式模型正式版本</li>
+<li>调优方案</li>
+</ul>
+</li>
+</ul>
+<p><!-- raw HTML omitted --> 中优先级 <!-- raw HTML omitted --></p>
+<ul>
+<li>算法库
+<ul>
+<li>基于端到端的GPU方案</li>
+<li>多租户热词CPU版本</li>
+</ul>
+</li>
+<li>模型
+<ul>
+<li>ASR通用模型 | 英语模型迭代 | 粤语模型 | 四川话模型</li>
+<li>VAD效果优化</li>
+</ul>
+</li>
+</ul>
+<h3 id="人力安排重点">人力安排重点</h3>
+<ul>
+<li>yuanding
+<ul>
+<li>数字人新方案支持</li>
+<li>端到端方案实验</li>
+</ul>
+</li>
+<li>dongcai
+<ul>
+<li>英文ASR优化 | 中英code-switch方案</li>
+<li>VAD效果优化</li>
+</ul>
+</li>
+<li>fangcheng
+<ul>
+<li>数字人现有方案调优</li>
+<li>四川方言ASR优化 | 方言混合识别方案</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-事务性工作">1. 事务性工作</h3>
+<h4 id="11-内部事务">1.1 内部事务</h4>
+<ol>
+<li>代码相关：code review (yuan)</li>
+<li>数据相关
+<ul>
+<li>语音数据管理 (dongcai)</li>
+<li>文本数据管理 (fangcheng)</li>
+</ul>
+</li>
+<li>版本发布 (yuan)
+<ul>
+<li>算法库发布</li>
+<li>模型发布</li>
+</ul>
+</li>
+<li>竞品评测定期维护: vad | asr (fangcheng)</li>
+<li>服务器维护 (yuan)</li>
+<li>语音数据库维护 (yuan)</li>
+</ol>
+<h4 id="12-外部事物">1.2 外部事物</h4>
+<ol>
+<li>需求对接，音频处理，效果验证，badcase分析 (all)</li>
+<li><!-- raw HTML omitted --> 数字人项目对接 | 对接tts音色转换 <!-- raw HTML omitted --> (yuan + fangcheng)</li>
+<li>自学习平台，对接工程 | POC项目调优支持 (all)</li>
+<li>对接ASR识别文本后处理纠错(调研阶段)</li>
+</ol>
+<h3 id="2-算法库-yuan">2. 算法库 (yuan)</h3>
+<ol>
+<li>功能项
+<ul>
+<li><!-- raw HTML omitted --> 数字归一化功能更新 <!-- raw HTML omitted --></li>
+<li>开放拼音预测接口</li>
+<li>热词拼音预测检查机制完善</li>
+<li>完善标点预测模型固定输入长度逻辑</li>
+</ul>
+</li>
+<li><!-- raw HTML omitted --> 多租户热词CPU方案 | 多模型加载方案 | 模型共享与动态reset <!-- raw HTML omitted --></li>
+<li>GPU方案(基于端到端)
+<ul>
+<li>非多租户GPU方案</li>
+<li>多租户GPU方案</li>
+</ul>
+</li>
+<li>模型推理缓存机制</li>
+</ol>
+<h3 id="3-asr声学模型">3. ASR声学模型</h3>
+<ol>
+<li>数据方面(fangcheng)
+<ul>
+<li>噪声数据补充</li>
+<li>增加训练数据</li>
+<li>kaldi半监督训练/无监督训练</li>
+<li>混响 + 噪声 + 语速增强</li>
+</ul>
+</li>
+<li>模型方面 (dongcai)
+<ul>
+<li>利用大模型训练小模型</li>
+<li>使用神经网络模型重新对齐</li>
+<li>尝试新的模型结构</li>
+</ul>
+</li>
+<li><!-- raw HTML omitted --> 发音词典多音字实验 <!-- raw HTML omitted --> (fangcheng)</li>
+</ol>
+<h3 id="4-asr语言模型-yuan">4. ASR语言模型 (yuan)</h3>
+<ol>
+<li>分类整理并积累各领域语料/热词</li>
+<li>补充通用语料</li>
+<li><!-- raw HTML omitted --> 优化NgramLM + NNLM <!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted --> 人名 | 地名 | 车牌 | 数字 + 字母组合效果优化 <!-- raw HTML omitted --></li>
+<li>语言模型分数前提
+<ul>
+<li>lookahead</li>
+<li>on the fly nnlm rescore</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-自学习平台-fangcheng">5. 自学习平台 (fangcheng)</h3>
+<ol>
+<li>使用文档/调优文档 (confluence)</li>
+<li><!-- raw HTML omitted --> 部分工具必要性检查及人性化报错 (如 fix_dta_dir.sh) <!-- raw HTML omitted --></li>
+<li>文本/音频数据增强</li>
+<li><!-- raw HTML omitted --> 英文字母对应的热词拼音 <!-- raw HTML omitted --> (dongcai)</li>
+<li>版本流程管理</li>
+</ol>
+<h3 id="6-英文asr-dongcai">6. 英文ASR (dongcai)</h3>
+<ol>
+<li><!-- raw HTML omitted --> 使用gigaspeech数据优化AM + LM <!-- raw HTML omitted --></li>
+<li>标注规范 | 入库规范 | 处理规范 | 发音词典完善</li>
+<li><!-- raw HTML omitted --> 中英code-switching ASR方案 (ASRU 2019 code-switching challenge)<!-- raw HTML omitted --></li>
+</ol>
+<h3 id="7-粤语asr-yuan">7. 粤语ASR (yuan)</h3>
+<ol>
+<li>发音词典完善</li>
+<li><!-- raw HTML omitted --> 支持热词调优 <!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted --> 使用科技园数据补充训练 <!-- raw HTML omitted --></li>
+<li>补充文本数据</li>
+</ol>
+<h3 id="8-端到端asr-yuan">8. 端到端ASR (yuan)</h3>
+<ol>
+<li>将基线方案进行完善，在gitlab上进行管理 (训练 | 评测 | 实验记录)</li>
+<li>端到端热词方案</li>
+<li>端到端其他调优方案</li>
+</ol>
+<h3 id="9-方言支持-fangcheng">9. 方言支持 (fangcheng)</h3>
+<ol>
+<li><!-- raw HTML omitted --> 四川方言 <!-- raw HTML omitted -->
+<ul>
+<li>新的四川话测试集</li>
+</ul>
+</li>
+<li>河南方言</li>
+<li><!-- raw HTML omitted --> 方言混合识别方案 (Multilingual | code-switching) <!-- raw HTML omitted --></li>
+</ol>
+<h3 id="10-asr-前端">10. ASR 前端</h3>
+<ol>
+<li><!-- raw HTML omitted --> VAD优化 <!-- raw HTML omitted --> (dongcai)
+<ul>
+<li>数据增强</li>
+<li>模型结构调整</li>
+</ul>
+</li>
+<li>话者分离支持调优</li>
+<li>前端降噪</li>
+</ol>
+<h2 id="2022年第一季度">2022年第一季度</h2>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Hugo Theme Stack Starter
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

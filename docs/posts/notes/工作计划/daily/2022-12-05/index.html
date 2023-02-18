@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='流水线环境
+YiSpeech
+vad 最大长度 热词问题 后处理 粤语标点预测 # CJK(China Japan Korea) unicode range is [U&#43;4E00, U&#43;9FFF], ref: 对外文档恢复 share下gitlab源码恢复 测试英文空格问题
+SqueezeFormer
+模型空格问题
+分词格式：trans_type
+char phn cn_char_en_bpe 文本处理
+空格保留 空格替换&amp;quot;_&amp;quot; （bpe生成的词表可处理） text2token生成词表
+空格替换： 默认, 可指定 &amp;ldquo;_&amp;rdquo;
+指定 trans_type
+cn_char_en_bpe split(&amp;ldquo;▁&amp;rdquo;) bpe模型 需要数据先替换&amp;quot;▁&amp;quot; 额外的token：
+1 2 3 echo &amp;#34;&amp;lt;blank&amp;gt; 0&amp;#34; &amp;gt; ${dict} # 0 will be used for &amp;#34;blank&amp;#34; in CTC echo &amp;#34;&amp;lt;unk&amp;gt; 1&amp;#34; &amp;gt;&amp;gt; ${dict} # &amp;lt;unk&amp;gt; must be 1 echo &amp;#34;▁ 2&amp;#34; &amp;gt;&amp;gt; ${dict} # ▁ is for space 训练时的处理'>
+<title></title>
+
+<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-05/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
+<meta property='og:description' content='流水线环境
+YiSpeech
+vad 最大长度 热词问题 后处理 粤语标点预测 # CJK(China Japan Korea) unicode range is [U&#43;4E00, U&#43;9FFF], ref: 对外文档恢复 share下gitlab源码恢复 测试英文空格问题
+SqueezeFormer
+模型空格问题
+分词格式：trans_type
+char phn cn_char_en_bpe 文本处理
+空格保留 空格替换&amp;quot;_&amp;quot; （bpe生成的词表可处理） text2token生成词表
+空格替换： 默认, 可指定 &amp;ldquo;_&amp;rdquo;
+指定 trans_type
+cn_char_en_bpe split(&amp;ldquo;▁&amp;rdquo;) bpe模型 需要数据先替换&amp;quot;▁&amp;quot; 额外的token：
+1 2 3 echo &amp;#34;&amp;lt;blank&amp;gt; 0&amp;#34; &amp;gt; ${dict} # 0 will be used for &amp;#34;blank&amp;#34; in CTC echo &amp;#34;&amp;lt;unk&amp;gt; 1&amp;#34; &amp;gt;&amp;gt; ${dict} # &amp;lt;unk&amp;gt; must be 1 echo &amp;#34;▁ 2&amp;#34; &amp;gt;&amp;gt; ${dict} # ▁ is for space 训练时的处理'>
+<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-05/'>
+<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="流水线环境
+YiSpeech
+vad 最大长度 热词问题 后处理 粤语标点预测 # CJK(China Japan Korea) unicode range is [U&#43;4E00, U&#43;9FFF], ref: 对外文档恢复 share下gitlab源码恢复 测试英文空格问题
+SqueezeFormer
+模型空格问题
+分词格式：trans_type
+char phn cn_char_en_bpe 文本处理
+空格保留 空格替换&amp;quot;_&amp;quot; （bpe生成的词表可处理） text2token生成词表
+空格替换： 默认, 可指定 &amp;ldquo;_&amp;rdquo;
+指定 trans_type
+cn_char_en_bpe split(&amp;ldquo;▁&amp;rdquo;) bpe模型 需要数据先替换&amp;quot;▁&amp;quot; 额外的token：
+1 2 3 echo &amp;#34;&amp;lt;blank&amp;gt; 0&amp;#34; &amp;gt; ${dict} # 0 will be used for &amp;#34;blank&amp;#34; in CTC echo &amp;#34;&amp;lt;unk&amp;gt; 1&amp;#34; &amp;gt;&amp;gt; ${dict} # &amp;lt;unk&amp;gt; must be 1 echo &amp;#34;▁ 2&amp;#34; &amp;gt;&amp;gt; ${dict} # ▁ is for space 训练时的处理">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#性能测试">性能测试</a>
+          <ol>
+            <li><a href="#14--热词">1/4 + 热词</a></li>
+            <li><a href="#12--热词">1/2 + 热词</a></li>
+            <li><a href="#14--htw">1/4 + htw</a></li>
+            <li><a href="#12--htw">1/2 + htw</a></li>
+            <li><a href="#不开热词">不开热词</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/notes/%E5%B7%A5%E4%BD%9C%E8%AE%A1%E5%88%92/daily/2022-12-05/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <ol>
+<li>
+<p>流水线环境</p>
+</li>
+<li>
+<p>YiSpeech</p>
+<ol>
+<li>vad 最大长度</li>
+<li>热词问题</li>
+<li>后处理</li>
+<li>粤语标点预测
+<ol>
+<li># CJK(China Japan Korea) unicode range is [U+4E00, U+9FFF], ref:</li>
+</ol>
+</li>
+<li>对外文档恢复</li>
+<li>share下gitlab源码恢复</li>
+</ol>
+</li>
+<li>
+<p>测试英文空格问题</p>
+</li>
+<li>
+<p>SqueezeFormer</p>
+</li>
+<li>
+<p>模型空格问题</p>
+<ol>
+<li>
+<p>分词格式：trans_type</p>
+<ol>
+<li>char</li>
+<li>phn</li>
+<li>cn_char_en_bpe</li>
+</ol>
+</li>
+<li>
+<p>文本处理</p>
+<ol>
+<li>空格保留</li>
+<li>空格替换&quot;_&quot; （bpe生成的词表可处理）</li>
+</ol>
+</li>
+<li>
+<p>text2token生成词表</p>
+<ol>
+<li>
+<p>空格替换： 默认<!-- raw HTML omitted -->, 可指定 &ldquo;_&rdquo;</p>
+</li>
+<li>
+<p>指定 trans_type</p>
+<ol>
+<li>cn_char_en_bpe
+<ul>
+<li>split(&ldquo;▁&rdquo;)</li>
+<li>bpe模型</li>
+<li>需要数据先替换&quot;▁&quot;</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>额外的token：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&lt;blank&gt; 0&#34;</span> &gt; <span class="si">${</span><span class="nv">dict</span><span class="si">}</span> <span class="c1"># 0 will be used for &#34;blank&#34; in CTC</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&lt;unk&gt; 1&#34;</span> &gt;&gt; <span class="si">${</span><span class="nv">dict</span><span class="si">}</span>  <span class="c1"># &lt;unk&gt; must be 1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;▁ 2&#34;</span> &gt;&gt; <span class="si">${</span><span class="nv">dict</span><span class="si">}</span>   <span class="c1"># ▁ is for space</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+<li>
+<p>训练时的处理</p>
+<ol>
+<li>text4dict 与训练时text的不同</li>
+</ol>
+</li>
+<li>
+<p>解码及解码后处理</p>
+</li>
+</ol>
+</li>
+<li>
+<p>代码review</p>
+</li>
+<li>
+<p>speech_corpus测试问题</p>
+</li>
+<li>
+<p>2.x版本YiSpeech nstream 等于nthreads时导致的异常</p>
+</li>
+<li>
+<p>提供按话者分离计算cer</p>
+</li>
+<li>
+<p>YiSpeech python存档</p>
+</li>
+</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th style="text-align:center">num_left_chunks</th>
+<th style="text-align:center">offset</th>
+<th style="text-align:center">quant</th>
+<th style="text-align:center">test1</th>
+<th style="text-align:center">test2</th>
+<th style="text-align:center">test3</th>
+<th style="text-align:center">test4</th>
+<th style="text-align:center">test5</th>
+<th style="text-align:center">test6</th>
+<th style="text-align:center">test7</th>
+<th style="text-align:center">test8</th>
+<th style="text-align:center">avg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:center">-1（v4.0.0）</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">10.671%</td>
+<td style="text-align:center">12.822%</td>
+<td style="text-align:center">11.428%</td>
+<td style="text-align:center">12.424%</td>
+<td style="text-align:center">10.741%</td>
+<td style="text-align:center">17.554%</td>
+<td style="text-align:center">12.570%</td>
+<td style="text-align:center">20.818%</td>
+<td style="text-align:center">13.628</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:center">-1</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">10.540%</td>
+<td style="text-align:center">12.867%</td>
+<td style="text-align:center">11.253%</td>
+<td style="text-align:center">12.039%</td>
+<td style="text-align:center">10.276%</td>
+<td style="text-align:center">17.326%</td>
+<td style="text-align:center">12.159%</td>
+<td style="text-align:center">20.649%</td>
+<td style="text-align:center">13.388</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">10.744%</td>
+<td style="text-align:center">13.074%</td>
+<td style="text-align:center">11.288%</td>
+<td style="text-align:center">12.153%</td>
+<td style="text-align:center">10.350%</td>
+<td style="text-align:center">17.482%</td>
+<td style="text-align:center">12.257%</td>
+<td style="text-align:center">20.887%</td>
+<td style="text-align:center">13.529</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:center">-1</td>
+<td style="text-align:center">infinite</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">10.540%</td>
+<td style="text-align:center">12.867%</td>
+<td style="text-align:center">11.253%</td>
+<td style="text-align:center">12.039%</td>
+<td style="text-align:center">10.276%</td>
+<td style="text-align:center">17.326%</td>
+<td style="text-align:center">12.159%</td>
+<td style="text-align:center">20.649%</td>
+<td style="text-align:center">13.388</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-1</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">10.588%</td>
+<td style="text-align:center">12.800%</td>
+<td style="text-align:center">11.293%</td>
+<td style="text-align:center">12.004%</td>
+<td style="text-align:center">10.284%</td>
+<td style="text-align:center">17.286%</td>
+<td style="text-align:center">12.171%</td>
+<td style="text-align:center">20.624%</td>
+<td style="text-align:center">13.381</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-1</td>
+<td style="text-align:center">infinite</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">10.588%</td>
+<td style="text-align:center">12.800%</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">10.784%</td>
+<td style="text-align:center">13.118%</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">10.703%</td>
+<td style="text-align:center">12.985%</td>
+<td style="text-align:center">11.295%</td>
+<td style="text-align:center">12.310%</td>
+<td style="text-align:center">10.504%</td>
+<td style="text-align:center">17.478%</td>
+<td style="text-align:center">12.410%</td>
+<td style="text-align:center">20.774%</td>
+<td style="text-align:center">13.557</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">10.679%</td>
+<td style="text-align:center">13.029%</td>
+<td style="text-align:center">11.293%</td>
+<td style="text-align:center">12.168%</td>
+<td style="text-align:center">10.350%</td>
+<td style="text-align:center">17.496%</td>
+<td style="text-align:center">12.289%</td>
+<td style="text-align:center">20.799%</td>
+<td style="text-align:center">13.512</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">10.756%</td>
+<td style="text-align:center">13.000%</td>
+<td style="text-align:center">11.353%</td>
+<td style="text-align:center">12.467%</td>
+<td style="text-align:center">10.429%</td>
+<td style="text-align:center">17.594%</td>
+<td style="text-align:center">12.356%</td>
+<td style="text-align:center">20.956%</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="性能测试">性能测试</h3>
+<p>fix htw：</p>
+<h4 id="14--热词">1/4 + 热词</h4>
+<p>音频统计信息:
+首片数量: 80
+中间片数量: 2716
+尾片数量: 98
+首片时长: 16000
+中间片时长: 543200
+尾片时长: 4592.88</p>
+<p>测试结果:</p>
+<p>首片超时数量: 0
+中间片超时数量: 40
+尾片超时数量: 14</p>
+<p>首片超时率: 0 中间片超时率: 0.0147275 尾片超时率:0.142857</p>
+<p>首片rtf: 0 中间片rtf: 0.191117 尾片rtf: 4.14555</p>
+<p>首片平均耗时: 0ms 中间片平均耗时: 38ms 尾片平均耗时: 194ms</p>
+<p>首片最大耗时: 0ms 中间片最大耗时: 714ms 尾片最大耗时: 2110ms</p>
+<p>总超时率: 0.0186593
+总rtf: 0.217908
+计算耗时分布: 0.217908
+&lt; 100ms: 38个, 占比0.387755
+&lt; 200ms: 33个, 占比0.336735
+&lt; 300ms: 13个, 占比0.132653
+&lt; 400ms: 5个, 占比0.0510204
+&lt; 500ms: 5个, 占比0.0510204
+&lt; 600ms: 1个, 占比0.0102041
+&lt; 700ms: 0个, 占比0
+&lt; 800ms: 3个, 占比0.0306122
+MEM INFO: min: 1331.87, max: 1720.77, avg: 1634.32
+CPU INFO: max: 1.05</p>
+<h4 id="12--热词">1/2 + 热词</h4>
+<p>音频统计信息:
+首片数量: 80
+中间片数量: 2716
+尾片数量: 98
+首片时长: 16000
+中间片时长: 543200
+尾片时长: 4592.88</p>
+<p>测试结果:</p>
+<p>首片超时数量: 0
+中间片超时数量: 5
+尾片超时数量: 8</p>
+<p>首片超时率: 0 中间片超时率: 0.00184094 尾片超时率:0.0816327</p>
+<p>首片rtf: 0.0004375 中间片rtf: 0.144775 尾片rtf: 3.14923</p>
+<p>首片平均耗时: 0ms 中间片平均耗时: 28ms 尾片平均耗时: 147ms</p>
+<p>首片最大耗时: 7ms 中间片最大耗时: 421ms 尾片最大耗时: 845ms</p>
+<p>总超时率: 0.00449205
+总rtf: 0.165155
+计算耗时分布: 0.165155
+&lt; 100ms: 46个, 占比0.469388
+&lt; 200ms: 29个, 占比0.295918
+&lt; 300ms: 15个, 占比0.153061
+&lt; 400ms: 4个, 占比0.0408163
+&lt; 500ms: 2个, 占比0.0204082
+&lt; 600ms: 0个, 占比0
+&lt; 700ms: 1个, 占比0.0102041
+&lt; 800ms: 1个, 占比0.0102041
+MEM INFO: min: 1347.9, max: 1644.54, avg: 1529.91
+CPU INFO: max: 1.05</p>
+<p>std:</p>
+<h4 id="14--htw">1/4 + htw</h4>
+<p>音频统计信息:
+首片数量: 80
+中间片数量: 2716
+尾片数量: 98
+首片时长: 16000
+中间片时长: 543200
+尾片时长: 4592.88</p>
+<p>测试结果:</p>
+<p>首片超时数量: 0
+中间片超时数量: 12
+尾片超时数量: 18</p>
+<p>首片超时率: 0 中间片超时率: 0.00441826 尾片超时率:0.183673</p>
+<p>首片rtf: 0 中间片rtf: 0.153991 尾片rtf: 3.96789</p>
+<p>首片平均耗时: 0ms 中间片平均耗时: 30ms 尾片平均耗时: 185ms</p>
+<p>首片最大耗时: 0ms 中间片最大耗时: 536ms 尾片最大耗时: 1606ms</p>
+<p>总超时率: 0.0103663
+总rtf: 0.18069
+计算耗时分布: 0.18069
+&lt; 100ms: 43个, 占比0.438776
+&lt; 200ms: 23个, 占比0.234694
+&lt; 300ms: 14个, 占比0.142857
+&lt; 400ms: 10个, 占比0.102041
+&lt; 500ms: 5个, 占比0.0510204
+&lt; 600ms: 1个, 占比0.0102041
+&lt; 700ms: 0个, 占比0
+&lt; 800ms: 2个, 占比0.0204082
+MEM INFO: min: 1333.66, max: 1722.68, avg: 1631.56
+CPU INFO: max: 1.04891</p>
+<h4 id="12--htw">1/2 + htw</h4>
+<p>音频统计信息:
+首片数量: 80
+中间片数量: 2716
+尾片数量: 98
+首片时长: 16000
+中间片时长: 543200
+尾片时长: 4592.88</p>
+<p>测试结果:</p>
+<p>首片超时数量: 0
+中间片超时数量: 2
+尾片超时数量: 9</p>
+<p>首片超时率: 0 中间片超时率: 0.000736377 尾片超时率:0.0918367</p>
+<p>首片rtf: 0 中间片rtf: 0.123019 尾片rtf: 2.84876</p>
+<p>首片平均耗时: 0ms 中间片平均耗时: 24ms 尾片平均耗时: 133ms</p>
+<p>首片最大耗时: 0ms 中间片最大耗时: 346ms 尾片最大耗时: 846ms</p>
+<p>总超时率: 0.00380097
+总rtf: 0.141733
+计算耗时分布: 0.141733
+&lt; 100ms: 53个, 占比0.540816
+&lt; 200ms: 28个, 占比0.285714
+&lt; 300ms: 8个, 占比0.0816327
+&lt; 400ms: 4个, 占比0.0408163
+&lt; 500ms: 2个, 占比0.0204082
+&lt; 600ms: 1个, 占比0.0102041
+&lt; 700ms: 1个, 占比0.0102041
+&lt; 800ms: 1个, 占比0.0102041
+MEM INFO: min: 963.461, max: 1611.82, avg: 1520.02
+CPU INFO: max: 1.05</p>
+<h4 id="不开热词">不开热词</h4>
+<h5 id="12">1/2</h5>
+<p>音频统计信息:
+首片数量: 80
+中间片数量: 2716
+尾片数量: 98
+首片时长: 16000
+中间片时长: 543200
+尾片时长: 4592.88</p>
+<p>测试结果:</p>
+<p>首片超时数量: 0
+中间片超时数量: 0
+尾片超时数量: 9</p>
+<p>首片超时率: 0 中间片超时率: 0 尾片超时率:0.0918367</p>
+<p>首片rtf: 0.0001875 中间片rtf: 0.116158 尾片rtf: 2.85747</p>
+<p>首片平均耗时: 0ms 中间片平均耗时: 23ms 尾片平均耗时: 133ms</p>
+<p>首片最大耗时: 3ms 中间片最大耗时: 266ms 尾片最大耗时: 774ms</p>
+<p>总超时率: 0.00310988
+总rtf: 0.135199
+计算耗时分布: 0.135199
+&lt; 100ms: 52个, 占比0.530612
+&lt; 200ms: 30个, 占比0.306122
+&lt; 300ms: 7个, 占比0.0714286
+&lt; 400ms: 6个, 占比0.0612245
+&lt; 500ms: 1个, 占比0.0102041
+&lt; 600ms: 0个, 占比0
+&lt; 700ms: 1个, 占比0.0102041
+&lt; 800ms: 1个, 占比0.0102041
+MEM INFO: min: 1380.3, max: 1639.95, avg: 1532.41
+CPU INFO: max: 1.05</p>
+<h5 id="14">1/4</h5>
+<p>音频统计信息:
+首片数量: 80
+中间片数量: 2716
+尾片数量: 98
+首片时长: 16000
+中间片时长: 543200
+尾片时长: 4592.88</p>
+<p>测试结果:</p>
+<p>首片超时数量: 0
+中间片超时数量: 8
+尾片超时数量: 13</p>
+<p>首片超时率: 0 中间片超时率: 0.00294551 尾片超时率:0.132653</p>
+<p>首片rtf: 0 中间片rtf: 0.149278 尾片rtf: 3.7802</p>
+<p>首片平均耗时: 0ms 中间片平均耗时: 29ms 尾片平均耗时: 177ms</p>
+<p>首片最大耗时: 0ms 中间片最大耗时: 572ms 尾片最大耗时: 1666ms</p>
+<p>总超时率: 0.00725639
+总rtf: 0.174621
+计算耗时分布: 0.174621
+&lt; 100ms: 45个, 占比0.459184
+&lt; 200ms: 25个, 占比0.255102
+&lt; 300ms: 15个, 占比0.153061
+&lt; 400ms: 4个, 占比0.0408163
+&lt; 500ms: 5个, 占比0.0510204
+&lt; 600ms: 1个, 占比0.0102041
+&lt; 700ms: 1个, 占比0.0102041
+&lt; 800ms: 2个, 占比0.0204082
+MEM INFO: min: 1331.35, max: 1804.96, avg: 1674.28
+CPU INFO: max: 1.05109</p>
+<p>热词效果测试</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th></th>
+<th>热词测试集</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>不开热词</td>
+<td>19.489%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>标准热词方案</td>
+<td>19.123%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>增强热词方案</td>
+<td>18.497%</td>
+</tr>
+</tbody>
+</table></div>
+<p>热词性能测试</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>设置</th>
+<th>路数</th>
+<th>实时率</th>
+<th>平均值</th>
+<th>最大值</th>
+<th>超时率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>不开热词</td>
+<td>1核2路</td>
+<td>0.1351</td>
+<td>133</td>
+<td>744</td>
+<td>9.18%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>标准热词方案</td>
+<td>1核2路</td>
+<td>0.1417</td>
+<td>133</td>
+<td>846</td>
+<td>9.18%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>增强热词方案</td>
+<td>1核2路</td>
+<td>0.1651</td>
+<td>147</td>
+<td>845</td>
+<td>8.16%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>不开热词</td>
+<td>1核4路</td>
+<td>0.1746</td>
+<td>177</td>
+<td>1666</td>
+<td>13.26%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>标准热词方案</td>
+<td>1核4路</td>
+<td>0.1809</td>
+<td>185</td>
+<td>1606</td>
+<td>18.36%</td>
+</tr>
+<tr>
+<td>6</td>
+<td>增强热词方案</td>
+<td>1核4路</td>
+<td>0.2179</td>
+<td>194</td>
+<td>2110</td>
+<td>14.28%</td>
+</tr>
+</tbody>
+</table></div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Hugo Theme Stack Starter
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

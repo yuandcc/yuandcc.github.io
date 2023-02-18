@@ -1,0 +1,167 @@
+version: "3"
+services:
+
+  outline:
+    image: outlinewiki/outline
+    env_file: ./docker.env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - redis
+      - storage
+
+  redis:
+    image: redis
+    env_file: ./docker.env
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis.conf:/redis.conf
+    command: ["redis-server", "/redis.conf"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 30s
+      retries: 3
+
+  postgres:
+    image: postgres
+    env_file: ./docker.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - database-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready -U user"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: outline
+
+  storage:
+    image: minio/minio
+    env_file: ./docker.env
+    ports:
+      - "9000:9000"
+    entrypoint: sh
+    command: -c 'minio server'
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - storage-data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  https-portal:
+    image: steveltn/https-portal
+    env_file: ./docker.env
+    ports:
+      - '80:80'
+      - '443:443'
+    links:
+      - outline
+      - storage
+    restart: always
+    volumes:
+      - https-portal-data:/var/lib/https-portal
+    healthcheck:
+      test: ["CMD", "service", "nginx", "status"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    environment:
+      DOMAINS: 'docs.mycompany.com -> http://outline:3000'
+      STAGE: production
+      WEBSOCKET: "true"
+
+volumes:
+  https-portal-data:
+  storage-data:
+  database-data:
+
+
+
+docker run -d \
+    --name minio \
+    --restart=always \
+    -p 9000:9000 \
+    -p 9001:9001 \
+    -e MINIO_ROOT_USER="3dac444b5795921b" \
+    -e MINIO_ROOT_PASSWORD="e51fa0e83fd1020f1a33cd424011dcbb00a5f3f4c74c228c2b3bfc03801430bf" \
+    -e MINIO_REGION_NAME="minio-outline" \
+    -e MINIO_BROWSER="on" \
+    -e MINIO_SERVER_URL="http://localhost:9000/" \
+    -e MINIO_BROWSER_REDIRECT_URL="http://localhost:9001/" \
+    --volume minio:/data \
+    minio/minio server /data --console-address ":9001"
+
+
+  docker run --rm \
+    --env-file=.env \
+    --link postgres \
+    --link redis \
+    outlinewiki/outline \
+    yarn db:migrate --env production-ssl-disabled
+
+
+  docker run -d \
+    --restart=always \
+    --name=outline \
+    --env-file=./env \
+    --link postgres \
+    --link redis \
+    -p 13090:3000 \
+    outlinewiki/outline
+
+
+    docker run -d \
+    --name outline_postgres \
+    --restart=always \
+    -e POSTGRES_USER=outline \
+    -e POSTGRES_PASSWORD=outline \
+    -e POSTGRES_DB=outline \
+    -v postgres_data:/var/lib/postgresql/data \
+    -p 5432:5432 \
+    postgres
+
+
+    docker run -d \
+    --name outline_redis \
+    --restart=always \
+    -p 6379:6379 \
+    redis
+
+    docker run -d \
+    --name=sso-server \
+    -e CLIENT_NAME="My SSO Service" \
+    -e CLIENT_ID="0dc51638-4c44-11ed-bdc3-0242ac120002" \
+    -e CLIENT_SECRET="668d9ab0-4c44-11ed-bdc3-0242ac120002" \
+    -e USER_PASS="password" \
+    -p 3030:80 \
+    soulteary/sso-server:1.1.5
+
+
+    docker run --rm \
+    --env-file=./env.bk \
+    --link outline_postgres \
+    --link outline_redis \
+    outlinewiki/outline:latest \
+    yarn db:migrate --env production-ssl-disabled
+
+
+    docker run -d \
+    --restart=always \
+    --name=outline \
+    --env-file=./env.bk \
+    --link outline_postgres \
+    --link outline_redis \
+    -p 3000:3000 \
+    outlinewiki/outline:latest

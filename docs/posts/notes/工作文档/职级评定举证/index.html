@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='职级评定举证材料 1. 技术知识 负责语音组SpeechAI下多个项目的开发和维护。18年开始贡献代码，部分项目由本人从零构建维护到现在，并在线上使用。
+作为maintainer维护项目数量 相关项目截图 语音识别算法库 开始维护时间： 项目代码占比： 粉色为c&#43;&#43;，蓝色为python。 语音特征提取库 开始维护时间： 项目代码占比： 语音组内其他项目情况相似，这些项目中包括： 用tensorflow c&#43;&#43; api进行部署，python接口进行训练。 用kaldi语音框架进行语音识别模型进行研究实验。 2. 产品知识 定期关注自研相关指标 定期监测几家竞品指标 会针对竞品的功能点对自研产品做出补充和优化，如优化热词加载性能，支持更多热词，支持公有云多租户热词调优方案等。 公有云多租户热词方案实验周报, 如有乱码可下载后查看 在垂直领域几个测试集上的效果要全面好于竞品，参见第二点截图。 自学习平台调优文档 3. 行业知识 混合结构ASR系统知识 关于混合结构ASR系统基本原理和各个模块如何优化的主题分享 公司年度技术分享 公司五周年论文分享 端到端ASR系统知识 CTC模型分享 LAS模型分享 目前组内端到端效果持平线上模型 月报： 4. 项目管理 2021年度Q2, Q3, Q4季度ASR部分方向制定和安排 在Q3的规划中已经完成项： 月报： 端到端方案已经完成了和线上方案的效果对齐。见月报第三部分。 粤语ASR从零到建立数据流规范，建立发音词典，目前已经开始支持项目POC测试。见月报第一部分。 英文ASR建立了从标注规范，入库规范，完成了热词调优的支持，并发布了效果更好的新版本。见月报第二部分。 算法库性能优化接近收尾。见月报第四部分。 通用模型完成了新版本的发布。 发版邮件: 自学习平台已经完成调优指南编写和一些流程优化工作：自学习平台调优文档 算法库和相关模型会按照计划定期发版迭代，优化性能，效果，修复bug。（目前算法库已经更新到2.6.1版本，模型已经更新到3.7.0版本） 构建了完整的测试工具 构建了组内项目开发规范，自动化测试、部署等CI/CD流水线（基于gitlab）。 5. 技术应用能力 通用模型效果在近期几个版本的迭代中，在7个测试集上由平均17%的错误率下降到了14%。 3.2.0模型： 3.5.0模型： 英文ASR由4个测试集平均13.12%错误率降低到平均9.97%错误率。 九月份月报： 粤语模型在几个测试集上的CER由27%，28%降到16%，20%。 七月份月报： 算法库性能提升： 三月份月报 八月份月报 采用声学模型输出已经作为vc的方案。 标注平台自动打分工具 工程方面：组内开发环境为Linux，项目见1. 技术知识部分，内部代码涉及多线程、I/O监控、内存管理等。 6.'>
+<title></title>
+
+<link rel='canonical' href='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E8%81%8C%E7%BA%A7%E8%AF%84%E5%AE%9A%E4%B8%BE%E8%AF%81/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content=''>
+<meta property='og:description' content='职级评定举证材料 1. 技术知识 负责语音组SpeechAI下多个项目的开发和维护。18年开始贡献代码，部分项目由本人从零构建维护到现在，并在线上使用。
+作为maintainer维护项目数量 相关项目截图 语音识别算法库 开始维护时间： 项目代码占比： 粉色为c&#43;&#43;，蓝色为python。 语音特征提取库 开始维护时间： 项目代码占比： 语音组内其他项目情况相似，这些项目中包括： 用tensorflow c&#43;&#43; api进行部署，python接口进行训练。 用kaldi语音框架进行语音识别模型进行研究实验。 2. 产品知识 定期关注自研相关指标 定期监测几家竞品指标 会针对竞品的功能点对自研产品做出补充和优化，如优化热词加载性能，支持更多热词，支持公有云多租户热词调优方案等。 公有云多租户热词方案实验周报, 如有乱码可下载后查看 在垂直领域几个测试集上的效果要全面好于竞品，参见第二点截图。 自学习平台调优文档 3. 行业知识 混合结构ASR系统知识 关于混合结构ASR系统基本原理和各个模块如何优化的主题分享 公司年度技术分享 公司五周年论文分享 端到端ASR系统知识 CTC模型分享 LAS模型分享 目前组内端到端效果持平线上模型 月报： 4. 项目管理 2021年度Q2, Q3, Q4季度ASR部分方向制定和安排 在Q3的规划中已经完成项： 月报： 端到端方案已经完成了和线上方案的效果对齐。见月报第三部分。 粤语ASR从零到建立数据流规范，建立发音词典，目前已经开始支持项目POC测试。见月报第一部分。 英文ASR建立了从标注规范，入库规范，完成了热词调优的支持，并发布了效果更好的新版本。见月报第二部分。 算法库性能优化接近收尾。见月报第四部分。 通用模型完成了新版本的发布。 发版邮件: 自学习平台已经完成调优指南编写和一些流程优化工作：自学习平台调优文档 算法库和相关模型会按照计划定期发版迭代，优化性能，效果，修复bug。（目前算法库已经更新到2.6.1版本，模型已经更新到3.7.0版本） 构建了完整的测试工具 构建了组内项目开发规范，自动化测试、部署等CI/CD流水线（基于gitlab）。 5. 技术应用能力 通用模型效果在近期几个版本的迭代中，在7个测试集上由平均17%的错误率下降到了14%。 3.2.0模型： 3.5.0模型： 英文ASR由4个测试集平均13.12%错误率降低到平均9.97%错误率。 九月份月报： 粤语模型在几个测试集上的CER由27%，28%降到16%，20%。 七月份月报： 算法库性能提升： 三月份月报 八月份月报 采用声学模型输出已经作为vc的方案。 标注平台自动打分工具 工程方面：组内开发环境为Linux，项目见1. 技术知识部分，内部代码涉及多线程、I/O监控、内存管理等。 6.'>
+<meta property='og:url' content='https://demo.stack.jimmycai.com/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E8%81%8C%E7%BA%A7%E8%AF%84%E5%AE%9A%E4%B8%BE%E8%AF%81/'>
+<meta property='og:site_name' content='Hugo Theme Stack Starter'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="职级评定举证材料 1. 技术知识 负责语音组SpeechAI下多个项目的开发和维护。18年开始贡献代码，部分项目由本人从零构建维护到现在，并在线上使用。
+作为maintainer维护项目数量 相关项目截图 语音识别算法库 开始维护时间： 项目代码占比： 粉色为c&#43;&#43;，蓝色为python。 语音特征提取库 开始维护时间： 项目代码占比： 语音组内其他项目情况相似，这些项目中包括： 用tensorflow c&#43;&#43; api进行部署，python接口进行训练。 用kaldi语音框架进行语音识别模型进行研究实验。 2. 产品知识 定期关注自研相关指标 定期监测几家竞品指标 会针对竞品的功能点对自研产品做出补充和优化，如优化热词加载性能，支持更多热词，支持公有云多租户热词调优方案等。 公有云多租户热词方案实验周报, 如有乱码可下载后查看 在垂直领域几个测试集上的效果要全面好于竞品，参见第二点截图。 自学习平台调优文档 3. 行业知识 混合结构ASR系统知识 关于混合结构ASR系统基本原理和各个模块如何优化的主题分享 公司年度技术分享 公司五周年论文分享 端到端ASR系统知识 CTC模型分享 LAS模型分享 目前组内端到端效果持平线上模型 月报： 4. 项目管理 2021年度Q2, Q3, Q4季度ASR部分方向制定和安排 在Q3的规划中已经完成项： 月报： 端到端方案已经完成了和线上方案的效果对齐。见月报第三部分。 粤语ASR从零到建立数据流规范，建立发音词典，目前已经开始支持项目POC测试。见月报第一部分。 英文ASR建立了从标注规范，入库规范，完成了热词调优的支持，并发布了效果更好的新版本。见月报第二部分。 算法库性能优化接近收尾。见月报第四部分。 通用模型完成了新版本的发布。 发版邮件: 自学习平台已经完成调优指南编写和一些流程优化工作：自学习平台调优文档 算法库和相关模型会按照计划定期发版迭代，优化性能，效果，修复bug。（目前算法库已经更新到2.6.1版本，模型已经更新到3.7.0版本） 构建了完整的测试工具 构建了组内项目开发规范，自动化测试、部署等CI/CD流水线（基于gitlab）。 5. 技术应用能力 通用模型效果在近期几个版本的迭代中，在7个测试集上由平均17%的错误率下降到了14%。 3.2.0模型： 3.5.0模型： 英文ASR由4个测试集平均13.12%错误率降低到平均9.97%错误率。 九月份月报： 粤语模型在几个测试集上的CER由27%，28%降到16%，20%。 七月份月报： 算法库性能提升： 三月份月报 八月份月报 采用声学模型输出已经作为vc的方案。 标注平台自动打分工具 工程方面：组内开发环境为Linux，项目见1. 技术知识部分，内部代码涉及多线程、I/O监控、内存管理等。 6.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hugo Theme Stack Starter</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-技术知识">1. 技术知识</a></li>
+    <li><a href="#2-产品知识">2. 产品知识</a></li>
+    <li><a href="#3-行业知识">3. 行业知识</a></li>
+    <li><a href="#4-项目管理">4. 项目管理</a></li>
+    <li><a href="#5-技术应用能力">5. 技术应用能力</a></li>
+    <li><a href="#6-技术研究能力">6. 技术研究能力</a></li>
+    <li><a href="#7知识传承">7.知识传承</a></li>
+    <li><a href="#8技术影响力">8.技术影响力</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/notes/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/%E8%81%8C%E7%BA%A7%E8%AF%84%E5%AE%9A%E4%B8%BE%E8%AF%81/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="职级评定举证材料">职级评定举证材料</h1>
+<hr>
+<h2 id="1-技术知识">1. 技术知识</h2>
+<p>负责语音组SpeechAI下多个项目的开发和维护。18年开始贡献代码，部分项目由本人从零构建维护到现在，并在线上使用。</p>
+<ol>
+<li>作为maintainer维护项目数量
+<img src="/.resouces/rank_evaluation/1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1"
+	
+	
+></li>
+<li>相关项目截图
+<ol>
+<li>语音识别算法库
+开始维护时间：
+<img src="/.resouces/rank_evaluation/28.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="2"
+	
+	
+>
+项目代码占比：
+粉色为c++，蓝色为python。
+<img src="/.resouces/rank_evaluation/3.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="3"
+	
+	
+></li>
+<li>语音特征提取库
+开始维护时间：
+<img src="/.resouces/rank_evaluation/4.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="4"
+	
+	
+>
+项目代码占比：
+<img src="/.resouces/rank_evaluation/5.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="5"
+	
+	
+></li>
+<li>语音组内其他项目情况相似，这些项目中包括：
+<ol>
+<li>用tensorflow c++ api进行部署，python接口进行训练。</li>
+<li>用kaldi语音框架进行语音识别模型进行研究实验。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="2-产品知识">2. 产品知识</h2>
+<ol>
+<li>定期关注自研相关指标
+<img src="/.resouces/rank_evaluation/8.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="8"
+	
+	
+></li>
+<li>定期监测几家竞品指标
+<img src="/.resouces/rank_evaluation/6.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="6"
+	
+	
+></li>
+<li>会针对竞品的功能点对自研产品做出补充和优化，如优化热词加载性能，支持更多热词，支持公有云多租户热词调优方案等。
+<a class="link" href="https://confluence.in.wezhuiyi.com/display/SpeechAlg/20210802?preview=/70985697/70985701/20210802-yuanding.pptx"  target="_blank" rel="noopener"
+    >公有云多租户热词方案实验周报, 如有乱码可下载后查看</a></li>
+<li>在垂直领域几个测试集上的效果要全面好于竞品，参见第二点截图。</li>
+<li><a class="link" href="https://confluence.in.wezhuiyi.com/pages/viewpage.action?pageId=70987062"  target="_blank" rel="noopener"
+    >自学习平台调优文档</a></li>
+</ol>
+<h2 id="3-行业知识">3. 行业知识</h2>
+<ol>
+<li>混合结构ASR系统知识
+<a class="link" href="https://kdocs.cn/l/skRPrGY8ItZa"  target="_blank" rel="noopener"
+    >关于混合结构ASR系统基本原理和各个模块如何优化的主题分享</a>
+<a class="link" href="https://lexiangla.com/teams/k100001/docs/3703ecd85b1211eba1c31a142a8ab7ef?company_from=eb9d75d0f38011e7ae86525400ebd317"  target="_blank" rel="noopener"
+    >公司年度技术分享</a>
+<a class="link" href="https://kdocs.cn/l/spCCQBBcf0zx"  target="_blank" rel="noopener"
+    >公司五周年论文分享</a></li>
+<li>端到端ASR系统知识
+<a class="link" href="https://confluence.in.wezhuiyi.com/display/SpeechAlg/20201126?preview=/56450670/80708678/yuanding-CTC.pptx"  target="_blank" rel="noopener"
+    >CTC模型分享</a>
+<a class="link" href="https://confluence.in.wezhuiyi.com/display/SpeechAlg/20201203?preview=/56450666/80708681/yuanding-LAS.pptx"  target="_blank" rel="noopener"
+    >LAS模型分享</a></li>
+<li>目前组内端到端效果持平线上模型
+月报：<img src="/.resouces/rank_evaluation/9.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="9"
+	
+	
+></li>
+</ol>
+<h2 id="4-项目管理">4. 项目管理</h2>
+<ol>
+<li><a class="link" href="https://confluence.in.wezhuiyi.com/pages/viewpage.action?pageId=80708688&amp;preview=/80708688/80708692/Q4%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92.pdf"  target="_blank" rel="noopener"
+    >2021年度Q2, Q3, Q4季度ASR部分方向制定和安排</a>
+在Q3的规划中已经完成项：
+月报：<img src="/.resouces/rank_evaluation/10.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="10"
+	
+	
+>
+<ol>
+<li>端到端方案已经完成了和线上方案的效果对齐。见月报第三部分。</li>
+<li>粤语ASR从零到建立数据流规范，建立发音词典，目前已经开始支持项目POC测试。见月报第一部分。</li>
+<li>英文ASR建立了从标注规范，入库规范，完成了热词调优的支持，并发布了效果更好的新版本。见月报第二部分。</li>
+<li>算法库性能优化接近收尾。见月报第四部分。</li>
+<li>通用模型完成了新版本的发布。
+发版邮件: <img src="/.resouces/rank_evaluation/13.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="13"
+	
+	
+></li>
+<li>自学习平台已经完成调优指南编写和一些流程优化工作：<a class="link" href="https://confluence.in.wezhuiyi.com/pages/viewpage.action?pageId=70987062"  target="_blank" rel="noopener"
+    >自学习平台调优文档</a></li>
+</ol>
+</li>
+<li>算法库和相关模型会按照计划定期发版迭代，优化性能，效果，修复bug。（目前算法库已经更新到2.6.1版本，模型已经更新到3.7.0版本）
+<img src="/.resouces/rank_evaluation/14.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="14"
+	
+	
+></li>
+<li>构建了完整的测试工具
+<img src="/.resouces/rank_evaluation/11.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="11"
+	
+	
+></li>
+<li>构建了组内项目开发规范，自动化测试、部署等CI/CD流水线（基于gitlab）。
+<img src="/.resouces/rank_evaluation/12.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="12"
+	
+	
+></li>
+</ol>
+<h2 id="5-技术应用能力">5. 技术应用能力</h2>
+<ol>
+<li>通用模型效果在近期几个版本的迭代中，在7个测试集上由平均17%的错误率下降到了14%。
+3.2.0模型：<img src="/.resouces/rank_evaluation/15.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="15"
+	
+	
+>
+3.5.0模型：<img src="/.resouces/rank_evaluation/16.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="16"
+	
+	
+></li>
+<li>英文ASR由4个测试集平均13.12%错误率降低到平均9.97%错误率。
+九月份月报：<img src="/.resouces/rank_evaluation/17.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="17"
+	
+	
+></li>
+<li>粤语模型在几个测试集上的CER由27%，28%降到16%，20%。
+七月份月报：<img src="/.resouces/rank_evaluation/18.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="18"
+	
+	
+></li>
+<li>算法库性能提升：
+三月份月报<img src="/.resouces/rank_evaluation/19.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="19"
+	
+	
+>
+八月份月报<img src="/.resouces/rank_evaluation/20.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="20"
+	
+	
+></li>
+<li>采用声学模型输出已经作为vc的方案。</li>
+<li><a class="link" href="https://kdocs.cn/l/sjLQzMWxPdIQ"  target="_blank" rel="noopener"
+    >标注平台自动打分工具</a></li>
+<li>工程方面：组内开发环境为Linux，项目见1. 技术知识部分，内部代码涉及多线程、I/O监控、内存管理等。</li>
+</ol>
+<h2 id="6-技术研究能力">6. 技术研究能力</h2>
+<ol>
+<li><a class="link" href="https://lexiangla.com/teams/k100038/docs/340ff830854f11ea92b40a58ac13d3b6?company_from=eb9d75d0f38011e7ae86525400ebd317&amp;news_log_id=1e91bdb8a3b311ea96dd0a58ac13ca74&amp;push_item_id=1f0a7e6aa3b311ea95b65254002b9121"  target="_blank" rel="noopener"
+    >担任语音组专利接口人，已经针对技术创新申请多项专利</a></li>
+<li>针对算法效果方面的研究：
+<ol>
+<li>ASR预训练方案研究，并基于kaldi改进预训练方式（目前的粤语方案可以认为是在普通话预训练的基础上进行）。
+<a class="link" href="https://confluence.in.wezhuiyi.com/display/SpeechAlg/20210816?preview=/70986874/70986884/20200816-yuanding.pptx"  target="_blank" rel="noopener"
+    >周报，粤语ASR实验部分</a></li>
+<li>端到端ASR研究，根据学术界最新的成果在公司产品中进行落地实验，目前效果已经和线上方案持平。
+八月份月报：<img src="/.resouces/rank_evaluation/21.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="21"
+	
+	
+></li>
+<li>实验单模型多方言方案，目前在河南话上已经可以做到单个模型同时识别普通话和河南话。（即河南话模型识别普通话的CER由平均27.02%降为13.66%，已于普通话模型基本持平）
+七月份月报：<img src="/.resouces/rank_evaluation/22.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="22"
+	
+	
+></li>
+</ol>
+</li>
+<li>针对算法库性能的研究：
+<ol>
+<li><a class="link" href="https://www.kdocs.cn/l/scVruhQ9Yf0q"  target="_blank" rel="noopener"
+    >实验GPU解码方案</a></li>
+<li>使用const arpa作为重打分的方案，在保证效果不变的情况下有效降低延迟。
+效果：<img src="/.resouces/rank_evaluation/23.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="23"
+	
+	
+></li>
+<li><a class="link" href="https://confluence.in.wezhuiyi.com/display/SpeechAlg/20210802?preview=/70985697/70985701/20210802-yuanding.pptx"  target="_blank" rel="noopener"
+    >实验热词多租户方案，可以使多个业务在共享基础图的基础上达到热词互不干扰的目的，而不用开启多个服务</a></li>
+</ol>
+</li>
+<li>专利<img src="/.resouces/rank_evaluation/27.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="27"
+	
+	
+></li>
+</ol>
+<h2 id="7知识传承">7.知识传承</h2>
+<ol>
+<li><a class="link" href="https://lexiangla.com/teams/k100001/docs/3703ecd85b1211eba1c31a142a8ab7ef?company_from=eb9d75d0f38011e7ae86525400ebd317"  target="_blank" rel="noopener"
+    >2020年度技术workshop分享：对话型asr更懂你们的语音</a></li>
+<li>负责广东省语音专利奖申报技术部分<img src="/.resouces/rank_evaluation/29.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="29"
+	
+	
+></li>
+<li><a class="link" href="https://www.kdocs.cn/l/shgXFZlmgcMi"  target="_blank" rel="noopener"
+    >深圳市跨模态智能交互工程技术研究中心可行性报告语音算法部分</a></li>
+<li><a class="link" href="https://www.kdocs.cn/l/spCCQBBcf0zx"  target="_blank" rel="noopener"
+    >公司五周年论文分享语音算法部分</a></li>
+<li>香港科技园workshop分享：基于混合结构ASR系统的效果优化。<img src="/.resouces/rank_evaluation/26.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="26"
+	
+	
+></li>
+<li>制定组内流程规范：包括新人work flow指引，组内项目开发规范，ASR调优指南，英文标注规范等。
+<img src="/.resouces/rank_evaluation/12.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="12"
+	
+	
+></li>
+<li>对组内提交的mr进行review，保证代码质量，提高大家的代码规范。
+<img src="/.resouces/rank_evaluation/25.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="25"
+	
+	
+></li>
+</ol>
+<h2 id="8技术影响力">8.技术影响力</h2>
+<ol>
+<li><a class="link" href="https://lexiangla.com/teams/k100001/docs/3703ecd85b1211eba1c31a142a8ab7ef?company_from=eb9d75d0f38011e7ae86525400ebd317"  target="_blank" rel="noopener"
+    >获得2020年度workshop优秀分享奖</a></li>
+<li><a class="link" href="https://lexiangla.com/teams/k100001/docs/95aa01f4fb1d11eb90a712679cd4072c?company_from=eb9d75d0f38011e7ae86525400ebd317"  target="_blank" rel="noopener"
+    >获得2021Q2季度优秀员工银奖</a></li>
+<li><a class="link" href="https://lexiangla.com/teams/k100001/docs/95aa01f4fb1d11eb90a712679cd4072c?company_from=eb9d75d0f38011e7ae86525400ebd317"  target="_blank" rel="noopener"
+    >获得2021Q2季度项目突破奖</a></li>
+<li><a class="link" href="https://confluence.in.wezhuiyi.com/pages/viewpage.action?pageId=80708688&amp;preview=/80708688/80708692/Q4%E5%AD%A3%E5%BA%A6%E5%AE%89%E6%8E%92.pdf"  target="_blank" rel="noopener"
+    >把控ASR技术方向，并定期进行规划，保证ASR内部运转和对外输出。</a></li>
+<li><a class="link" href="https://lexiangla.com/teams/k100038/docs/340ff830854f11ea92b40a58ac13d3b6?company_from=eb9d75d0f38011e7ae86525400ebd317&amp;news_log_id=1e91bdb8a3b311ea96dd0a58ac13ca74&amp;push_item_id=1f0a7e6aa3b311ea95b65254002b9121"  target="_blank" rel="noopener"
+    >担任语音组专利接口人</a></li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Hugo Theme Stack Starter
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
